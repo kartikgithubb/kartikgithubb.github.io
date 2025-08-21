@@ -282,6 +282,13 @@
   .hover-glow:hover {
     box-shadow: var(--shadow-glow);
   }
+
+  .diamond-shape {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @layer utilities {
