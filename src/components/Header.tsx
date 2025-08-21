@@ -16,7 +16,7 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
           {/* Brand */}
           <Link 
             to="/" 
-            className="crystal-text text-2xl font-semibold hover:drop-shadow-glow hover:scale-105 transition-all duration-300"
+            className="diamond-rock-text"
           >
             Kartik Pedapati
           </Link>
