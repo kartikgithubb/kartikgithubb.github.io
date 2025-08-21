@@ -37,11 +37,11 @@ const ModernIndex = () => {
         <LearningStrip />
       </Section>
       
-      {/* K2 Digital Twin Section */}
-      <K2Section />
-      
       {/* Stats Section */}
       <StatsSection />
+
+      {/* K2 Digital Twin Section */}
+      <K2Section />
       
       {/* Newsletter Section */}
       <NewsletterSection />

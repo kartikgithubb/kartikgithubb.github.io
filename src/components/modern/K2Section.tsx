@@ -66,9 +66,6 @@ const K2Section = ({ className }: K2SectionProps) => {
                           }`} 
                         />
                       </div>
-                      {/* Floating particles */}
-                      <div className="absolute -top-2 -right-2 w-4 h-4 bg-accent rounded-full animate-float"></div>
-                      <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-primary rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
                     </div>
                     
                     <h3 className="text-3xl font-bold mb-4 font-display bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -79,13 +76,6 @@ const K2Section = ({ className }: K2SectionProps) => {
                     </p>
                   </div>
                 </Card>
-
-                {/* Pointing arrow animation */}
-                <div className={`absolute -right-8 top-1/2 transform -translate-y-1/2 transition-all duration-1000 ${
-                  isVisible ? 'translate-x-12 opacity-100' : 'translate-x-0 opacity-0'
-                }`}>
-                  <ArrowUpRight className="w-8 h-8 text-accent animate-bounce-gentle" />
-                </div>
               </div>
             </div>
 
@@ -140,9 +130,7 @@ const K2Section = ({ className }: K2SectionProps) => {
           {/* Bottom accent */}
           <div className="mt-16 text-center animate-fade-up delay-600">
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               <span>Available 24/7 • Powered by AI • Always Up-to-Date</span>
-              <div className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
