@@ -32,7 +32,7 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
   }, []);
 
   return (
-    <div className={cn('relative flex items-center justify-center flex-nowrap overflow-x-auto', className)}>
+    <div className={cn('relative flex items-center justify-center flex-nowrap overflow-x-auto w-full max-w-7xl mx-auto px-4', className)}>
       {words.map((word, index) => (
         <React.Fragment key={index}>
           <div
