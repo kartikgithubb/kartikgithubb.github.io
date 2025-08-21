@@ -92,7 +92,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <div className="mb-16">
               <RetroFallingText className="retro-falling-text">
-                Data · Design · Decisions · Deliverables
+                data · design · decisions · deliverables
               </RetroFallingText>
             </div>
           </div>
