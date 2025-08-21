@@ -135,7 +135,7 @@ const Index = () => {
                 <h3 className="font-semibold mb-2 text-muted-foreground">Phone</h3>
                 <a 
                   href="tel:+1234567890" 
-                  className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg inline-block"
+                  className="text-white hover:text-white transition-all duration-200 p-3 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-glow inline-block"
                 >
                   📞
                 </a>
@@ -145,7 +145,7 @@ const Index = () => {
                 <h3 className="font-semibold mb-2 text-muted-foreground">Email</h3>
                 <a 
                   href="mailto:kartik@example.com" 
-                  className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg inline-block"
+                  className="text-white hover:text-white transition-all duration-200 p-3 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-glow inline-block"
                 >
                   <Mail className="h-6 w-6" />
                 </a>
@@ -155,7 +155,7 @@ const Index = () => {
                 <h3 className="font-semibold mb-2 text-muted-foreground">LinkedIn</h3>
                 <a 
                   href="https://linkedin.com/in/kartik" 
-                  className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg inline-block"
+                  className="text-white hover:text-white transition-all duration-200 p-3 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-glow inline-block"
                 >
                   <Linkedin className="h-6 w-6" />
                 </a>
@@ -165,7 +165,7 @@ const Index = () => {
                 <h3 className="font-semibold mb-2 text-muted-foreground">GitHub</h3>
                 <a 
                   href="https://github.com/kartik" 
-                  className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg inline-block"
+                  className="text-white hover:text-white transition-all duration-200 p-3 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-glow inline-block"
                 >
                   <Github className="h-6 w-6" />
                 </a>

@@ -15,9 +15,9 @@ const ChatButton = () => {
           fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full 
           bg-gradient-to-br from-primary to-primary/80 
           hover:from-primary/90 hover:to-primary/70
-          shadow-lg hover:shadow-xl
+          shadow-lg hover:shadow-xl hover:drop-shadow-glow
           transition-all duration-300 ease-out
-          hover:scale-110
+          hover:scale-110 hover:animate-pulse
           ${isOpen ? 'rotate-180' : 'hover:rotate-12'}
         `}
         size="sm"
