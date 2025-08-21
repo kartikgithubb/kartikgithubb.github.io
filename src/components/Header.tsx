@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -9,6 +9,18 @@ interface HeaderProps {
 }
 
 const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
+  const location = useLocation();
+  
+  const isActive = (path: string) => location.pathname === path;
+  
+  const getLinkClassName = (path: string) => {
+    const baseClasses = "text-sm font-medium transition-all duration-200 hover:drop-shadow-glow hover:scale-105 px-3 py-2 rounded-full";
+    const activeClasses = "nav-link-active";
+    const inactiveClasses = "text-muted-foreground hover:text-foreground";
+    
+    return `${baseClasses} ${isActive(path) ? activeClasses : inactiveClasses}`;
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b">
       <nav className="container mx-auto px-6 py-4">
@@ -22,46 +34,46 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
           </Link>
 
           {/* Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             <Link 
               to="/skills" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/skills")}
             >
               Skills
             </Link>
             <Link 
               to="/certifications" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/certifications")}
             >
               Certifications
             </Link>
             <Link 
               to="/projects" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/projects")}
             >
               Projects
             </Link>
             <Link 
               to="/experience" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/experience")}
             >
               Work
             </Link>
             <Link 
               to="/education" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/education")}
             >
               Education
             </Link>
             <Link 
               to="/awards" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/awards")}
             >
               Achievements & Awards
             </Link>
             <Link 
               to="/about" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+              className={getLinkClassName("/about")}
             >
               About
             </Link>
