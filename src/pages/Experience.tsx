@@ -17,25 +17,27 @@ interface ExperienceItem {
   description: string;
   highlights: string[];
   skills: string[];
-  logo?: string;
+  logo: string;
+  type: 'professional' | 'volunteer';
 }
 
-const mockExperience: ExperienceItem[] = [
+const professionalExperience: ExperienceItem[] = [
   {
     id: 'current',
     org: 'TechFlow Analytics',
     role: 'Senior Data Analyst',
     start: 'Jan 2023',
     end: 'Present',
-    location: 'San Francisco, CA',
-    description: 'Leading data initiatives across product analytics, customer insights, and business intelligence. Driving data-driven decision making through advanced analytics and ML implementations.',
+    location: 'Tokyo, Japan',
+    description: 'Leading data initiatives across product analytics, customer insights, and business intelligence.',
     highlights: [
       'Built predictive models improving customer retention by 25%',
       'Designed executive dashboards serving 50+ stakeholders',
-      'Led cross-functional analytics projects with 5-person teams',
-      'Implemented MLOps pipeline reducing model deployment time by 60%'
+      'Led cross-functional analytics projects with 5-person teams'
     ],
-    skills: ['Python', 'SQL', 'Power BI', 'AWS', 'Scikit-learn', 'Tableau']
+    skills: ['Python', 'SQL', 'Power BI', 'AWS', 'Scikit-learn'],
+    logo: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=64&h=64&fit=crop&crop=center',
+    type: 'professional'
   },
   {
     id: 'previous',
@@ -43,15 +45,16 @@ const mockExperience: ExperienceItem[] = [
     role: 'Data Analyst',
     start: 'Jun 2021',
     end: 'Dec 2022',
-    location: 'Remote',
-    description: 'Specialized in business intelligence and data visualization for mid-market clients. Delivered actionable insights through comprehensive analysis and compelling visual storytelling.',
+    location: 'Tokyo, Japan',
+    description: 'Specialized in business intelligence and data visualization for mid-market clients.',
     highlights: [
       'Created 30+ client dashboards with 95% satisfaction rate',
       'Automated reporting processes saving 20 hours/week',
-      'Conducted market analysis supporting $2M investment decisions',
-      'Mentored 3 junior analysts in advanced analytics techniques'
+      'Conducted market analysis supporting $2M investment decisions'
     ],
-    skills: ['Tableau', 'SQL', 'Excel', 'R', 'Statistics', 'Data Visualization']
+    skills: ['Tableau', 'SQL', 'Excel', 'R', 'Statistics'],
+    logo: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=64&h=64&fit=crop&crop=center',
+    type: 'professional'
   },
   {
     id: 'early',
@@ -59,17 +62,129 @@ const mockExperience: ExperienceItem[] = [
     role: 'Business Analyst Intern',
     start: 'May 2020',
     end: 'Aug 2020',
-    location: 'Palo Alto, CA',
-    description: 'Supported product and business development through data analysis and market research. Gained hands-on experience in startup analytics and rapid prototyping.',
+    location: 'Tokyo, Japan',
+    description: 'Supported product and business development through data analysis and market research.',
     highlights: [
       'Analyzed user behavior data for 10K+ monthly active users',
       'Created financial models for Series A fundraising',
-      'Contributed to product roadmap through data insights',
-      'Presented findings to C-level executives weekly'
+      'Contributed to product roadmap through data insights'
     ],
-    skills: ['Excel', 'Google Analytics', 'SQL', 'Market Research']
+    skills: ['Excel', 'Google Analytics', 'SQL', 'Market Research'],
+    logo: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center',
+    type: 'professional'
   }
 ];
+
+const volunteerExperience: ExperienceItem[] = [
+  {
+    id: 'volunteer1',
+    org: 'Data for Good',
+    role: 'Volunteer Analyst',
+    start: 'Mar 2022',
+    end: 'Present',
+    location: 'Tokyo, Japan',
+    description: 'Supporting non-profit organizations with data analysis and visualization projects.',
+    highlights: [
+      'Helped 5+ NGOs optimize their operations using data',
+      'Created impact measurement dashboards',
+      'Trained volunteers in basic data analysis'
+    ],
+    skills: ['Python', 'Tableau', 'Social Impact'],
+    logo: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=64&h=64&fit=crop&crop=center',
+    type: 'volunteer'
+  },
+  {
+    id: 'volunteer2',
+    org: 'Tech Education Initiative',
+    role: 'Data Science Mentor',
+    start: 'Jan 2021',
+    end: 'Dec 2022',
+    location: 'Tokyo, Japan',
+    description: 'Mentoring underrepresented groups in data science and analytics careers.',
+    highlights: [
+      'Mentored 20+ students in data science fundamentals',
+      'Organized workshops on Python and SQL',
+      'Created learning materials for beginners'
+    ],
+    skills: ['Teaching', 'Python', 'Mentoring'],
+    logo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=center',
+    type: 'volunteer'
+  },
+  {
+    id: 'volunteer3',
+    org: 'Community Analytics',
+    role: 'Research Volunteer',
+    start: 'Sep 2020',
+    end: 'Dec 2021',
+    location: 'Tokyo, Japan',
+    description: 'Conducting community research and data collection for local government initiatives.',
+    highlights: [
+      'Collected and analyzed community demographic data',
+      'Supported policy research with statistical analysis',
+      'Presented findings to local government officials'
+    ],
+    skills: ['Research', 'Statistics', 'Public Policy'],
+    logo: 'https://images.unsplash.com/photo-1573164574511-73c773193279?w=64&h=64&fit=crop&crop=center',
+    type: 'volunteer'
+  }
+];
+
+const ExperienceTimeline = ({ experiences, title, subtitle }: { 
+  experiences: ExperienceItem[], 
+  title: string,
+  subtitle: string 
+}) => (
+  <div className="mb-20">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold mb-4">{title}</h2>
+      <p className="text-muted-foreground italic">
+        ({subtitle})
+      </p>
+    </div>
+
+    <div className="max-w-2xl mx-auto">
+      <div className="relative">
+        {/* Timeline Line */}
+        <div className="absolute left-16 top-0 bottom-0 w-0.5 bg-border" />
+
+        {/* Experience Items */}
+        <div className="space-y-12">
+          {experiences.map((exp, index) => (
+            <div key={exp.id} className="relative flex items-start">
+              {/* Logo Octagon */}
+              <div className="relative flex-shrink-0 mr-8">
+                <div className="octagon-shape w-20 h-20 bg-background border-2 border-border hover:border-primary transition-all duration-300 hover-glow group cursor-pointer overflow-hidden">
+                  <img 
+                    src={exp.logo} 
+                    alt={`${exp.org} logo`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <h3 className="text-lg font-bold">{exp.role}</h3>
+                    <p className="text-sm text-muted-foreground">{exp.start} to {exp.end}</p>
+                  </div>
+                  <div className="flex items-center text-xs text-muted-foreground">
+                    <MapPin className="h-3 w-3 mr-1" />
+                    {exp.location}
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {exp.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const Experience = () => {
   return (
@@ -80,95 +195,26 @@ const Experience = () => {
       <Section className="pt-24" padding="xl">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Work <span className="crystal-text">Experience</span>
+            Professional Work <span className="crystal-text">Experience</span>
           </h1>
           <p className="text-xl text-muted-foreground">
             A journey through data analytics, from startup insights to enterprise intelligence
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border transform md:-translate-x-0.5" />
+        {/* Professional Experience */}
+        <ExperienceTimeline 
+          experiences={professionalExperience}
+          title="Professional Work Experience"
+          subtitle="Speak to K - my digital twin to learn more about my Work experiences"
+        />
 
-            {/* Experience Items */}
-            <div className="space-y-12">
-              {mockExperience.map((exp, index) => (
-                <div 
-                  key={exp.id} 
-                  className={`relative flex flex-col md:flex-row items-start ${
-                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                  }`}
-                >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background transform md:-translate-x-1/2 z-10" />
-
-                  {/* Content Card */}
-                  <div className={`ml-12 md:ml-0 md:w-1/2 ${
-                    index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
-                  }`}>
-                    <Card className="p-8 hover-lift">
-                      {/* Header */}
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-bold mb-1">{exp.role}</h3>
-                          <p className="text-lg text-primary font-semibold">{exp.org}</p>
-                        </div>
-                        <div className="mask-octagon w-12 h-12 bg-muted flex items-center justify-center text-xs font-bold">
-                          {exp.org.charAt(0)}
-                        </div>
-                      </div>
-
-                      {/* Meta Info */}
-                      <div className="flex flex-wrap gap-4 mb-4 text-sm text-muted-foreground">
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
-                          {exp.start} - {exp.end}
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin className="h-4 w-4 mr-1" />
-                          {exp.location}
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
-                        {exp.description}
-                      </p>
-
-                      {/* Highlights */}
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-3">Key Achievements</h4>
-                        <ul className="space-y-2">
-                          {exp.highlights.map((highlight, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground flex items-start">
-                              <span className="w-1.5 h-1.5 bg-primary rounded-full mr-3 mt-2 flex-shrink-0" />
-                              {highlight}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Skills */}
-                      <div>
-                        <h4 className="font-semibold mb-3">Technologies Used</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill) => (
-                            <Badge key={skill} variant="secondary" className="text-xs">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </Card>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Volunteering Experience */}
+        <ExperienceTimeline 
+          experiences={volunteerExperience}
+          title="Volunteering Experience"
+          subtitle="Speak to K - my digital twin to learn more about my Work experiences"
+        />
 
         {/* Call to Action */}
         <div className="text-center mt-16">
