@@ -6,6 +6,7 @@ import Hero from '@/components/modern/Hero';
 import ContactSection from '@/components/modern/ContactSection';
 import StatsSection from '@/components/modern/StatsSection';
 import NewsletterSection from '@/components/modern/NewsletterSection';
+import K2Section from '@/components/modern/K2Section';
 import LearningStrip from '@/components/LearningStrip';
 import Section from '@/components/Section';
 const ModernIndex = () => {
@@ -35,6 +36,9 @@ const ModernIndex = () => {
         </div>
         <LearningStrip />
       </Section>
+      
+      {/* K2 Digital Twin Section */}
+      <K2Section />
       
       {/* Stats Section */}
       <StatsSection />
