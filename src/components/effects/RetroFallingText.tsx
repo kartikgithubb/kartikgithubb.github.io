@@ -32,20 +32,20 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
   }, []);
 
   return (
-    <div className={cn('relative flex flex-wrap justify-center gap-4', className)}>
+    <div className={cn('relative flex items-center justify-center flex-nowrap', className)}>
       {words.map((word, index) => (
-        <div
-          key={index}
-          className={`
-            inline-block text-4xl md:text-6xl lg:text-7xl font-bold 
-            transition-all duration-1000 ease-out transform
-            ${animationStarted 
-              ? 'translate-y-0 opacity-100 rotate-0' 
-              : 'translate-y-[-100px] opacity-0 rotate-12'
-            }
-            hover:scale-110 hover:rotate-3 hover:drop-shadow-2xl
-            cursor-pointer
-          `}
+        <React.Fragment key={index}>
+          <div
+            className={`
+              inline-block text-2xl md:text-4xl lg:text-5xl font-bold 
+              transition-all duration-1000 ease-out transform
+              ${animationStarted 
+                ? 'translate-y-0 opacity-100 rotate-0' 
+                : 'translate-y-[-100px] opacity-0 rotate-12'
+              }
+              hover:scale-110 hover:rotate-3 hover:drop-shadow-2xl
+              cursor-pointer whitespace-nowrap
+            `}
           style={{
             background: retro_colors[index % retro_colors.length],
             backgroundClip: 'text',
@@ -63,9 +63,18 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
             e.currentTarget.style.transform = 'scale(1) rotate(0deg) translateY(0px)';
             e.currentTarget.style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))';
           }}
-        >
-          {word}
-        </div>
+          >
+            {word}
+          </div>
+          {index < words.length - 1 && (
+            <span 
+              className="text-2xl md:text-4xl lg:text-5xl font-bold mx-2 text-primary animate-pulse"
+              style={{ animationDelay: `${(index + 1) * 200 + 100}ms` }}
+            >
+              ·
+            </span>
+          )}
+        </React.Fragment>
       ))}
       
       {/* Retro background effects */}
