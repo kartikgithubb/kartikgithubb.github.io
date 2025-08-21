@@ -31,7 +31,7 @@ const Hero = ({
           <div className="text-center mb-16 animate-fade-up">
             <div className="mb-8">
               <FallingLetters 
-                text="data · design · decisions · deliverables"
+                text="data · decisions · deliverables"
                 className="display-title text-3xl md:text-5xl lg:text-6xl font-bold mb-6"
               />
             </div>
