@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
 import TextWave from '@/components/effects/TextWave';
+import RetroFallingText from '@/components/effects/RetroFallingText';
 import HandDrawnArrow from '@/components/effects/HandDrawnArrow';
 import LearningStrip from '@/components/LearningStrip';
 import ProgressRing from '@/components/progress/ProgressRing';
@@ -89,10 +90,10 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           {/* Main heading */}
           <div className="text-center mb-16">
-            <div className="text-2xl md:text-3xl text-muted-foreground mb-8">
-              <TextWave className="wave-text">
+            <div className="mb-16">
+              <RetroFallingText className="retro-falling-text">
                 Data · Design · Decisions · Deliverables
-              </TextWave>
+              </RetroFallingText>
             </div>
           </div>
 
