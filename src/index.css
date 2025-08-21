@@ -6,64 +6,66 @@
 
 @layer base {
   :root {
-    /* Framer Black & Gold Design System */
-    --background: 0 0% 3%;
-    --foreground: 45 100% 85%;
+    /* Framer-style modern design system */
+    --primary: 258 79% 64%;          /* Lavender-indigo #6C5CE7 */
+    --primary-foreground: 0 0% 100%; /* White */
+    --accent: 197 100% 50%;          /* Electric cyan #00C2FF */
+    --accent-foreground: 0 0% 100%;  /* White */
     
-    --card: 0 0% 6%;
-    --card-foreground: 45 100% 85%;
+    /* Neutral scale */
+    --neutral-900: 240 33% 4%;       /* #0B0B0F */
+    --neutral-700: 240 20% 11%;      /* #1A1A22 */
+    --neutral-400: 220 9% 64%;       /* #9AA0A6 */
+    --neutral-100: 210 40% 98%;      /* #F5F7FA */
     
-    --popover: 0 0% 6%;
-    --popover-foreground: 45 100% 85%;
+    /* System colors based on brand */
+    --background: var(--neutral-900);
+    --foreground: var(--neutral-100);
+    --card: 240 25% 6%;              /* Slightly lighter than bg */
+    --card-foreground: var(--neutral-100);
+    --popover: var(--card);
+    --popover-foreground: var(--neutral-100);
     
-    --primary: 45 96% 68%;
-    --primary-foreground: 0 0% 3%;
+    /* Interactive elements */
+    --secondary: var(--neutral-700);
+    --secondary-foreground: var(--neutral-100);
+    --muted: var(--neutral-700);
+    --muted-foreground: var(--neutral-400);
     
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 45 84% 78%;
+    /* Destructive colors */
+    --destructive: 0 72% 51%;        /* Red */
+    --destructive-foreground: 0 0% 100%;
     
-    --muted: 0 0% 8%;
-    --muted-foreground: 45 50% 65%;
+    /* Border and input */
+    --border: 240 15% 15%;           /* Subtle border */
+    --input: var(--border);
+    --ring: var(--primary);
     
-    --accent: 45 86% 58%;
-    --accent-foreground: 0 0% 3%;
+    /* Surface colors for depth */
+    --surface-elevated: 240 20% 8%;
+    --surface-hover: 240 15% 12%;
     
-    --destructive: 0 62% 56%;
-    --destructive-foreground: 45 100% 85%;
+    /* Radius */
+    --radius: 8px;
     
-    --border: 45 20% 18%;
-    --input: 45 20% 18%;
-    --ring: 45 96% 68%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary)) 100%);
+    --gradient-mesh: radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
+                     radial-gradient(circle at 40% 80%, hsl(var(--primary) / 0.05) 0%, transparent 50%);
     
-    --radius: 0.75rem;
-    
-    /* Premium Framer Effects */
-    --gradient-primary: linear-gradient(135deg, hsl(45, 96%, 68%), hsl(45, 86%, 58%));
-    --gradient-dark: linear-gradient(135deg, hsl(0, 0%, 3%), hsl(0, 0%, 8%));
-    --gradient-silver: linear-gradient(135deg, hsl(45, 30%, 75%), hsl(45, 50%, 85%));
-    --gradient-gold: linear-gradient(135deg, hsl(45, 96%, 68%), hsl(48, 100%, 75%));
-    --gradient-elegant: linear-gradient(135deg, hsl(0, 0%, 6%), hsl(0, 0%, 12%));
-    
-    /* Shadows & Glows */
-    --shadow-premium: 0 25px 50px -12px hsl(45, 96%, 68% / 0.25);
-    --shadow-elegant: 0 20px 40px -15px hsl(0, 0%, 0% / 0.8);
-    --shadow-glow: 0 0 40px hsl(45, 96%, 68% / 0.4);
-    --shadow-soft: 0 4px 20px hsl(0, 0%, 0% / 0.3);
-    
-    /* Glass & Blur Effects */
-    --glass-bg: hsl(0, 0%, 8% / 0.4);
-    --glass-border: hsl(45, 30%, 30% / 0.2);
-    --backdrop-blur: blur(20px);
+    /* Shadows */
+    --shadow-sm: 0 1px 3px hsl(var(--neutral-900) / 0.5);
+    --shadow-md: 0 4px 12px hsl(var(--neutral-900) / 0.3);
+    --shadow-lg: 0 10px 25px hsl(var(--neutral-900) / 0.4);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-accent: 0 4px 20px hsl(var(--accent) / 0.2);
     
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    --transition-elegant: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-quick: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Surface Colors */
-    --surface-elevated: 0 0% 10%;
-    --surface-subtle: 0 0% 6%;
-    --surface-accent: 45 30% 15%;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
@@ -104,22 +106,26 @@
   
   body {
     @apply bg-background text-foreground;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: var(--gradient-dark);
+    background: var(--gradient-mesh), hsl(var(--background));
   }
 
   /* Typography Enhancements */
   h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: -0.02em;
-    background: var(--gradient-gold);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
+  }
+  
+  .display-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
   }
 
   /* Component Classes */

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -19,7 +20,9 @@ export default {
 		},
     extend: {
       fontFamily: {
-        'pixel': ['Press Start 2P', 'monospace'],
+        sans: ["Inter", ...fontFamily.sans],
+        display: ["Space Grotesk", ...fontFamily.sans],
+        pixel: ['Press Start 2P', 'monospace'],
       },
 			colors: {
 				border: 'hsl(var(--border))',
