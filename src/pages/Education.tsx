@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-import { MapPin, Calendar, Award } from 'lucide-react';
+import { MapPin, GraduationCap, School } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
-import { Card } from '@/components/ui/card';
 
 interface EducationItem {
   id: string;
   school: string;
-  degree: string;
-  field: string;
-  startYear: string;
-  endYear: string;
+  period: string;
+  subjects: string;
+  graduatedGrade: string;
   location: string;
-  logo?: string;
-  image?: string;
+  logo: string;
+  memoryPhoto: string;
   crazyFact: string;
-  gpa?: string;
-  honors?: string[];
 }
 
 const Education = () => {
@@ -28,30 +24,46 @@ const Education = () => {
     {
       id: 'masters',
       school: 'Stanford University',
-      degree: 'Master of Science',
-      field: 'Data Science',
-      startYear: '2020',
-      endYear: '2022',
-      location: 'Stanford, CA',
-      logo: '/placeholder.svg',
-      image: '/placeholder.svg',
-      crazyFact: 'Built an AI system that could predict student success with 94% accuracy just from their first week of online activity!',
-      gpa: '3.9',
-      honors: ['Dean\'s List', 'Outstanding Thesis Award']
+      period: '2020 - 2022',
+      subjects: 'Data Science, Machine Learning, Statistics',
+      graduatedGrade: 'Master of Science',
+      location: 'Tokyo, Japan',
+      logo: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=80&h=80&fit=crop&crop=center',
+      memoryPhoto: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&h=120&fit=crop',
+      crazyFact: 'Built an AI system that could predict student success with 94% accuracy just from their first week of online activity!'
     },
     {
       id: 'bachelors',
       school: 'UC Berkeley',
-      degree: 'Bachelor of Science',
-      field: 'Computer Science & Statistics',
-      startYear: '2016',
-      endYear: '2020',
-      location: 'Berkeley, CA',
-      logo: '/placeholder.svg',
-      image: '/placeholder.svg',
-      crazyFact: 'Led a hackathon team that created a campus food waste tracking app adopted by 12 universities across California!',
-      gpa: '3.8',
-      honors: ['Phi Beta Kappa', 'CS Department Honors']
+      period: '2016 - 2020',
+      subjects: 'Computer Science, Statistics, Mathematics',
+      graduatedGrade: 'Bachelor of Science',
+      location: 'Tokyo, Japan',
+      logo: 'https://images.unsplash.com/photo-1562774053-701939374585?w=80&h=80&fit=crop&crop=center',
+      memoryPhoto: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&h=120&fit=crop',
+      crazyFact: 'Led a hackathon team that created a campus food waste tracking app adopted by 12 universities across California!'
+    },
+    {
+      id: 'highschool',
+      school: 'Tokyo International School',
+      period: '2012 - 2016',
+      subjects: 'Mathematics, Physics, Computer Programming',
+      graduatedGrade: 'High School Diploma',
+      location: 'Tokyo, Japan',
+      logo: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=80&h=80&fit=crop&crop=center',
+      memoryPhoto: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=200&h=120&fit=crop',
+      crazyFact: 'Won the national programming competition by creating a game that taught kids math while they played!'
+    },
+    {
+      id: 'elementary',
+      school: 'Sakura Elementary',
+      period: '2006 - 2012',
+      subjects: 'Foundation Studies, Basic Computer Skills',
+      graduatedGrade: 'Elementary Completion',
+      location: 'Tokyo, Japan',
+      logo: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=80&h=80&fit=crop&crop=center',
+      memoryPhoto: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=200&h=120&fit=crop',
+      crazyFact: 'Built my first computer at age 10 using parts from old electronics I found around the house!'
     }
   ];
 
@@ -66,110 +78,78 @@ const Education = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="crystal-text">Education</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Academic foundation in data science, computer science, and statistical analysis
+            <p className="text-xl text-muted-foreground italic mb-4">
+              (Speak to K - my digital twin to learn more about my Education and Relevant Courseworks)
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {education.map((item) => (
-              <div key={item.id} className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                {/* School Logo & Photo */}
-                <div className="lg:col-span-1">
-                  <div className="flex flex-col items-center space-y-6">
-                    {/* School Logo */}
-                    <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                      <img 
-                        src={item.logo} 
-                        alt={`${item.school} logo`}
-                        className="w-full h-full object-cover"
-                      />
+              <div key={item.id} className="flex items-center gap-8">
+                {/* School Logo */}
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 rounded-lg overflow-hidden hover-glow transition-all duration-300">
+                    <img 
+                      src={item.logo} 
+                      alt={`${item.school} logo`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* School Information */}
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                  {/* School Details */}
+                  <div>
+                    <h3 className="font-bold text-lg">{item.school}</h3>
+                    <p className="text-sm text-muted-foreground">{item.period}</p>
+                    <p className="text-sm text-muted-foreground">{item.subjects}</p>
+                  </div>
+
+                  {/* Academic Info */}
+                  <div className="space-y-2">
+                    <div className="flex items-center text-sm">
+                      <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
+                      <span>{item.graduatedGrade}</span>
                     </div>
-                    
-                    {/* School Photo with Crazy Fact */}
+                    <div className="flex items-center text-sm">
+                      <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
+                      <span>{item.location}</span>
+                    </div>
+                  </div>
+
+                  {/* Memory Photo */}
+                  <div className="flex justify-end">
                     <div 
                       className="relative group cursor-pointer"
                       onMouseEnter={() => setHoveredItem(item.id)}
                       onMouseLeave={() => setHoveredItem(null)}
                     >
-                      <div className="w-48 h-32 rounded-xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300">
+                      <div className="w-32 h-20 rounded-lg overflow-hidden border border-border shadow-sm group-hover:shadow-lg transition-all duration-300">
                         <img 
-                          src={item.image} 
-                          alt={`${item.school} campus`}
+                          src={item.memoryPhoto} 
+                          alt="Photograph of Favorite Memory"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                       
                       {/* Crazy Fact Overlay */}
                       {hoveredItem === item.id && (
-                        <div className="absolute inset-0 bg-black/80 rounded-xl flex items-center justify-center p-4 animate-fade-in">
-                          <p className="text-white text-sm text-center font-medium">
+                        <div className="absolute inset-0 bg-black/90 rounded-lg flex items-center justify-center p-3 animate-fade-in z-10">
+                          <p className="text-white text-xs text-center font-medium leading-tight">
                             💡 {item.crazyFact}
                           </p>
                         </div>
                       )}
+                      
+                      {/* Photo Label */}
+                      <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+                        <p className="text-xs text-center text-muted-foreground whitespace-nowrap">
+                          Photograph of Favorite Memory
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Education Details */}
-                <div className="lg:col-span-2">
-                  <Card className="p-8 hover-lift">
-                    <div className="flex items-start justify-between mb-6">
-                      <div>
-                        <h3 className="text-2xl font-bold text-foreground mb-2">
-                          {item.degree}
-                        </h3>
-                        <p className="text-xl text-primary font-semibold mb-1">
-                          {item.field}
-                        </p>
-                        <p className="text-lg text-muted-foreground font-medium">
-                          {item.school}
-                        </p>
-                      </div>
-                      
-                      <div className="text-right text-muted-foreground">
-                        <div className="flex items-center text-sm mb-1">
-                          <Calendar className="w-4 h-4 mr-1" />
-                          <span>{item.startYear} - {item.endYear}</span>
-                        </div>
-                        <div className="flex items-center text-sm">
-                          <MapPin className="w-4 h-4 mr-1" />
-                          <span>{item.location}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {/* GPA */}
-                      {item.gpa && (
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                            <Award className="w-6 h-6 text-primary" />
-                          </div>
-                          <div>
-                            <p className="font-semibold">GPA</p>
-                            <p className="text-muted-foreground">{item.gpa}/4.0</p>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Honors */}
-                      {item.honors && item.honors.length > 0 && (
-                        <div>
-                          <p className="font-semibold mb-2">Honors & Awards</p>
-                          <div className="space-y-1">
-                            {item.honors.map((honor, index) => (
-                              <p key={index} className="text-sm text-muted-foreground flex items-center">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
-                                {honor}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </Card>
                 </div>
               </div>
             ))}
