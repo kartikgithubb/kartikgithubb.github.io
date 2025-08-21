@@ -24,12 +24,6 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
           {/* Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link 
-              to="/about" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
-            >
-              About
-            </Link>
-            <Link 
               to="/skills" 
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
@@ -70,6 +64,12 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
               Contact
+            </Link>
+            <Link 
+              to="/about" 
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+            >
+              About
             </Link>
           </div>
 

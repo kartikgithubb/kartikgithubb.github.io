@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ChatButton from '@/components/chat/ChatButton';
 import Hero from '@/components/modern/Hero';
-import AboutContactSection from '@/components/modern/AboutContactSection';
 import StatsSection from '@/components/modern/StatsSection';
 import NewsletterSection from '@/components/modern/NewsletterSection';
 import K2Section from '@/components/modern/K2Section';
@@ -42,9 +41,6 @@ const ModernIndex = () => {
       
       {/* Newsletter Section */}
       <NewsletterSection />
-      
-      {/* Combined About & Contact Section */}
-      <AboutContactSection />
       
       {/* Footer */}
       <Footer />
