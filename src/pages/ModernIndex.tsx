@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ChatButton from '@/components/chat/ChatButton';
 import Hero from '@/components/modern/Hero';
-import ContactSection from '@/components/modern/ContactSection';
+import AboutContactSection from '@/components/modern/AboutContactSection';
 import StatsSection from '@/components/modern/StatsSection';
 import NewsletterSection from '@/components/modern/NewsletterSection';
 import K2Section from '@/components/modern/K2Section';
@@ -22,9 +22,6 @@ const ModernIndex = () => {
       
       {/* Hero Section with Framer-style design */}
       <Hero className="pt-16" />
-      
-      {/* Contact Section */}
-      <ContactSection />
       
       {/* Learning Section with subtle background */}
       <Section background="subtle" padding="lg">
@@ -45,6 +42,9 @@ const ModernIndex = () => {
       
       {/* Newsletter Section */}
       <NewsletterSection />
+      
+      {/* Combined About & Contact Section */}
+      <AboutContactSection />
       
       {/* Footer */}
       <Footer />
