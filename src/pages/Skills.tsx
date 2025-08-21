@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BarChart3, Database, Brain, Code, Palette, Users } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { BarChart3, Database, Brain, Code, Palette, Users, Plus, Minus } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
@@ -7,8 +7,10 @@ import ChatButton from '@/components/chat/ChatButton';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { Button } from '@/components/ui/button';
 import RadarChart from '@/components/charts/RadarChart';
 import SkillGraph from '@/components/charts/SkillGraph';
+import DynamicSkillWeb from '@/components/charts/DynamicSkillWeb';
 
 interface SkillCategory {
   id: string;
@@ -108,14 +110,6 @@ const skillCategories: SkillCategory[] = [
 ];
 
 const Skills = () => {
-  const [skillData] = useState([
-    { skill: 'Data Analytics', level: 90, fullMark: 100 },
-    { skill: 'AI & ML', level: 80, fullMark: 100 },
-    { skill: 'Technical Stack', level: 85, fullMark: 100 },
-    { skill: 'Data Management', level: 75, fullMark: 100 },
-    { skill: 'Design & UX', level: 78, fullMark: 100 },
-    { skill: 'Leadership', level: 85, fullMark: 100 }
-  ]);
 
   const [skillNodes] = useState([
     // Skills
@@ -143,38 +137,72 @@ const Skills = () => {
     { source: 'react', target: 'figma' },
   ]);
 
-  const skillCircles = [
+  const [skillCircles, setSkillCircles] = useState([
     {
       title: "Data Skills & Tools",
       subtitle: "(Web of all of them Connected)",
-      skills: ["Python", "SQL", "Pandas", "NumPy"]
+      skills: ["Python", "SQL", "Data Analysis"],
+      tools: ["Pandas", "NumPy", "Jupyter"],
+      frameworks: ["Scikit-learn", "Matplotlib"]
     },
     {
       title: "Analytics Skills & Tools", 
       subtitle: "(Web of all of them Connected)",
-      skills: ["Power BI", "Tableau", "Statistical Analysis", "Data Viz"]
+      skills: ["Statistical Analysis", "Business Intelligence"],
+      tools: ["Power BI", "Tableau", "Excel"],
+      frameworks: ["D3.js", "Plotly"]
     },
     {
       title: "Product Management Skills & Tools",
       subtitle: "(Web of all of them Connected)",
-      skills: ["Agile", "Scrum", "Jira", "Roadmapping"]
+      skills: ["Product Strategy", "Roadmapping"],
+      tools: ["Jira", "Confluence", "Miro"],
+      frameworks: ["Agile", "Scrum"]
     },
     {
       title: "Project Management Skills & Tools",
       subtitle: "(Web of all of them Connected)",
-      skills: ["CAPM", "Risk Mgmt", "Stakeholder Mgmt", "Waterfall"]
+      skills: ["Risk Management", "Stakeholder Management"],
+      tools: ["MS Project", "Gantt Charts"],
+      frameworks: ["CAPM", "Waterfall"]
     },
     {
       title: "Marketing Skills & Tools",
       subtitle: "(Web of all of them Connected)",
-      skills: ["Campaign Mgmt", "SEO", "Social Analytics", "A/B Testing"]
+      skills: ["Campaign Management", "SEO"],
+      tools: ["Google Analytics", "HubSpot"],
+      frameworks: ["A/B Testing", "Attribution Models"]
     },
     {
       title: "Business Skills & Tools",
       subtitle: "(Web of all of them Connected)",
-      skills: ["Strategy", "Process Opt", "Change Mgmt", "Finance"]
+      skills: ["Strategy", "Process Optimization"],
+      tools: ["PowerPoint", "Financial Models"],
+      frameworks: ["Change Management", "Six Sigma"]
     }
-  ];
+  ]);
+
+  // Dynamic radar chart data that updates based on skill circles
+  const [radarData, setRadarData] = useState([
+    { skill: 'Data Analytics', level: 90, fullMark: 100 },
+    { skill: 'Product Management', level: 80, fullMark: 100 },
+    { skill: 'Project Management', level: 85, fullMark: 100 },
+    { skill: 'Marketing', level: 75, fullMark: 100 },
+    { skill: 'Business Strategy', level: 78, fullMark: 100 },
+    { skill: 'Technical Skills', level: 85, fullMark: 100 }
+  ]);
+
+  const handleSkillUpdate = useCallback((circleIndex: number, skillData: any) => {
+    // Update radar chart based on skill circle changes
+    const newRadarData = [...radarData];
+    const totalSkillPoints = skillData.skills + skillData.tools + skillData.frameworks + (skillData.connections * 2);
+    const normalizedLevel = Math.min(Math.max(totalSkillPoints * 5, 20), 100);
+    
+    if (newRadarData[circleIndex]) {
+      newRadarData[circleIndex].level = normalizedLevel;
+      setRadarData(newRadarData);
+    }
+  }, [radarData]);
 
   return (
     <div>
@@ -198,32 +226,30 @@ const Skills = () => {
             <p className="text-muted-foreground">Dynamic visualization that updates as skills are modified</p>
           </div>
           <div className="max-w-2xl mx-auto">
-            <RadarChart data={skillData} />
+            <RadarChart data={radarData} />
           </div>
         </div>
 
-        {/* Skill Circles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {skillCircles.map((circle, index) => (
-            <div key={index} className="flex justify-center">
-              <div className="w-64 h-64 border-2 border-border rounded-full flex flex-col items-center justify-center p-6 hover:shadow-lg hover:border-primary/50 transition-all duration-300 bg-card group">
-                <h3 className="text-center font-semibold text-primary mb-1 text-sm leading-tight group-hover:text-primary/80">
-                  {circle.title}
-                </h3>
-                <p className="text-xs text-muted-foreground text-center italic mb-4">
-                  {circle.subtitle}
-                </p>
-                
-                <div className="flex flex-wrap gap-1 justify-center">
-                  {circle.skills.map((skill, skillIndex) => (
-                    <Badge key={skillIndex} variant="outline" className="text-xs px-2 py-0.5">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Dynamic Skill Circles with React Flow */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold mb-2">Interactive Skill Webs</h2>
+            <p className="text-muted-foreground">Dynamic skill networks that update the radar chart above. Click and drag to connect skills!</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+            {skillCircles.map((circle, index) => (
+              <DynamicSkillWeb
+                key={index}
+                title={circle.title}
+                subtitle={circle.subtitle}
+                skills={circle.skills}
+                tools={circle.tools}
+                frameworks={circle.frameworks}
+                onSkillUpdate={(skillData) => handleSkillUpdate(index, skillData)}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Dynamic Skill Graph */}
