@@ -48,7 +48,7 @@ const NewsletterSection = ({ className }: NewsletterSectionProps) => {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 mb-6">
                 <Sparkles className="h-8 w-8 text-primary" />
               </div>
-              <h2 className="display-title text-3xl lg:text-4xl font-bold mb-4">
+              <h2 className="display-title text-3xl lg:text-4xl font-bold mb-4 text-white">
                 Stay Updated
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
