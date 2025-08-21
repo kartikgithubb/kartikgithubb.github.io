@@ -22,31 +22,31 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/about" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:drop-shadow-sm"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
               About
             </Link>
             <Link 
               to="/projects" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:drop-shadow-sm"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
               Projects
             </Link>
             <Link 
               to="/experience" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:drop-shadow-sm"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
               Experience
             </Link>
             <Link 
               to="/skills" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:drop-shadow-sm"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
               Skills
             </Link>
             <Link 
               to="/contact" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hover:drop-shadow-sm"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
               Contact
             </Link>

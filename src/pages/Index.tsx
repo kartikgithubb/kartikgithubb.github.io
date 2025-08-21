@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Download, Mail, Github, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
+import { useToast } from '@/components/ui/use-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
 import TextWave from '@/components/effects/TextWave';
+import HandDrawnArrow from '@/components/effects/HandDrawnArrow';
 import LearningStrip from '@/components/LearningStrip';
 import ProgressRing from '@/components/progress/ProgressRing';
 
@@ -15,6 +17,9 @@ const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [email, setEmail] = useState('');
   const [currentQuote, setCurrentQuote] = useState(0);
+  const [missionVisible, setMissionVisible] = useState(false);
+  const missionRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
 
   const quotes = [
     "Data tells stories, design makes them beautiful, decisions turn them into impact.",
@@ -30,6 +35,24 @@ const Index = () => {
     setCurrentQuote(dayOfYear % quotes.length);
   }, []);
 
+  // Mission statement scroll reveal
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMissionVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (missionRef.current) {
+      observer.observe(missionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle('dark');
@@ -37,9 +60,24 @@ const Index = () => {
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement email subscription
-    console.log('Email submitted:', email);
-    setEmail('');
+    
+    try {
+      // Store email (you can implement actual storage later)
+      localStorage.setItem('subscriber_email', email);
+      
+      toast({
+        title: "Successfully subscribed!",
+        description: "Thank you for subscribing to updates.",
+      });
+      
+      setEmail('');
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -69,9 +107,9 @@ const Index = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-up">
-            <Button size="lg" className="btn-hero px-8 py-6 text-lg">
+            <Button size="lg" className="btn-hero px-8 py-6 text-lg group">
               View Projects
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <HandDrawnArrow className="ml-2 text-primary-foreground group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button variant="outline" size="lg" className="px-8 py-6 text-lg">
@@ -82,16 +120,32 @@ const Index = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6 animate-fade-up">
-            <a href="mailto:kartik@example.com" className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-lg" aria-label="Email">
+            <a 
+              href="mailto:kartik@example.com" 
+              className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg" 
+              aria-label="Email"
+            >
               <Mail className="h-6 w-6" />
             </a>
-            <a href="https://linkedin.com/in/kartik" className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-lg" aria-label="LinkedIn">
+            <a 
+              href="https://linkedin.com/in/kartik" 
+              className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg" 
+              aria-label="LinkedIn"
+            >
               <Linkedin className="h-6 w-6" />
             </a>
-            <a href="https://github.com/kartik" className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-lg" aria-label="GitHub">
+            <a 
+              href="https://github.com/kartik" 
+              className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg" 
+              aria-label="GitHub"
+            >
               <Github className="h-6 w-6" />
             </a>
-            <a href="https://twitter.com/kartik" className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-lg" aria-label="Twitter">
+            <a 
+              href="https://twitter.com/kartik" 
+              className="text-white hover:text-white transition-all duration-200 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:drop-shadow-lg" 
+              aria-label="Twitter"
+            >
               <Twitter className="h-6 w-6" />
             </a>
           </div>
@@ -146,8 +200,15 @@ const Index = () => {
 
       {/* Mission Statement */}
       <Section background="glass" className="text-center">
-        <div className="max-w-3xl mx-auto">
-          <blockquote className="text-2xl md:text-3xl font-medium text-balance mb-6 animate-fade-up">
+        <div 
+          ref={missionRef}
+          className={`max-w-3xl mx-auto transition-all duration-1000 ${
+            missionVisible 
+              ? 'opacity-100 translate-y-0 blur-0' 
+              : 'opacity-0 translate-y-8 blur-sm'
+          }`}
+        >
+          <blockquote className="text-2xl md:text-3xl font-medium text-balance mb-6">
             "{quotes[currentQuote]}"
           </blockquote>
           <p className="text-muted-foreground">— Daily inspiration that drives my work</p>

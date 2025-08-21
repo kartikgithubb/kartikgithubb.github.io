@@ -292,4 +292,14 @@
   .font-system {
     font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
   }
+
+  /* Additional animations */
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Drop shadow utilities */
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px hsl(var(--crystal-glow)));
+  }
 }
