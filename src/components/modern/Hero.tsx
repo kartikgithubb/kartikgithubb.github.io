@@ -32,7 +32,7 @@ const Hero = ({
             <div className="mb-8">
               <FallingLetters 
                 text="data · design · decisions · deliverables"
-                className="display-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+                className="display-title text-3xl md:text-5xl lg:text-6xl font-bold mb-6"
               />
             </div>
             
