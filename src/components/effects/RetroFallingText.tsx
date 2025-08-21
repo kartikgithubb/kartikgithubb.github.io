@@ -32,12 +32,12 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
   }, []);
 
   return (
-    <div className={cn('relative flex items-center justify-center flex-nowrap', className)}>
+    <div className={cn('relative flex items-center justify-center flex-nowrap overflow-x-auto', className)}>
       {words.map((word, index) => (
         <React.Fragment key={index}>
           <div
             className={`
-              inline-block text-lg md:text-2xl lg:text-3xl font-pixel 
+              inline-block text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-pixel 
               transition-all duration-1000 ease-out transform
               ${animationStarted 
                 ? 'translate-y-0 opacity-100 rotate-0' 
@@ -68,7 +68,7 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
           </div>
           {index < words.length - 1 && (
             <span 
-              className="text-lg md:text-2xl lg:text-3xl font-pixel mx-3 text-primary animate-pulse"
+              className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-pixel mx-4 text-primary animate-pulse"
               style={{ animationDelay: `${(index + 1) * 200 + 100}ms` }}
             >
               ·
