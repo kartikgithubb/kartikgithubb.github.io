@@ -1,80 +1,68 @@
 import React, { useState } from 'react';
-import { Trophy, Medal, Star, Calendar } from 'lucide-react';
+import { Heart, Search, Flame, ThumbsUp, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
-import { Card } from '@/components/ui/card';
 
-interface Award {
+interface Achievement {
   id: string;
-  title: string;
-  organization: string;
-  year: string;
   category: string;
-  description: string;
+  count: number;
+  icon: React.ReactNode;
   logo: string;
 }
 
 const Awards = () => {
-  const [hoveredAward, setHoveredAward] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
-  const awards: Award[] = [
+  const achievements: Achievement[] = [
     {
-      id: 'data-science-competition',
-      title: 'First Place - Data Science Challenge',
-      organization: 'KDD Cup',
-      year: '2023',
-      category: 'Data Science',
-      description: 'Won first place in international competition with 2000+ participants',
-      logo: '/placeholder.svg'
+      id: 'awards',
+      category: 'AWARDS',
+      count: 30,
+      icon: <Heart className="w-12 h-12" />,
+      logo: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=100&h=100&fit=crop&crop=center'
     },
     {
-      id: 'hackathon-winner',
-      title: 'Best AI Innovation',
-      organization: 'TechCrunch Disrupt',
-      year: '2022',
-      category: 'AI/ML',
-      description: 'Developed RAG-powered analytics platform in 48 hours',
-      logo: '/placeholder.svg'
+      id: 'publications',
+      category: 'PUBLICATIONS',
+      count: 2,
+      icon: <Search className="w-12 h-12" />,
+      logo: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=100&h=100&fit=crop&crop=center'
     },
     {
-      id: 'academic-excellence',
-      title: 'Outstanding Graduate Student',
-      organization: 'Stanford University',
-      year: '2022',
-      category: 'Academic',
-      description: 'Recognized for exceptional research in machine learning',
-      logo: '/placeholder.svg'
+      id: 'recognitions',
+      category: 'RECOGNITIONS',
+      count: 5,
+      icon: <Flame className="w-12 h-12" />,
+      logo: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=100&h=100&fit=crop&crop=center'
     },
     {
-      id: 'project-management',
-      title: 'Project Excellence Award',
-      organization: 'PMI Local Chapter',
-      year: '2021',
-      category: 'Project Management',
-      description: 'Led successful digital transformation initiative',
-      logo: '/placeholder.svg'
+      id: 'leadership',
+      category: 'LEADERSHIP',
+      count: 4,
+      icon: <Users className="w-12 h-12" />,
+      logo: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&h=100&fit=crop&crop=center'
     },
     {
-      id: 'innovation-award',
-      title: 'Innovation in Analytics',
-      organization: 'Analytics Society',
-      year: '2021',
-      category: 'Analytics',
-      description: 'Pioneered new approach to social media sentiment analysis',
-      logo: '/placeholder.svg'
+      id: 'hackathons',
+      category: 'HACKATHONS',
+      count: 8,
+      icon: <ThumbsUp className="w-12 h-12" />,
+      logo: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=100&h=100&fit=crop&crop=center'
     },
     {
-      id: 'student-leadership',
-      title: 'Student Leadership Award',
-      organization: 'UC Berkeley',
-      year: '2020',
-      category: 'Leadership',
-      description: 'Led student data science organization with 500+ members',
-      logo: '/placeholder.svg'
+      id: 'certifications',
+      category: 'CERTIFICATIONS',
+      count: 12,
+      icon: <Heart className="w-12 h-12" />,
+      logo: 'https://images.unsplash.com/photo-1606868306217-dbf5046868d2?w=100&h=100&fit=crop&crop=center'
     }
   ];
+
+  // Create enough duplicates for seamless scrolling
+  const scrollingAchievements = [...achievements, ...achievements, ...achievements];
 
   return (
     <div>
@@ -85,110 +73,89 @@ const Awards = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="crystal-text">Awards</span> & Recognition
+              <span className="crystal-text">Awards</span> & Achievements
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Recognition for excellence in data science, innovation, and leadership
-            </p>
           </div>
 
-          {/* Scrolling Marquee */}
-          <div className="mb-16 overflow-hidden relative">
-            <div className="flex animate-marquee space-x-8 py-8">
-              {/* First set */}
-              {awards.map((award) => (
-                <div
-                  key={`first-${award.id}`}
-                  className="flex-shrink-0 w-32 h-32 relative cursor-pointer"
-                  onMouseEnter={() => setHoveredAward(award.id)}
-                  onMouseLeave={() => setHoveredAward(null)}
-                >
-                  <div className={`
-                    w-full h-full rounded-2xl overflow-hidden shadow-md transition-all duration-300
-                    ${hoveredAward === award.id ? 'scale-110 shadow-xl drop-shadow-glow' : ''}
-                  `}>
-                    <img 
-                      src={award.logo} 
-                      alt={award.organization}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Glow effect */}
-                  {hoveredAward === award.id && (
-                    <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse -z-10 scale-125 blur-md" />
-                  )}
+          {/* Achievements Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {achievements.slice(0, 4).map((achievement) => (
+              <div 
+                key={achievement.id}
+                className="text-center group cursor-pointer"
+                onMouseEnter={() => setHoveredItem(achievement.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className={`
+                  mb-4 mx-auto w-20 h-20 flex items-center justify-center rounded-full 
+                  transition-all duration-300 ease-out
+                  ${hoveredItem === achievement.id 
+                    ? 'scale-125 bg-primary/20 shadow-[0_0_30px_rgba(var(--primary),0.5)] text-primary' 
+                    : 'bg-muted text-muted-foreground hover:bg-primary/10'
+                  }
+                `}>
+                  {achievement.icon}
                 </div>
-              ))}
-              
-              {/* Duplicate set for seamless loop */}
-              {awards.map((award) => (
+                <div className={`
+                  text-3xl font-bold mb-2 transition-colors duration-300
+                  ${hoveredItem === achievement.id ? 'text-primary' : 'text-foreground'}
+                `}>
+                  {achievement.count}
+                </div>
+                <div className={`
+                  text-sm font-medium transition-colors duration-300
+                  ${hoveredItem === achievement.id ? 'text-primary' : 'text-muted-foreground'}
+                `}>
+                  {achievement.category}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Scrolling Competition Logos */}
+          <div className="mb-16 overflow-hidden relative bg-gradient-to-r from-background via-muted/30 to-background rounded-2xl py-8">
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+            
+            <div className="flex animate-marquee space-x-12 py-4">
+              {scrollingAchievements.map((achievement, index) => (
                 <div
-                  key={`second-${award.id}`}
-                  className="flex-shrink-0 w-32 h-32 relative cursor-pointer"
-                  onMouseEnter={() => setHoveredAward(award.id)}
-                  onMouseLeave={() => setHoveredAward(null)}
+                  key={`${achievement.id}-${index}`}
+                  className="flex-shrink-0 w-24 h-24 relative cursor-pointer group"
+                  onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
+                  onMouseLeave={() => setHoveredItem(null)}
                 >
                   <div className={`
-                    w-full h-full rounded-2xl overflow-hidden shadow-md transition-all duration-300
-                    ${hoveredAward === award.id ? 'scale-110 shadow-xl drop-shadow-glow' : ''}
+                    w-full h-full rounded-2xl overflow-hidden transition-all duration-500 ease-out
+                    ${hoveredItem === `${achievement.id}-${index}` 
+                      ? 'scale-150 z-20 shadow-[0_0_40px_rgba(var(--primary),0.6)]' 
+                      : 'shadow-md hover:shadow-lg scale-100'
+                    }
                   `}>
                     <img 
-                      src={award.logo} 
-                      alt={award.organization}
+                      src={achievement.logo} 
+                      alt={`${achievement.category} logo`}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   
-                  {/* Glow effect */}
-                  {hoveredAward === award.id && (
-                    <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse -z-10 scale-125 blur-md" />
+                  {/* Enhanced Glow effect */}
+                  {hoveredItem === `${achievement.id}-${index}` && (
+                    <>
+                      <div className="absolute inset-0 rounded-2xl bg-primary/30 animate-pulse -z-10 scale-[2] blur-xl" />
+                      <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse -z-5 scale-[1.5] blur-lg" />
+                    </>
                   )}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Awards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {awards.map((award) => (
-              <Card key={award.id} className="p-6 hover-lift">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-16 h-16 rounded-xl overflow-hidden shadow-sm">
-                    <img 
-                      src={award.logo} 
-                      alt={award.organization}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-2 mb-1">
-                      <Trophy className="w-4 h-4 text-primary" />
-                      <span className="text-sm font-medium text-primary">
-                        {award.category}
-                      </span>
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      <span>{award.year}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <h3 className="font-semibold text-foreground mb-2">
-                  {award.title}
-                </h3>
-                
-                <p className="text-sm text-primary font-medium mb-2">
-                  {award.organization}
-                </p>
-                
-                <p className="text-sm text-muted-foreground">
-                  {award.description}
-                </p>
-              </Card>
-            ))}
+          {/* Call to Action */}
+          <div className="text-center">
+            <p className="text-lg text-muted-foreground italic">
+              "Speak to K - my digital twin to know about my Achievements in detail"
+            </p>
           </div>
         </div>
       </Section>
