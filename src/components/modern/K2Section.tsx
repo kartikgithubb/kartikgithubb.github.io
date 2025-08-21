@@ -57,18 +57,35 @@ const K2Section = ({ className }: K2SectionProps) => {
               <div className="relative">
                 <Card className="p-12 bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/20 backdrop-blur-sm hover:border-primary/40 transition-all duration-500 group">
                   <div className="text-center">
-                    {/* 3D iPhone-style Robot Emoji */}
+                    {/* 3D iPhone-style Happy Robot with K2 Cap */}
                     <div className="relative mb-8">
                       <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/30 flex items-center justify-center mx-auto animate-pulse-glow shadow-2xl">
-                        <div className={`text-7xl transition-all duration-700 hover:scale-110 cursor-pointer ${
-                          isVisible ? 'animate-bounce-gentle' : ''
-                        }`} 
-                        style={{
-                          filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.3))',
-                          textShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                          transform: 'perspective(200px) rotateX(15deg)'
-                        }}>
-                          🤖
+                        <div className="relative">
+                          {/* K2 Cap */}
+                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+                            <div className="relative">
+                              {/* Cap brim */}
+                              <div className="w-16 h-3 bg-gradient-to-r from-primary to-accent rounded-full shadow-lg transform perspective-100 rotateX-45"></div>
+                              {/* Cap body */}
+                              <div className="w-12 h-8 bg-gradient-to-b from-primary via-primary/90 to-primary/80 rounded-t-full mx-auto -mt-1 shadow-lg">
+                                <div className="flex items-center justify-center h-full">
+                                  <span className="text-xs font-bold text-white drop-shadow-md">K2</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Happy Robot Emoji */}
+                          <div className={`text-7xl transition-all duration-700 hover:scale-110 cursor-pointer ${
+                            isVisible ? 'animate-bounce-gentle' : ''
+                          }`} 
+                          style={{
+                            filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.3)) brightness(1.1) contrast(1.1)',
+                            textShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                            transform: 'perspective(200px) rotateX(15deg)'
+                          }}>
+                            😊🤖
+                          </div>
                         </div>
                       </div>
                       {/* Glowing ring effect */}
