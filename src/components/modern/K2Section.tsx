@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Bot, ArrowUpRight, Brain } from 'lucide-react';
-import ThreeDIcon from '@/components/effects/3DIcon';
+import { Bot, ArrowUpRight, Brain, Zap, Code2, Target, Award, FolderOpen, Building, GraduationCap, Trophy, TrendingUp } from 'lucide-react';
 
 interface K2SectionProps {
   className?: string;
@@ -97,28 +96,28 @@ const K2Section = ({ className }: K2SectionProps) => {
                 
                 {/* Feature list */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                   {[
-                     { type: 'code', label: 'Skillset & Expertise' },
-                     { type: 'target', label: 'Job Compatibility' },
-                     { type: 'award', label: 'Certifications' },
-                     { type: 'folder', label: 'Project Portfolio' },
-                     { type: 'building', label: 'Work Experience' },
-                     { type: 'graduation', label: 'Education Background' },
-                     { type: 'trophy', label: 'Awards & Recognition' },
-                     { type: 'trending', label: 'Professional Journey' }
-                   ].map((item, index) => (
-                     <div 
-                       key={index}
-                       className="flex items-center gap-3 p-4 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 transition-all duration-300 hover:bg-card/50 group"
-                     >
-                       <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                         <ThreeDIcon type={item.type as any} size={20} />
-                       </div>
-                       <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                         {item.label}
-                       </span>
-                     </div>
-                   ))}
+                  {[
+                     { icon: Code2, label: 'Skillset & Expertise' },
+                     { icon: Target, label: 'Job Compatibility' },
+                     { icon: Award, label: 'Certifications' },
+                     { icon: FolderOpen, label: 'Project Portfolio' },
+                     { icon: Building, label: 'Work Experience' },
+                     { icon: GraduationCap, label: 'Education Background' },
+                     { icon: Trophy, label: 'Awards & Recognition' },
+                     { icon: TrendingUp, label: 'Professional Journey' }
+                  ].map((item, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center gap-3 p-4 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 transition-all duration-300 hover:bg-card/50 group"
+                    >
+                      <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                        <item.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
