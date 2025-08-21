@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BarChart3, Database, Brain, Code, Palette, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,6 +7,8 @@ import ChatButton from '@/components/chat/ChatButton';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import RadarChart from '@/components/charts/RadarChart';
+import SkillGraph from '@/components/charts/SkillGraph';
 
 interface SkillCategory {
   id: string;
@@ -106,6 +108,74 @@ const skillCategories: SkillCategory[] = [
 ];
 
 const Skills = () => {
+  const [skillData] = useState([
+    { skill: 'Data Analytics', level: 90, fullMark: 100 },
+    { skill: 'AI & ML', level: 80, fullMark: 100 },
+    { skill: 'Technical Stack', level: 85, fullMark: 100 },
+    { skill: 'Data Management', level: 75, fullMark: 100 },
+    { skill: 'Design & UX', level: 78, fullMark: 100 },
+    { skill: 'Leadership', level: 85, fullMark: 100 }
+  ]);
+
+  const [skillNodes] = useState([
+    // Skills
+    { id: 'python', name: 'Python', type: 'skill' as const, category: 'data' },
+    { id: 'sql', name: 'SQL', type: 'skill' as const, category: 'data' },
+    { id: 'powerbi', name: 'Power BI', type: 'skill' as const, category: 'analytics' },
+    { id: 'react', name: 'React', type: 'skill' as const, category: 'technical' },
+    { id: 'ml', name: 'ML', type: 'skill' as const, category: 'ai' },
+    
+    // Tools & Frameworks
+    { id: 'pandas', name: 'Pandas', type: 'tool' as const, category: 'data' },
+    { id: 'numpy', name: 'NumPy', type: 'tool' as const, category: 'data' },
+    { id: 'tensorflow', name: 'TensorFlow', type: 'framework' as const, category: 'ai' },
+    { id: 'postgresql', name: 'PostgreSQL', type: 'tool' as const, category: 'database' },
+    { id: 'figma', name: 'Figma', type: 'tool' as const, category: 'design' },
+  ]);
+
+  const [skillLinks] = useState([
+    { source: 'python', target: 'pandas' },
+    { source: 'python', target: 'numpy' },
+    { source: 'python', target: 'ml' },
+    { source: 'sql', target: 'postgresql' },
+    { source: 'sql', target: 'powerbi' },
+    { source: 'ml', target: 'tensorflow' },
+    { source: 'react', target: 'figma' },
+  ]);
+
+  const skillCircles = [
+    {
+      title: "Data Skills & Tools",
+      subtitle: "(Web of all of them Connected)",
+      skills: ["Python", "SQL", "Pandas", "NumPy"]
+    },
+    {
+      title: "Analytics Skills & Tools", 
+      subtitle: "(Web of all of them Connected)",
+      skills: ["Power BI", "Tableau", "Statistical Analysis", "Data Viz"]
+    },
+    {
+      title: "Product Management Skills & Tools",
+      subtitle: "(Web of all of them Connected)",
+      skills: ["Agile", "Scrum", "Jira", "Roadmapping"]
+    },
+    {
+      title: "Project Management Skills & Tools",
+      subtitle: "(Web of all of them Connected)",
+      skills: ["CAPM", "Risk Mgmt", "Stakeholder Mgmt", "Waterfall"]
+    },
+    {
+      title: "Marketing Skills & Tools",
+      subtitle: "(Web of all of them Connected)",
+      skills: ["Campaign Mgmt", "SEO", "Social Analytics", "A/B Testing"]
+    },
+    {
+      title: "Business Skills & Tools",
+      subtitle: "(Web of all of them Connected)",
+      skills: ["Strategy", "Process Opt", "Change Mgmt", "Finance"]
+    }
+  ];
+
   return (
     <div>
       <Header />
@@ -119,6 +189,52 @@ const Skills = () => {
           <p className="text-xl text-muted-foreground">
             A comprehensive toolkit spanning data analytics, AI/ML, and modern development practices
           </p>
+        </div>
+
+        {/* Dynamic Radar Chart */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold mb-2">Radar Chart</h2>
+            <p className="text-muted-foreground">Dynamic visualization that updates as skills are modified</p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <RadarChart data={skillData} />
+          </div>
+        </div>
+
+        {/* Skill Circles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {skillCircles.map((circle, index) => (
+            <div key={index} className="flex justify-center">
+              <div className="w-64 h-64 border-2 border-border rounded-full flex flex-col items-center justify-center p-6 hover:shadow-lg hover:border-primary/50 transition-all duration-300 bg-card group">
+                <h3 className="text-center font-semibold text-primary mb-1 text-sm leading-tight group-hover:text-primary/80">
+                  {circle.title}
+                </h3>
+                <p className="text-xs text-muted-foreground text-center italic mb-4">
+                  {circle.subtitle}
+                </p>
+                
+                <div className="flex flex-wrap gap-1 justify-center">
+                  {circle.skills.map((skill, skillIndex) => (
+                    <Badge key={skillIndex} variant="outline" className="text-xs px-2 py-0.5">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Dynamic Skill Graph */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold mb-2">Skill Connections Web</h2>
+            <p className="text-muted-foreground">Interactive visualization showing relationships between skills, tools, and frameworks</p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <SkillGraph nodes={skillNodes} links={skillLinks} />
+          </div>
         </div>
 
         {/* Skills Grid */}

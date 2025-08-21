@@ -14,7 +14,7 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Brand */}
-          <Link to="/" className="crystal-text text-2xl font-semibold hover:scale-105 transition-transform">
+          <Link to="/" className="crystal-text text-2xl font-semibold">
             Kartik Pedapati
           </Link>
 
