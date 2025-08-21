@@ -1,12 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Mail, Github, Linkedin, Phone, MapPin, Calendar, Heart } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { 
+  Mail, Github, Linkedin, Phone, MapPin, Calendar, Heart, 
+  Send, Twitter 
+} from 'lucide-react';
 
 interface AboutContactSectionProps {
   className?: string;
 }
 
 const AboutContactSection = ({ className }: AboutContactSectionProps) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Implement form submission
+    console.log('Form submitted:', formData);
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+  };
+
   const contactItems = [{
     label: 'Phone',
     icon: Phone,
@@ -126,15 +162,202 @@ const AboutContactSection = ({ className }: AboutContactSectionProps) => {
             </div>
           </div>
 
-          {/* Contact grid */}
+          {/* Contact Section Header */}
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold mb-4">Get In Touch</h3>
+            <p className="text-xl text-muted-foreground">
+              Ready to discuss data analytics, AI projects, or collaboration opportunities? 
+              I'd love to hear from you.
+            </p>
+          </div>
+
+          {/* Contact Form & Info Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {/* Contact Form */}
+            <Card className="p-8">
+              <h4 className="text-2xl font-bold mb-6">Send a Message</h4>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="What would you like to discuss?"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Tell me about your project, question, or how I can help..."
+                  />
+                </div>
+
+                <Button type="submit" className="w-full">
+                  <Send className="h-4 w-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </Card>
+
+            {/* Contact Info & Quick Actions */}
+            <div className="space-y-8">
+              {/* Contact Details */}
+              <Card className="p-8">
+                <h4 className="text-2xl font-bold mb-6">Contact Details</h4>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h5 className="font-semibold">Email</h5>
+                      <a 
+                        href="mailto:kartik@example.com" 
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        kartik@example.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h5 className="font-semibold">Location</h5>
+                      <p className="text-muted-foreground">San Francisco Bay Area, CA</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Calendar className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h5 className="font-semibold">Availability</h5>
+                      <p className="text-muted-foreground">Open for new opportunities</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Social Links */}
+              <Card className="p-8">
+                <h4 className="text-2xl font-bold mb-6">Connect Online</h4>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <a 
+                    href="https://linkedin.com/in/kartik"
+                    className="flex items-center p-4 bg-accent rounded-lg hover:bg-accent/80 transition-colors group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="h-5 w-5 text-blue-600 mr-3" />
+                    <div>
+                      <h5 className="font-semibold text-sm">LinkedIn</h5>
+                      <p className="text-xs text-muted-foreground group-hover:text-foreground">Professional updates</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://github.com/kartik"
+                    className="flex items-center p-4 bg-accent rounded-lg hover:bg-accent/80 transition-colors group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="h-5 w-5 text-gray-800 mr-3" />
+                    <div>
+                      <h5 className="font-semibold text-sm">GitHub</h5>
+                      <p className="text-xs text-muted-foreground group-hover:text-foreground">Code & projects</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://twitter.com/kartik"
+                    className="flex items-center p-4 bg-accent rounded-lg hover:bg-accent/80 transition-colors group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Twitter className="h-5 w-5 text-blue-400 mr-3" />
+                    <div>
+                      <h5 className="font-semibold text-sm">Twitter</h5>
+                      <p className="text-xs text-muted-foreground group-hover:text-foreground">Thoughts & insights</p>
+                    </div>
+                  </a>
+
+                  <Button variant="outline" className="h-auto p-4 flex-col">
+                    <Calendar className="h-5 w-5 mb-2" />
+                    <div>
+                      <h5 className="font-semibold text-sm">Schedule Call</h5>
+                      <p className="text-xs text-muted-foreground">Book a time</p>
+                    </div>
+                  </Button>
+                </div>
+              </Card>
+
+              {/* Quick CTA */}
+              <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+                <h4 className="text-xl font-bold mb-4">Looking for Data Analytics Expertise?</h4>
+                <p className="text-muted-foreground mb-6">
+                  Whether you need insights from your data, AI implementation guidance, 
+                  or project management support, I'm here to help turn your data into actionable business value.
+                </p>
+                <Button className="w-full">
+                  Let's Discuss Your Project
+                </Button>
+              </Card>
+            </div>
+          </div>
+
+          {/* Quick Contact Icons */}
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-center">Get In Touch</h3>
+            <h4 className="text-2xl font-bold mb-8 text-center">Quick Connect</h4>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {contactItems.map(({ label, icon: Icon, href, color }, index) => (
                 <Card key={label} className="group p-6 text-center bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-glow hover:-translate-y-1">
-                  <h4 className="font-semibold mb-4 text-muted-foreground text-sm uppercase tracking-wider">
+                  <h5 className="font-semibold mb-4 text-muted-foreground text-sm uppercase tracking-wider">
                     {label}
-                  </h4>
+                  </h5>
                   <a 
                     href={href} 
                     className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 ${color} hover:from-primary/20 hover:to-accent/20 transition-all duration-300 group-hover:scale-110`}
