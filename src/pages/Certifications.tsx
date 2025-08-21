@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 interface Certification {
   id: string;
@@ -21,82 +20,104 @@ interface Certification {
 }
 
 const Certifications = () => {
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [hoveredCert, setHoveredCert] = useState<string | null>(null);
 
-  const certifications: Certification[] = [
-    {
-      id: 'aws-solutions-architect',
-      title: 'AWS Certified Solutions Architect',
-      issuer: 'Amazon Web Services',
-      issueDate: '2023-06',
-      expiryDate: '2026-06',
-      credentialId: 'AWS-SAA-2023-001234',
-      verificationUrl: 'https://aws.amazon.com/verification',
-      badge: '/placeholder.svg',
-      category: 'Cloud',
-      skills: ['AWS', 'Cloud Architecture', 'EC2', 'S3', 'RDS']
-    },
-    {
-      id: 'gcp-data-engineer',
-      title: 'Google Cloud Professional Data Engineer',
-      issuer: 'Google Cloud',
-      issueDate: '2023-03',
-      expiryDate: '2025-03',
-      credentialId: 'GCP-PDE-2023-005678',
-      verificationUrl: 'https://cloud.google.com/certification/verify',
-      badge: '/placeholder.svg',
-      category: 'Data Engineering',
-      skills: ['BigQuery', 'Dataflow', 'Pub/Sub', 'ML Engine']
-    },
-    {
-      id: 'capm',
-      title: 'Certified Associate in Project Management (CAPM)',
-      issuer: 'Project Management Institute',
-      issueDate: '2022-11',
-      expiryDate: '2027-11',
-      credentialId: 'PMI-CAPM-2022-9876',
-      verificationUrl: 'https://www.pmi.org/certifications/verify',
-      badge: '/placeholder.svg',
-      category: 'Project Management',
-      skills: ['Project Planning', 'Risk Management', 'Agile', 'Scrum']
-    },
-    {
-      id: 'tensorflow-developer',
-      title: 'TensorFlow Developer Certificate',
-      issuer: 'TensorFlow',
-      issueDate: '2022-08',
-      credentialId: 'TF-DEV-2022-1122',
-      verificationUrl: 'https://www.credential.net/verify',
-      badge: '/placeholder.svg',
-      category: 'Machine Learning',
-      skills: ['TensorFlow', 'Neural Networks', 'Deep Learning', 'Python']
-    },
-    {
-      id: 'power-bi-analyst',
-      title: 'Microsoft Certified: Power BI Data Analyst Associate',
-      issuer: 'Microsoft',
-      issueDate: '2022-05',
-      expiryDate: '2024-05',
-      credentialId: 'MS-PBI-2022-3344',
-      verificationUrl: 'https://docs.microsoft.com/learn/certifications/verify',
-      badge: '/placeholder.svg',
-      category: 'Analytics',
-      skills: ['Power BI', 'DAX', 'Data Modeling', 'Visualization']
-    },
-    {
-      id: 'azure-fundamentals',
-      title: 'Microsoft Azure Fundamentals',
-      issuer: 'Microsoft',
-      issueDate: '2021-12',
-      credentialId: 'MS-AZ900-2021-5566',
-      verificationUrl: 'https://docs.microsoft.com/learn/certifications/verify',
-      badge: '/placeholder.svg',
-      category: 'Cloud',
-      skills: ['Azure', 'Cloud Computing', 'SaaS', 'PaaS', 'IaaS']
-    }
-  ];
-
-  const categories = [...new Set(certifications.map(cert => cert.category))];
+  const certificationsByCategory = {
+    'Data': [
+      {
+        id: 'snowflake-core',
+        title: 'SnowPro Core Certification',
+        issuer: 'Snowflake',
+        issueDate: '2023-08',
+        credentialId: 'SF-CORE-2023-001',
+        badge: '/placeholder.svg',
+        skills: ['Snowflake', 'Data Warehousing', 'SQL']
+      },
+      {
+        id: 'databricks-lakehouse',
+        title: 'Databricks Lakehouse Fundamentals',
+        issuer: 'Databricks',
+        issueDate: '2023-06',
+        credentialId: 'DB-LH-2023-002',
+        badge: '/placeholder.svg',
+        skills: ['Databricks', 'Data Lakes', 'Apache Spark']
+      }
+    ],
+    'Product': [
+      {
+        id: 'cspo',
+        title: 'Certified Scrum Product Owner',
+        issuer: 'Scrum Alliance',
+        issueDate: '2023-04',
+        credentialId: 'SA-CSPO-2023-001',
+        badge: '/placeholder.svg',
+        skills: ['Scrum', 'Product Management', 'Agile']
+      }
+    ],
+    'Analytics': [
+      {
+        id: 'power-bi-analyst',
+        title: 'Microsoft Power BI Data Analyst',
+        issuer: 'Microsoft',
+        issueDate: '2022-05',
+        credentialId: 'MS-PBI-2022-3344',
+        badge: '/placeholder.svg',
+        skills: ['Power BI', 'DAX', 'Data Modeling']
+      }
+    ],
+    'Project Management': [
+      {
+        id: 'capm',
+        title: 'Certified Associate in Project Management',
+        issuer: 'PMI',
+        issueDate: '2022-11',
+        credentialId: 'PMI-CAPM-2022-9876',
+        badge: '/placeholder.svg',
+        skills: ['Project Planning', 'Risk Management', 'Agile']
+      }
+    ],
+    'AI & ML': [
+      {
+        id: 'tensorflow-developer',
+        title: 'TensorFlow Developer Certificate',
+        issuer: 'TensorFlow',
+        issueDate: '2022-08',
+        credentialId: 'TF-DEV-2022-1122',
+        badge: '/placeholder.svg',
+        skills: ['TensorFlow', 'Neural Networks', 'Deep Learning']
+      },
+      {
+        id: 'aws-ml-specialty',
+        title: 'AWS Certified Machine Learning',
+        issuer: 'Amazon Web Services',
+        issueDate: '2023-01',
+        credentialId: 'AWS-ML-2023-001',
+        badge: '/placeholder.svg',
+        skills: ['AWS', 'Machine Learning', 'SageMaker']
+      },
+      {
+        id: 'azure-ai-fundamentals',
+        title: 'Azure AI Fundamentals',
+        issuer: 'Microsoft',
+        issueDate: '2022-03',
+        credentialId: 'MS-AI900-2022-789',
+        badge: '/placeholder.svg',
+        skills: ['Azure AI', 'Cognitive Services', 'ML Studio']
+      }
+    ],
+    'Other': [
+      {
+        id: 'azure-fundamentals',
+        title: 'Microsoft Azure Fundamentals',
+        issuer: 'Microsoft',
+        issueDate: '2021-12',
+        credentialId: 'MS-AZ900-2021-5566',
+        badge: '/placeholder.svg',
+        skills: ['Azure', 'Cloud Computing', 'SaaS']
+      }
+    ]
+  };
 
   return (
     <div>
@@ -110,163 +131,345 @@ const Certifications = () => {
               <span className="crystal-text">Certifications</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Professional certifications demonstrating expertise across cloud, data, and project management
+              Professional certifications demonstrating expertise across multiple domains
             </p>
           </div>
 
-          {/* Certifications Table */}
-          <Card className="overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-muted/30">
-                  <tr className="border-b border-border/50">
-                    <th className="text-left p-4 font-semibold">Certification</th>
-                    <th className="text-left p-4 font-semibold">Issuer</th>
-                    <th className="text-left p-4 font-semibold">Issue Date</th>
-                    <th className="text-left p-4 font-semibold">Status</th>
-                    <th className="text-left p-4 font-semibold">Credential</th>
-                    <th className="text-left p-4 font-semibold">Badge</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {certifications.map((cert, index) => (
-                    <tr 
-                      key={cert.id} 
-                      className={`
-                        border-b border-border/30 transition-colors
-                        ${index % 2 === 0 ? 'bg-background' : 'bg-muted/10'}
-                        hover:bg-muted/20
-                      `}
-                    >
-                      <td className="p-4">
-                        <div>
-                          <h3 className="font-medium text-foreground mb-1">
-                            {cert.title}
-                          </h3>
-                          <div className="flex items-center space-x-2">
-                            <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                              {cert.category}
-                            </span>
+          {/* Certifications Grid Table */}
+          <div className="grid grid-cols-3 gap-0 border border-border/30 bg-card rounded-lg overflow-hidden">
+            {/* Row 1 */}
+            <div 
+              className={`
+                relative p-8 border-r border-b border-border/30 min-h-[200px] transition-all duration-300 cursor-pointer
+                ${hoveredSection === 'Data' ? 'bg-primary/5 shadow-lg' : 'hover:bg-muted/20'}
+              `}
+              onMouseEnter={() => setHoveredSection('Data')}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              <h3 className={`
+                text-lg font-semibold mb-4 transition-all duration-300
+                ${hoveredSection === 'Data' ? 'text-primary drop-shadow-glow scale-105' : 'text-foreground'}
+              `}>
+                Data
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {certificationsByCategory.Data.map((cert, index) => (
+                  <div
+                    key={cert.id}
+                    className="relative"
+                    onMouseEnter={() => setHoveredCert(cert.id)}
+                    onMouseLeave={() => setHoveredCert(null)}
+                  >
+                    <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-blue-500/80 to-blue-600/80 cursor-pointer hover:scale-110 transition-transform duration-200 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    {/* Tooltip */}
+                    {hoveredCert === cert.id && (
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
+                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
+                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            {cert.issuer} • {cert.issueDate}
+                          </p>
+                          <p className="text-xs text-muted-foreground mb-2 font-mono">
+                            ID: {cert.credentialId}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill, idx) => (
+                              <span 
+                                key={idx}
+                                className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded"
+                              >
+                                {skill}
+                              </span>
+                            ))}
                           </div>
                         </div>
-                      </td>
-                      
-                      <td className="p-4">
-                        <span className="text-muted-foreground">{cert.issuer}</span>
-                      </td>
-                      
-                      <td className="p-4">
-                        <div className="text-sm">
-                          <div className="flex items-center text-muted-foreground">
-                            <Calendar className="w-3 h-3 mr-1" />
-                            {cert.issueDate}
-                          </div>
-                          {cert.expiryDate && (
-                            <div className="text-xs text-muted-foreground mt-1">
-                              Expires: {cert.expiryDate}
-                            </div>
-                          )}
-                        </div>
-                      </td>
-                      
-                      <td className="p-4">
-                        <span className={`
-                          text-xs px-2 py-1 rounded-full font-medium
-                          ${cert.expiryDate && new Date(cert.expiryDate) > new Date() 
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
-                            : cert.expiryDate 
-                              ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
-                              : 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
-                          }
-                        `}>
-                          {cert.expiryDate 
-                            ? (new Date(cert.expiryDate) > new Date() ? 'Active' : 'Expired')
-                            : 'Valid'
-                          }
-                        </span>
-                      </td>
-                      
-                      <td className="p-4">
-                        <div className="text-sm">
-                          <div className="text-muted-foreground font-mono text-xs mb-1">
-                            {cert.credentialId}
-                          </div>
-                          {cert.verificationUrl && (
-                            <Button variant="outline" size="sm" className="h-6 text-xs">
-                              <ExternalLink className="w-3 h-3 mr-1" />
-                              Verify
-                            </Button>
-                          )}
-                        </div>
-                      </td>
-                      
-                      <td className="p-4">
-                        <div 
-                          className="relative"
-                          onMouseEnter={() => setHoveredCert(cert.id)}
-                          onMouseLeave={() => setHoveredCert(null)}
-                        >
-                          <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-primary/20 to-accent/20 cursor-pointer hover:scale-110 transition-transform duration-200">
-                            <img 
-                              src={cert.badge} 
-                              alt={`${cert.title} badge`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          
-                          {/* Tooltip */}
-                          {hoveredCert === cert.id && (
-                            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                              <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[200px] animate-fade-in">
-                                <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                                <p className="text-xs text-muted-foreground mb-2">
-                                  ID: {cert.credentialId}
-                                </p>
-                                <div className="flex flex-wrap gap-1">
-                                  {cert.skills.slice(0, 3).map((skill, idx) => (
-                                    <span 
-                                      key={idx}
-                                      className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded"
-                                    >
-                                      {skill}
-                                    </span>
-                                  ))}
-                                  {cert.skills.length > 3 && (
-                                    <span className="text-xs text-muted-foreground">
-                                      +{cert.skills.length - 3}
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </Card>
+
+            <div 
+              className={`
+                relative p-8 border-r border-b border-border/30 min-h-[200px] transition-all duration-300 cursor-pointer
+                ${hoveredSection === 'Product' ? 'bg-primary/5 shadow-lg' : 'hover:bg-muted/20'}
+              `}
+              onMouseEnter={() => setHoveredSection('Product')}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              <h3 className={`
+                text-lg font-semibold mb-4 transition-all duration-300
+                ${hoveredSection === 'Product' ? 'text-primary drop-shadow-glow scale-105' : 'text-foreground'}
+              `}>
+                Product
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {certificationsByCategory.Product.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="relative"
+                    onMouseEnter={() => setHoveredCert(cert.id)}
+                    onMouseLeave={() => setHoveredCert(null)}
+                  >
+                    <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-green-500/80 to-green-600/80 cursor-pointer hover:scale-110 transition-transform duration-200 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    {hoveredCert === cert.id && (
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
+                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
+                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            {cert.issuer} • {cert.issueDate}
+                          </p>
+                          <p className="text-xs text-muted-foreground mb-2 font-mono">
+                            ID: {cert.credentialId}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill, idx) => (
+                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div 
+              className={`
+                relative p-8 border-b border-border/30 min-h-[200px] transition-all duration-300 cursor-pointer
+                ${hoveredSection === 'Analytics' ? 'bg-primary/5 shadow-lg' : 'hover:bg-muted/20'}
+              `}
+              onMouseEnter={() => setHoveredSection('Analytics')}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              <h3 className={`
+                text-lg font-semibold mb-4 transition-all duration-300
+                ${hoveredSection === 'Analytics' ? 'text-primary drop-shadow-glow scale-105' : 'text-foreground'}
+              `}>
+                Analytics
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {certificationsByCategory.Analytics.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="relative"
+                    onMouseEnter={() => setHoveredCert(cert.id)}
+                    onMouseLeave={() => setHoveredCert(null)}
+                  >
+                    <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-purple-500/80 to-purple-600/80 cursor-pointer hover:scale-110 transition-transform duration-200 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    {hoveredCert === cert.id && (
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
+                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
+                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            {cert.issuer} • {cert.issueDate}
+                          </p>
+                          <p className="text-xs text-muted-foreground mb-2 font-mono">
+                            ID: {cert.credentialId}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill, idx) => (
+                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            <div 
+              className={`
+                relative p-8 border-r border-border/30 min-h-[200px] transition-all duration-300 cursor-pointer
+                ${hoveredSection === 'Project Management' ? 'bg-primary/5 shadow-lg border-2 border-primary/30' : 'hover:bg-muted/20'}
+              `}
+              onMouseEnter={() => setHoveredSection('Project Management')}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              <h3 className={`
+                text-lg font-semibold mb-4 transition-all duration-300
+                ${hoveredSection === 'Project Management' ? 'text-primary drop-shadow-glow scale-105' : 'text-foreground'}
+              `}>
+                Project Management
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {certificationsByCategory['Project Management'].map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="relative"
+                    onMouseEnter={() => setHoveredCert(cert.id)}
+                    onMouseLeave={() => setHoveredCert(null)}
+                  >
+                    <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-orange-500/80 to-orange-600/80 cursor-pointer hover:scale-110 transition-transform duration-200 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    {hoveredCert === cert.id && (
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
+                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
+                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            {cert.issuer} • {cert.issueDate}
+                          </p>
+                          <p className="text-xs text-muted-foreground mb-2 font-mono">
+                            ID: {cert.credentialId}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill, idx) => (
+                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div 
+              className={`
+                relative p-8 border-r border-border/30 min-h-[200px] transition-all duration-300 cursor-pointer
+                ${hoveredSection === 'AI & ML' ? 'bg-primary/5 shadow-lg' : 'hover:bg-muted/20'}
+              `}
+              onMouseEnter={() => setHoveredSection('AI & ML')}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              <h3 className={`
+                text-lg font-semibold mb-4 transition-all duration-300
+                ${hoveredSection === 'AI & ML' ? 'text-primary drop-shadow-glow scale-105' : 'text-foreground'}
+              `}>
+                AI & ML
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {certificationsByCategory['AI & ML'].map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="relative"
+                    onMouseEnter={() => setHoveredCert(cert.id)}
+                    onMouseLeave={() => setHoveredCert(null)}
+                  >
+                    <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-red-500/80 to-red-600/80 cursor-pointer hover:scale-110 transition-transform duration-200 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    {hoveredCert === cert.id && (
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
+                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
+                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            {cert.issuer} • {cert.issueDate}
+                          </p>
+                          <p className="text-xs text-muted-foreground mb-2 font-mono">
+                            ID: {cert.credentialId}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill, idx) => (
+                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div 
+              className={`
+                relative p-8 min-h-[200px] transition-all duration-300 cursor-pointer
+                ${hoveredSection === 'Other' ? 'bg-primary/5 shadow-lg' : 'hover:bg-muted/20'}
+              `}
+              onMouseEnter={() => setHoveredSection('Other')}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              <h3 className={`
+                text-lg font-semibold mb-4 transition-all duration-300
+                ${hoveredSection === 'Other' ? 'text-primary drop-shadow-glow scale-105' : 'text-foreground'}
+              `}>
+                Other
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {certificationsByCategory.Other.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="relative"
+                    onMouseEnter={() => setHoveredCert(cert.id)}
+                    onMouseLeave={() => setHoveredCert(null)}
+                  >
+                    <div className="w-12 h-12 mask-diamond bg-gradient-to-br from-teal-500/80 to-teal-600/80 cursor-pointer hover:scale-110 transition-transform duration-200 flex items-center justify-center">
+                      <Award className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    {hoveredCert === cert.id && (
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
+                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
+                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            {cert.issuer} • {cert.issueDate}
+                          </p>
+                          <p className="text-xs text-muted-foreground mb-2 font-mono">
+                            ID: {cert.credentialId}
+                          </p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill, idx) => (
+                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Summary Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             <Card className="p-6 text-center">
               <Award className="w-8 h-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold">{certifications.length}</div>
+              <div className="text-2xl font-bold">
+                {Object.values(certificationsByCategory).flat().length}
+              </div>
               <div className="text-sm text-muted-foreground">Total Certifications</div>
             </Card>
             
             <Card className="p-6 text-center">
               <div className="text-2xl font-bold text-green-600">
-                {certifications.filter(cert => !cert.expiryDate || new Date(cert.expiryDate) > new Date()).length}
+                {Object.keys(certificationsByCategory).length}
               </div>
-              <div className="text-sm text-muted-foreground">Active</div>
+              <div className="text-sm text-muted-foreground">Categories</div>
             </Card>
             
             <Card className="p-6 text-center">
-              <div className="text-2xl font-bold">{categories.length}</div>
-              <div className="text-sm text-muted-foreground">Categories</div>
+              <div className="text-2xl font-bold">3</div>
+              <div className="text-sm text-muted-foreground">AI & ML Certs</div>
             </Card>
             
             <Card className="p-6 text-center">
