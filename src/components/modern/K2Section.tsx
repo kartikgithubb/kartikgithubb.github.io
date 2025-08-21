@@ -57,15 +57,23 @@ const K2Section = ({ className }: K2SectionProps) => {
               <div className="relative">
                 <Card className="p-12 bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/20 backdrop-blur-sm hover:border-primary/40 transition-all duration-500 group">
                   <div className="text-center">
-                    {/* Animated bot icon */}
+                    {/* 3D iPhone-style Robot Emoji */}
                     <div className="relative mb-8">
-                      <div className="w-32 h-32 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 flex items-center justify-center mx-auto animate-pulse-glow">
-                        <Bot 
-                          className={`w-16 h-16 text-primary transition-all duration-700 ${
-                            isVisible ? 'animate-bounce-gentle' : ''
-                          }`} 
-                        />
+                      <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/30 flex items-center justify-center mx-auto animate-pulse-glow shadow-2xl">
+                        <div className={`text-7xl transition-all duration-700 hover:scale-110 cursor-pointer ${
+                          isVisible ? 'animate-bounce-gentle' : ''
+                        }`} 
+                        style={{
+                          filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.3))',
+                          textShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                          transform: 'perspective(200px) rotateX(15deg)'
+                        }}>
+                          🤖
+                        </div>
                       </div>
+                      {/* Glowing ring effect */}
+                      <div className="absolute inset-0 w-32 h-32 rounded-full border-2 border-primary/30 mx-auto animate-spin" style={{animationDuration: '8s'}}></div>
+                      <div className="absolute inset-2 w-28 h-28 rounded-full border border-accent/20 mx-auto animate-spin" style={{animationDuration: '6s', animationDirection: 'reverse'}}></div>
                     </div>
                     
                     <h3 className="text-3xl font-bold mb-4 font-display bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
