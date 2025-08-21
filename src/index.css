@@ -296,6 +296,21 @@
     align-items: center;
     justify-content: center;
   }
+
+  @keyframes wave {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% { 
+      transform: translateY(-5px) rotate(1deg) scale(1.02);
+    }
+    50% { 
+      transform: translateY(0px) rotate(0deg) scale(1.05);
+    }
+    75% { 
+      transform: translateY(-3px) rotate(-1deg) scale(1.02);
+    }
+  }
 }
 
 @layer utilities {

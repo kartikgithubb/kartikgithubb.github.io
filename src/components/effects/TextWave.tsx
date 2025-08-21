@@ -15,9 +15,13 @@ const TextWave = ({ children, className }: TextWaveProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <span className="relative z-10">
+      <section className={`
+        relative z-10 transition-all duration-500 ease-out
+        ${isHovered ? 'text-4xl md:text-6xl transform scale-110' : 'text-xl md:text-2xl'}
+        ${isHovered ? 'animate-[wave_2s_ease-in-out_infinite]' : ''}
+      `}>
         {children}
-      </span>
+      </section>
       
       {/* Wave Effect */}
       <div 
