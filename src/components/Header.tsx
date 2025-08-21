@@ -27,6 +27,18 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
               About
             </Link>
             <Link 
+              to="/skills" 
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+            >
+              Skills
+            </Link>
+            <Link 
+              to="/certifications" 
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+            >
+              Certifications
+            </Link>
+            <Link 
               to="/projects" 
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
@@ -36,13 +48,19 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
               to="/experience" 
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
-              Experience
+              Work
             </Link>
             <Link 
-              to="/skills" 
+              to="/education" 
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
-              Skills
+              Education
+            </Link>
+            <Link 
+              to="/awards" 
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
+            >
+              Achievements & Awards
             </Link>
             <Link 
               to="/contact" 
