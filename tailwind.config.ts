@@ -17,7 +17,10 @@ export default {
 				'2xl': '1400px'
 			}
 		},
-		extend: {
+    extend: {
+      fontFamily: {
+        'pixel': ['Press Start 2P', 'monospace'],
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

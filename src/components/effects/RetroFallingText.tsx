@@ -37,7 +37,7 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
         <React.Fragment key={index}>
           <div
             className={`
-              inline-block text-2xl md:text-4xl lg:text-5xl font-bold 
+              inline-block text-lg md:text-2xl lg:text-3xl font-pixel 
               transition-all duration-1000 ease-out transform
               ${animationStarted 
                 ? 'translate-y-0 opacity-100 rotate-0' 
@@ -68,7 +68,7 @@ const RetroFallingText = ({ children, className }: RetroFallingTextProps) => {
           </div>
           {index < words.length - 1 && (
             <span 
-              className="text-2xl md:text-4xl lg:text-5xl font-bold mx-2 text-primary animate-pulse"
+              className="text-lg md:text-2xl lg:text-3xl font-pixel mx-3 text-primary animate-pulse"
               style={{ animationDelay: `${(index + 1) * 200 + 100}ms` }}
             >
               ·
