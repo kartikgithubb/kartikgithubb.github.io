@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Download } from 'lucide-react';
+import FallingLetters from '@/components/effects/FallingLetters';
 interface HeroProps {
   className?: string;
 }
@@ -29,9 +30,10 @@ const Hero = ({
           {/* Main hero content */}
           <div className="text-center mb-16 animate-fade-up">
             <div className="mb-8">
-              <h1 className="display-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-shimmer">
-                data · design · decisions · deliverables
-              </h1>
+              <FallingLetters 
+                text="data · design · decisions · deliverables"
+                className="display-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+              />
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
