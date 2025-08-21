@@ -60,12 +60,6 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
               Achievements & Awards
             </Link>
             <Link 
-              to="/contact" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
-            >
-              Contact
-            </Link>
-            <Link 
               to="/about" 
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:drop-shadow-glow hover:scale-105"
             >
