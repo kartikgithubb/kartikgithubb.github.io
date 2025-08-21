@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Bot, ArrowUpRight, Brain, Zap } from 'lucide-react';
+import { Bot, ArrowUpRight, Brain, Zap, Code2, Target, Award, FolderOpen, Building, GraduationCap, Trophy, TrendingUp } from 'lucide-react';
 
 interface K2SectionProps {
   className?: string;
@@ -97,14 +97,14 @@ const K2Section = ({ className }: K2SectionProps) => {
                 {/* Feature list */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    { icon: Zap, label: 'Skillset & Expertise' },
-                    { icon: Brain, label: 'Job Compatibility' },
-                    { icon: Bot, label: 'Certifications' },
-                    { icon: ArrowUpRight, label: 'Project Portfolio' },
-                    { icon: Zap, label: 'Work Experience' },
-                    { icon: Brain, label: 'Education Background' },
-                    { icon: Bot, label: 'Awards & Recognition' },
-                    { icon: ArrowUpRight, label: 'Professional Journey' }
+                     { icon: Code2, label: 'Skillset & Expertise' },
+                     { icon: Target, label: 'Job Compatibility' },
+                     { icon: Award, label: 'Certifications' },
+                     { icon: FolderOpen, label: 'Project Portfolio' },
+                     { icon: Building, label: 'Work Experience' },
+                     { icon: GraduationCap, label: 'Education Background' },
+                     { icon: Trophy, label: 'Awards & Recognition' },
+                     { icon: TrendingUp, label: 'Professional Journey' }
                   ].map((item, index) => (
                     <div 
                       key={index}
