@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
         display: ["Space Grotesk", ...fontFamily.sans],
+        serif: ["Playfair Display", ...fontFamily.serif],
         pixel: ['Press Start 2P', 'monospace'],
       },
 			colors: {
@@ -216,7 +217,9 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'wave': 'wave 2s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'marquee': 'marquee 20s linear infinite',
+			}
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.23, 1, 0.32, 1)',

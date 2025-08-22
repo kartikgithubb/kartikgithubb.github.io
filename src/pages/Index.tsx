@@ -11,6 +11,8 @@ import ChatButton from '@/components/chat/ChatButton';
 import TextWave from '@/components/effects/TextWave';
 import RetroFallingText from '@/components/effects/RetroFallingText';
 import HandDrawnArrow from '@/components/effects/HandDrawnArrow';
+import TypingEffect from '@/components/effects/TypingEffect';
+import MathBackground from '@/components/effects/MathBackground';
 import LearningStrip from '@/components/LearningStrip';
 import ProgressRing from '@/components/progress/ProgressRing';
 
@@ -83,17 +85,37 @@ const Index = () => {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
+      {/* Mathematical animated background */}
+      <MathBackground />
+      
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
       {/* Hero Section */}
-      <Section className="pt-24 pb-12" padding="xl">
+      <Section className="pt-24 pb-12 relative z-10" padding="xl">
         <div className="max-w-6xl mx-auto">
-          {/* Main heading */}
+          {/* Main heading with typing effects */}
           <div className="text-center mb-16">
-            <div className="mb-16">
-              <RetroFallingText className="retro-falling-text">
-                data · design · decisions · deliverables
-              </RetroFallingText>
+            <div className="mb-16 text-4xl md:text-6xl font-bold">
+              <TypingEffect 
+                text="data" 
+                speed={150} 
+                delay={0}
+                className="text-white mr-4"
+              />
+              <span className="text-white mx-2">·</span>
+              <TypingEffect 
+                text="decisions" 
+                speed={150} 
+                delay={1000}
+                className="text-white mr-4"
+              />
+              <span className="text-white mx-2">·</span>
+              <TypingEffect 
+                text="deliverables" 
+                speed={150} 
+                delay={2000}
+                className="text-white"
+              />
             </div>
           </div>
 
@@ -101,9 +123,9 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Left side - Photograph */}
             <div className="flex justify-center lg:justify-start">
-              <Card className="p-8 w-80 h-96 flex flex-col items-center justify-center border-2 border-dashed border-border">
-                <div className="text-center text-muted-foreground">
-                  <h3 className="text-2xl font-semibold mb-2">Photograph</h3>
+              <Card className="p-8 w-80 h-96 flex flex-col items-center justify-center border-2 border-dashed border-white/20 bg-black/20 backdrop-blur-lg">
+                <div className="text-center text-white/70">
+                  <h3 className="text-2xl font-semibold mb-2 text-white">Photograph</h3>
                   <p className="text-lg">by me</p>
                 </div>
               </Card>
@@ -118,19 +140,19 @@ const Index = () => {
                   : 'opacity-0 translate-y-8 blur-sm'
               }`}
             >
-              <Card className="p-8">
-                <h2 className="text-3xl font-bold mb-6">Mission Statement</h2>
-                <blockquote className="text-xl font-medium text-balance mb-6">
+              <Card className="p-8 bg-black/30 backdrop-blur-lg border-white/20">
+                <h2 className="text-3xl font-bold mb-6 text-white">Mission Statement</h2>
+                <blockquote className="text-xl font-medium text-balance mb-6 text-white">
                   "{quotes[currentQuote]}"
                 </blockquote>
-                <p className="text-muted-foreground">— Daily inspiration that drives my work</p>
+                <p className="text-white/70">— Daily inspiration that drives my work</p>
               </Card>
             </div>
           </div>
 
           {/* Contact Section */}
           <div className="mb-16">
-            <h2 className="text-4xl font-bold mb-8">Contact</h2>
+            <h2 className="text-4xl font-bold mb-8 text-white">Contact</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
               <div className="text-center">
                 <h3 className="font-semibold mb-2 text-muted-foreground">Phone</h3>
