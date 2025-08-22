@@ -213,20 +213,18 @@ export default {
 				'fade-up': 'fade-up 0.5s ease-out',
 				'slide-in': 'slide-in 0.4s ease-out',
 				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
-				'marquee': 'marquee 30s linear infinite',
+				'marquee': 'marquee 20s linear infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'wave': 'wave 2s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'marquee': 'marquee 20s linear infinite',
-			}
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.23, 1, 0.32, 1)',
 				'elegant': 'cubic-bezier(0.16, 1, 0.3, 1)',
 				'quick': 'cubic-bezier(0.4, 0, 0.2, 1)'
 			}
-		}
+		},
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
