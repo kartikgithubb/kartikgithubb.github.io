@@ -102,12 +102,15 @@ export default {
 				]
 			},
 			backgroundImage: {
-				'gradient-primary': 'linear-gradient(135deg, hsl(0, 0%, 0%), hsl(0, 0%, 30%))',
-				'gradient-subtle': 'linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 0%, 95%))',
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-surface': 'var(--gradient-surface)', 
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-elegant': 'var(--gradient-elegant)',
 			},
 			boxShadow: {
-				'monochrome': '0 4px 12px hsl(0, 0%, 0%, 0.15)',
-				'monochrome-lg': '0 10px 25px hsl(0, 0%, 0%, 0.2)',
+				'monochrome': 'var(--shadow-md)',
+				'monochrome-lg': 'var(--shadow-lg)',
+				'glow': 'var(--shadow-glow)',
 			},
 			backdropBlur: {
 				premium: 'var(--backdrop-blur)'
