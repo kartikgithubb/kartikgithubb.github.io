@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Download } from 'lucide-react';
-import TypingEffect from '@/components/effects/TypingEffect';
+import FallingLetters from '@/components/effects/FallingLetters';
 interface HeroProps {
   className?: string;
 }
@@ -30,11 +30,9 @@ const Hero = ({
           {/* Main hero content */}
           <div className="text-center mb-16 animate-fade-up">
             <div className="mb-8">
-              <TypingEffect 
+              <FallingLetters 
                 text="data · decisions · deliverables"
-                className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold mb-6"
-                speed={150}
-                delay={500}
+                className="display-title text-3xl md:text-5xl lg:text-6xl font-bold mb-6"
               />
             </div>
             
