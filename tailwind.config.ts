@@ -58,35 +58,22 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Framer premium colors
-				gold: {
-					50: 'hsl(48, 100%, 96%)',
-					100: 'hsl(48, 96%, 89%)',
-					200: 'hsl(47, 96%, 80%)',
-					300: 'hsl(46, 96%, 70%)',
-					400: 'hsl(45, 96%, 68%)',
-					500: 'hsl(45, 86%, 58%)',
-					600: 'hsl(42, 87%, 55%)',
-					700: 'hsl(36, 77%, 49%)',
-					800: 'hsl(32, 74%, 41%)',
-					900: 'hsl(28, 73%, 31%)'
-				},
-				silver: {
-					50: 'hsl(45, 50%, 95%)',
-					100: 'hsl(45, 50%, 85%)',
-					200: 'hsl(45, 40%, 75%)',
-					300: 'hsl(45, 30%, 65%)',
-					400: 'hsl(45, 20%, 55%)',
-					500: 'hsl(45, 15%, 45%)',
-					600: 'hsl(45, 10%, 35%)',
-					700: 'hsl(45, 8%, 25%)',
-					800: 'hsl(45, 6%, 18%)',
-					900: 'hsl(45, 4%, 12%)'
-				},
-				surface: {
-					elevated: 'hsl(var(--surface-elevated))',
-					subtle: 'hsl(var(--surface-subtle))',
-					accent: 'hsl(var(--surface-accent))'
+				// Monochrome colors only
+				monochrome: {
+					black: 'hsl(0, 0%, 0%)',
+					white: 'hsl(0, 0%, 100%)',
+					gray: {
+						50: 'hsl(0, 0%, 95%)',
+						100: 'hsl(0, 0%, 90%)',
+						200: 'hsl(0, 0%, 80%)',
+						300: 'hsl(0, 0%, 70%)',
+						400: 'hsl(0, 0%, 60%)',
+						500: 'hsl(0, 0%, 50%)',
+						600: 'hsl(0, 0%, 40%)',
+						700: 'hsl(0, 0%, 30%)',
+						800: 'hsl(0, 0%, 20%)',
+						900: 'hsl(0, 0%, 10%)',
+					}
 				}
 			},
 			borderRadius: {
@@ -115,17 +102,12 @@ export default {
 				]
 			},
 			backgroundImage: {
-				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-dark': 'var(--gradient-dark)',
-				'gradient-silver': 'var(--gradient-silver)',
-				'gradient-gold': 'var(--gradient-gold)',
-				'gradient-elegant': 'var(--gradient-elegant)'
+				'gradient-primary': 'linear-gradient(135deg, hsl(0, 0%, 0%), hsl(0, 0%, 30%))',
+				'gradient-subtle': 'linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 0%, 95%))',
 			},
 			boxShadow: {
-				premium: 'var(--shadow-premium)',
-				elegant: 'var(--shadow-elegant)',
-				glow: 'var(--shadow-glow)',
-				soft: 'var(--shadow-soft)'
+				'monochrome': '0 4px 12px hsl(0, 0%, 0%, 0.15)',
+				'monochrome-lg': '0 10px 25px hsl(0, 0%, 0%, 0.2)',
 			},
 			backdropBlur: {
 				premium: 'var(--backdrop-blur)'
