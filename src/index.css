@@ -237,7 +237,7 @@
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-premium);
+    box-shadow: var(--shadow-lg);
   }
 
   .hover-glow {
@@ -315,20 +315,14 @@
     transform: translateY(-2px) scale(1.02);
   }
 
-  /* Gold Text Effects */
-  .gold-text {
-    background: var(--gradient-gold);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* Monochrome Text Effects */
+  .mono-text {
+    color: hsl(var(--foreground));
     font-weight: 600;
   }
 
-  .silver-text {
-    background: var(--gradient-silver);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .subtle-text {
+    color: hsl(var(--muted-foreground));
     font-weight: 500;
   }
 
