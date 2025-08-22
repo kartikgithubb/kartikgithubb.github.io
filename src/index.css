@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Framer-inspired premium design system with black backgrounds and gold accents */
+/* Monochrome design system */
 
 @layer base {
   :root {
@@ -324,65 +324,5 @@
   .subtle-text {
     color: hsl(var(--muted-foreground));
     font-weight: 500;
-  }
-
-  /* Diamond Rock Texture Brand Text */
-  .diamond-rock-text {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 1.5rem;
-    color: #C0C0C0;
-    text-shadow: 
-      1px 1px 0px #A0A0A0,
-      2px 2px 0px #808080,
-      3px 3px 0px #606060,
-      0 0 10px rgba(192, 192, 192, 0.3);
-    background: linear-gradient(135deg, #E8E8E8 0%, #A0A0A0 25%, #C0C0C0 50%, #808080 75%, #B0B0B0 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: contrast(1.2) brightness(0.9);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-  }
-
-  .diamond-rock-text::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
-      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 1px, transparent 1px),
-      radial-gradient(circle at 40% 60%, rgba(0,0,0,0.1) 1px, transparent 1px);
-    background-size: 8px 8px, 12px 12px, 6px 6px;
-    pointer-events: none;
-    opacity: 0.6;
-  }
-
-  .diamond-rock-text:hover {
-    color: #FFD700;
-    text-shadow: 
-      1px 1px 0px #FFA500,
-      2px 2px 0px #FF8C00,
-      3px 3px 0px #FF6347,
-      0 0 20px rgba(255, 215, 0, 0.8),
-      0 0 40px rgba(255, 215, 0, 0.6),
-      0 0 60px rgba(255, 215, 0, 0.4);
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF8C00 50%, #FF6347 75%, #FFD700 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: contrast(1.4) brightness(1.2);
-    transform: scale(1.05);
-  }
-
-  .diamond-rock-text:hover::before {
-    background-image: 
-      radial-gradient(circle at 20% 20%, rgba(255,215,0,0.2) 1px, transparent 1px),
-      radial-gradient(circle at 80% 80%, rgba(255,165,0,0.15) 1px, transparent 1px),
-      radial-gradient(circle at 40% 60%, rgba(255,140,0,0.1) 1px, transparent 1px);
-    opacity: 0.8;
   }
 }
