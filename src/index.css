@@ -6,62 +6,62 @@
 
 @layer base {
   :root {
-    /* Framer-style modern design system */
-    --primary: 258 79% 64%;          /* Lavender-indigo #6C5CE7 */
-    --primary-foreground: 0 0% 100%; /* White */
-    --accent: 197 100% 50%;          /* Electric cyan #00C2FF */
+    /* Monochrome design system - Black & White */
+    --primary: 0 0% 0%;              /* Pure Black */
+    --primary-foreground: 0 0% 100%; /* Pure White */
+    --accent: 0 0% 20%;              /* Dark Gray */
     --accent-foreground: 0 0% 100%;  /* White */
     
     /* Neutral scale */
-    --neutral-900: 240 33% 4%;       /* #0B0B0F */
-    --neutral-700: 240 20% 11%;      /* #1A1A22 */
-    --neutral-400: 220 9% 64%;       /* #9AA0A6 */
-    --neutral-100: 210 40% 98%;      /* #F5F7FA */
+    --neutral-900: 0 0% 0%;          /* Pure Black */
+    --neutral-700: 0 0% 15%;         /* Dark Gray */
+    --neutral-400: 0 0% 60%;         /* Medium Gray */
+    --neutral-100: 0 0% 100%;        /* Pure White */
     
-    /* System colors based on brand */
-    --background: var(--neutral-900);
-    --foreground: var(--neutral-100);
-    --card: 240 25% 6%;              /* Slightly lighter than bg */
-    --card-foreground: var(--neutral-100);
+    /* System colors based on monochrome */
+    --background: 0 0% 100%;         /* White background */
+    --foreground: 0 0% 0%;           /* Black text */
+    --card: 0 0% 98%;                /* Very light gray */
+    --card-foreground: 0 0% 0%;      /* Black text */
     --popover: var(--card);
-    --popover-foreground: var(--neutral-100);
+    --popover-foreground: 0 0% 0%;
     
     /* Interactive elements */
-    --secondary: var(--neutral-700);
-    --secondary-foreground: var(--neutral-100);
-    --muted: var(--neutral-700);
-    --muted-foreground: var(--neutral-400);
+    --secondary: 0 0% 90%;           /* Light gray */
+    --secondary-foreground: 0 0% 0%; /* Black text */
+    --muted: 0 0% 95%;               /* Very light gray */
+    --muted-foreground: 0 0% 40%;    /* Dark gray text */
     
     /* Destructive colors */
     --destructive: 0 72% 51%;        /* Red */
     --destructive-foreground: 0 0% 100%;
     
     /* Border and input */
-    --border: 240 15% 15%;           /* Subtle border */
+    --border: 0 0% 85%;              /* Light gray border */
     --input: var(--border);
     --ring: var(--primary);
     
     /* Surface colors for depth */
-    --surface-elevated: 240 20% 8%;
-    --surface-hover: 240 15% 12%;
+    --surface-elevated: 0 0% 96%;
+    --surface-hover: 0 0% 94%;
     
     /* Radius */
     --radius: 8px;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(0 0% 30%) 100%);
     --gradient-surface: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary)) 100%);
-    --gradient-mesh: radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%), 
-                     radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
-                     radial-gradient(circle at 40% 80%, hsl(var(--primary) / 0.05) 0%, transparent 50%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(0 0% 20%) 50%, hsl(var(--primary)) 100%);
+    --gradient-mesh: radial-gradient(circle at 20% 50%, hsl(0 0% 0% / 0.05) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 20%, hsl(0 0% 0% / 0.03) 0%, transparent 50%),
+                     radial-gradient(circle at 40% 80%, hsl(0 0% 0% / 0.02) 0%, transparent 50%);
     
     /* Shadows */
-    --shadow-sm: 0 1px 3px hsl(var(--neutral-900) / 0.5);
-    --shadow-md: 0 4px 12px hsl(var(--neutral-900) / 0.3);
-    --shadow-lg: 0 10px 25px hsl(var(--neutral-900) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
-    --shadow-accent: 0 4px 20px hsl(var(--accent) / 0.2);
+    --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.15);
+    --shadow-lg: 0 10px 25px hsl(0 0% 0% / 0.2);
+    --shadow-glow: 0 0 40px hsl(0 0% 0% / 0.3);
+    --shadow-accent: 0 4px 20px hsl(0 0% 0% / 0.1);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

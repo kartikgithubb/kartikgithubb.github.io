@@ -228,94 +228,93 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Skill Categories Grid */}
-        <div className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {skillCategories.map((category) => (
-              <div key={category.id} className="text-center">
-                <h3 className="text-lg font-semibold mb-2">{category.name}</h3>
-                <p className="text-sm text-muted-foreground mb-6">{category.description}</p>
+        {/* Skills & Tools Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          {/* Left Side - Skills & Tools */}
+          <div className="space-y-6">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold mb-2">Skills & Tools</h2>
+              <p className="text-muted-foreground">(Click on a tool to check my microskills)</p>
+            </div>
+            
+            {/* Single Large Circle */}
+            <div className="relative w-96 h-96 mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background">
+              {/* Combine all tools from all categories into one circle */}
+              {skillCategories.flatMap(category => category.tools).map((tool, index) => {
+                const totalTools = skillCategories.flatMap(category => category.tools).length;
+                const angle = (index * 360) / totalTools;
+                const radius = 140;
+                const x = Math.cos((angle * Math.PI) / 180) * radius;
+                const y = Math.sin((angle * Math.PI) / 180) * radius;
                 
-                {/* Category Circle */}
-                <div className="relative w-60 h-60 mx-auto border-2 border-muted rounded-full flex items-center justify-center">
-                  {category.tools.map((tool, index) => {
-                    const angle = (index * 360) / category.tools.length;
-                    const radius = 80;
-                    const x = Math.cos((angle * Math.PI) / 180) * radius;
-                    const y = Math.sin((angle * Math.PI) / 180) * radius;
-                    
-                    return (
-                      <div
-                        key={tool.id}
-                        className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-110"
-                        style={{
-                          left: `calc(50% + ${x}px)`,
-                          top: `calc(50% + ${y}px)`,
-                        }}
-                        onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
-                      >
-                        <div className={`w-14 h-14 ${tool.color} rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-background`}>
-                          {tool.logo}
-                        </div>
+                return (
+                  <div
+                    key={tool.id}
+                    className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-110"
+                    style={{
+                      left: `calc(50% + ${x}px)`,
+                      top: `calc(50% + ${y}px)`,
+                    }}
+                    onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
+                  >
+                    <div className="w-16 h-16 bg-white border-2 border-foreground rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background">
+                      {tool.logo}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Side - Skill Board */}
+          <div className="space-y-6">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold mb-2">Skill Board</h2>
+              <p className="text-muted-foreground">
+                (Select a tool/ skill from bubble to view micro skills here)
+              </p>
+            </div>
+            
+            <Card className="min-h-[400px] border-2 border-foreground">
+              <CardContent className="p-8">
+                {selectedTool ? (
+                  <div>
+                    <div className="flex items-center justify-center mb-6">
+                      <div className="w-16 h-16 bg-white border-2 border-foreground rounded-full flex items-center justify-center text-3xl mr-4">
+                        {selectedTool.logo}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+                      <div>
+                        <h3 className="text-2xl font-semibold">{selectedTool.name}</h3>
+                        <p className="text-muted-foreground">Micro-skills and competencies</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      {selectedTool.microSkills.map((skill, index) => (
+                        <div
+                          key={index}
+                          className="p-4 border border-foreground rounded-lg text-center hover:bg-foreground hover:text-background transition-colors duration-200"
+                        >
+                          <span className="font-medium">{skill}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center h-64">
+                    <div className="text-center text-muted-foreground">
+                      <div className="w-16 h-16 border-2 border-foreground rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl">🎯</span>
+                      </div>
+                      <p className="text-lg">Click on any tool bubble to explore micro-skills</p>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
           </div>
         </div>
 
-        {/* Skill Board */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold mb-2">Skill Board</h2>
-            <p className="text-muted-foreground">
-              {selectedTool 
-                ? `Micro-skills for ${selectedTool.name}` 
-                : 'Select a tool/skill from bubble to view micro skills here'
-              }
-            </p>
-          </div>
-          
-          <Card className="min-h-[300px]">
-            <CardContent className="p-8">
-              {selectedTool ? (
-                <div>
-                  <div className="flex items-center justify-center mb-6">
-                    <div className={`w-16 h-16 ${selectedTool.color} rounded-full flex items-center justify-center text-3xl mr-4`}>
-                      {selectedTool.logo}
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-semibold">{selectedTool.name}</h3>
-                      <p className="text-muted-foreground">Micro-skills and competencies</p>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {selectedTool.microSkills.map((skill, index) => (
-                      <div
-                        key={index}
-                        className="p-4 bg-muted/50 rounded-lg text-center hover:bg-muted transition-colors duration-200"
-                      >
-                        <span className="font-medium">{skill}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <div className="flex items-center justify-center h-48">
-                  <div className="text-center text-muted-foreground">
-                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl">🎯</span>
-                    </div>
-                    <p className="text-lg">Click on any tool bubble above to explore micro-skills</p>
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
       </Section>
 
       <Footer />
