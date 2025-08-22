@@ -219,7 +219,6 @@ export default {
 				'wave': 'wave 2s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'marquee': 'marquee 20s linear infinite',
-			}
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.23, 1, 0.32, 1)',
