@@ -228,60 +228,65 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Skills & Tools - Single Big Bubble */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        {/* Skills & Tools - 6 Category Bubbles */}
+        <div className="text-center max-w-6xl mx-auto mb-16">
           <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
           <p className="text-muted-foreground mb-8">(Click on a tool to check my microskills)</p>
           
-          {/* Free-form Horizontal Bubble Layout */}
-          <div 
-            className="relative mx-auto border-2 border-foreground rounded-2xl flex items-center justify-center bg-background overflow-visible p-8"
-            style={{
-              width: `${Math.max(800, skillCategories.flatMap(c => c.tools).length * 80)}px`,
-              height: `400px`,
-            }}
-          >
-            {/* Horizontally arranged skill bubbles with free positioning */}
-            {skillCategories.flatMap(category => category.tools).map((tool, index) => {
-              const totalTools = skillCategories.flatMap(category => category.tools).length;
-              
-              // Create horizontal spacing with slight vertical randomness for free design
-              const seed = tool.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-              const randomY = ((seed * 9301 + 49297) % 100) / 100; // 0-1 random
-              
-              // Horizontal positioning - evenly distributed but with slight randomness
-              const baseX = (index / (totalTools - 1)) * 100; // 0-100%
-              const randomXOffset = ((seed * 1337 + index) % 20) - 10; // -10 to +10% random offset
-              const finalX = Math.max(5, Math.min(95, baseX + randomXOffset)); // Keep within bounds
-              
-              // Vertical positioning - random but contained
-              const finalY = 30 + (randomY * 40); // 30-70% of container height
-              
-              return (
-                <div
-                  key={tool.id}
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-125 hover:z-10 group"
+          {/* 6 Category Bubbles Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillCategories.map((category) => (
+              <div key={category.id} className="flex flex-col items-center">
+                {/* Category Bubble */}
+                <div 
+                  className="relative border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-visible mb-4"
                   style={{
-                    left: `${finalX}%`,
-                    top: `${finalY}%`,
+                    width: '280px',
+                    height: '280px',
                   }}
-                  onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                 >
-                  <div className="text-4xl transition-all duration-300 hover:scale-150 animate-float group-hover:animate-none">
-                    {tool.logo}
-                  </div>
-                  {/* Tool name tooltip */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-20">
-                    {tool.name}
+                  {/* Floating tools within each category bubble */}
+                  {category.tools.map((tool, index) => {
+                    // Create random positioning within each bubble
+                    const seed = tool.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                    const randomX = ((seed * 9301 + 49297) % 100) / 100; // 0-1 random
+                    const randomY = ((seed * 1337 + index) % 100) / 100; // 0-1 random
+                    
+                    // Position within bubble bounds (avoiding edges)
+                    const finalX = 20 + (randomX * 60); // 20-80% of container width
+                    const finalY = 20 + (randomY * 60); // 20-80% of container height
+                    
+                    return (
+                      <div
+                        key={tool.id}
+                        className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-125 hover:z-10 group"
+                        style={{
+                          left: `${finalX}%`,
+                          top: `${finalY}%`,
+                        }}
+                        onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
+                      >
+                        <div className="text-4xl transition-all duration-300 hover:scale-150 animate-float group-hover:animate-none">
+                          {tool.logo}
+                        </div>
+                        {/* Tool name tooltip */}
+                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-20">
+                          {tool.name}
+                        </div>
+                      </div>
+                    );
+                  })}
+                  
+                  {/* Category label at top of bubble */}
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border-2 border-foreground rounded-lg px-4 py-1 text-sm font-semibold shadow-lg whitespace-nowrap">
+                    {category.tools.length} Tools
                   </div>
                 </div>
-              );
-            })}
-            
-            {/* Center label */}
-            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-background border-2 border-foreground rounded-lg px-6 py-2 text-lg font-semibold shadow-lg">
-              {skillCategories.flatMap(c => c.tools).length} Skills & Tools
-            </div>
+                
+                {/* Category Name */}
+                <h3 className="text-lg font-semibold text-center">{category.name}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
