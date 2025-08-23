@@ -132,25 +132,6 @@
     animation: diamond-pattern 2s linear infinite;
   }
 
-  /* Border radiance effect */
-  .diamond-rock-text:hover::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 2px solid transparent;
-    border-radius: 6px;
-    background: linear-gradient(45deg, hsl(var(--gold)) 0%, transparent 50%, hsl(var(--gold)) 100%);
-    background-size: 200% 200%;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    animation: border-radiance 2s linear infinite;
-    opacity: 0.8;
-  }
 
   @keyframes diamond-shimmer {
     0%, 100% { 
@@ -179,20 +160,6 @@
     }
   }
 
-  @keyframes border-radiance {
-    0% { 
-      background-position: 0% 50%;
-      opacity: 0.6;
-    }
-    50% { 
-      background-position: 100% 50%;
-      opacity: 1;
-    }
-    100% { 
-      background-position: 0% 50%;
-      opacity: 0.6;
-    }
-  }
 
   .drop-shadow-glow {
     filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.5));
