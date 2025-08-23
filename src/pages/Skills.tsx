@@ -259,7 +259,7 @@ const Skills = () => {
                   }}
                   onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                 >
-                  <div className="w-16 h-16 bg-white border-2 border-foreground rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background">
+                  <div className="w-16 h-16 bg-primary text-primary-foreground border-2 border-foreground rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background">
                     {tool.logo}
                   </div>
                 </div>
@@ -277,28 +277,28 @@ const Skills = () => {
       </Section>
 
       {/* Whiteboard Style Skill Board Section */}
-      <Section background="subtle" className="bg-gradient-to-b from-background to-monochrome-gray-50">
+      <Section background="subtle" className="bg-muted">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-monochrome-white rounded-lg border-4 border-monochrome-black shadow-2xl p-8 min-h-[500px]" style={{ fontFamily: 'Comic Sans MS, cursive' }}>
+          <div className="bg-primary text-primary-foreground rounded-lg border-4 border-foreground shadow-2xl p-8 min-h-[500px]">
             {/* Whiteboard Header */}
-            <div className="text-center mb-8 border-b-2 border-monochrome-black pb-4">
-              <h2 className="text-4xl font-bold text-monochrome-black mb-2" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
+            <div className="text-center mb-8 border-b-2 border-foreground pb-4">
+              <h2 className="text-4xl font-bold mb-2">
                 📋 Skill Board
               </h2>
-              <p className="text-lg text-monochrome-gray-700">
+              <p className="text-lg text-muted-foreground">
                 (Select a tool/skill from bubble above to view micro skills here)
               </p>
             </div>
             
             {selectedTool ? (
-              <div className="text-monochrome-black">
+              <div>
                 <div className="flex items-center justify-center mb-8">
-                  <div className="w-20 h-20 bg-monochrome-black text-white rounded-full flex items-center justify-center text-4xl mr-6 shadow-lg">
+                  <div className="w-20 h-20 bg-foreground text-background rounded-full flex items-center justify-center text-4xl mr-6 shadow-lg">
                     {selectedTool.logo}
                   </div>
                   <div className="text-left">
-                    <h3 className="text-3xl font-bold text-monochrome-black">{selectedTool.name}</h3>
-                    <p className="text-xl text-monochrome-gray-600 italic">Micro-skills & Competencies</p>
+                    <h3 className="text-3xl font-bold">{selectedTool.name}</h3>
+                    <p className="text-xl text-muted-foreground italic">Micro-skills & Competencies</p>
                   </div>
                 </div>
                 
@@ -312,30 +312,30 @@ const Skills = () => {
                   {selectedTool.microSkills.map((skill, index) => (
                     <div
                       key={index}
-                      className="p-4 bg-monochrome-gray-100 border-2 border-monochrome-black rounded-lg text-center hover:bg-monochrome-gray-200 transition-colors duration-200 shadow-md"
+                      className="p-4 bg-muted text-muted-foreground border-2 border-foreground rounded-lg text-center hover:bg-accent transition-colors duration-200 shadow-md"
                       style={{ transform: `rotate(${Math.random() * 4 - 2}deg)` }}
                     >
-                      <span className="font-bold text-monochrome-black text-lg">{skill}</span>
+                      <span className="font-bold text-lg">{skill}</span>
                     </div>
                   ))}
                 </div>
                 
                 {/* Chalk-style decorative elements */}
                 <div className="mt-8 text-center">
-                  <div className="text-2xl text-monochrome-gray-400">• • • • •</div>
-                  <p className="text-sm text-monochrome-gray-500 mt-2 italic">
+                  <div className="text-2xl text-muted-foreground">• • • • •</div>
+                  <p className="text-sm text-muted-foreground mt-2 italic">
                     Total Skills: {selectedTool.microSkills.length}
                   </p>
                 </div>
               </div>
             ) : (
               <div className="flex items-center justify-center h-64">
-                <div className="text-center text-monochrome-gray-600">
-                  <div className="w-24 h-24 border-4 border-monochrome-black rounded-full flex items-center justify-center mx-auto mb-6 bg-monochrome-gray-100">
+                <div className="text-center text-muted-foreground">
+                  <div className="w-24 h-24 border-4 border-foreground rounded-full flex items-center justify-center mx-auto mb-6 bg-muted">
                     <span className="text-4xl">🎯</span>
                   </div>
-                  <p className="text-2xl font-bold text-monochrome-black">Click on any tool bubble above</p>
-                  <p className="text-lg text-monochrome-gray-700 mt-2">to explore micro-skills on this whiteboard!</p>
+                  <p className="text-2xl font-bold">Click on any tool bubble above</p>
+                  <p className="text-lg mt-2">to explore micro-skills on this whiteboard!</p>
                   
                   {/* Chalk-style decorative drawing */}
                   <div className="mt-8">
@@ -349,7 +349,6 @@ const Skills = () => {
             )}
           </div>
         </div>
-
       </Section>
 
       <Footer />
