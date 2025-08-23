@@ -233,22 +233,26 @@ const Skills = () => {
           <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
           <p className="text-muted-foreground mb-8">(Click on a tool to check my microskills)</p>
           
-          {/* Dynamic Big Circle */}
+          {/* Dynamic Free-form Bubble Layout */}
           <div 
             className="relative mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-visible"
             style={{
-              width: `${Math.max(500, skillCategories.flatMap(c => c.tools).length * 25)}px`,
-              height: `${Math.max(500, skillCategories.flatMap(c => c.tools).length * 25)}px`,
+              width: `${Math.max(600, skillCategories.flatMap(c => c.tools).length * 30)}px`,
+              height: `${Math.max(600, skillCategories.flatMap(c => c.tools).length * 30)}px`,
             }}
           >
-            {/* Combine all tools from all categories into one big circle */}
+            {/* Randomly positioned skill bubbles */}
             {skillCategories.flatMap(category => category.tools).map((tool, index) => {
-              const totalTools = skillCategories.flatMap(category => category.tools).length;
-              const angle = (index * 360) / totalTools;
-              // Increased radius to prevent overlapping and ensure spacing
-              const dynamicRadius = Math.max(180, totalTools * 12);
-              const x = Math.cos((angle * Math.PI) / 180) * dynamicRadius;
-              const y = Math.sin((angle * Math.PI) / 180) * dynamicRadius;
+              // Generate consistent random positions based on tool name (deterministic)
+              const seed = tool.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+              const random1 = ((seed * 9301 + 49297) % 233280) / 233280;
+              const random2 = ((seed * 9301 + 49297 + index) % 233280) / 233280;
+              
+              // Create random position within the circle, avoiding center area
+              const radius = Math.max(120, 250 * Math.sqrt(random1));
+              const angle = random2 * 2 * Math.PI;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
               
               return (
                 <div
@@ -260,7 +264,7 @@ const Skills = () => {
                   }}
                   onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                 >
-                  <div className="w-20 h-20 bg-primary text-primary-foreground border-2 border-foreground rounded-full flex items-center justify-center text-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background animate-bounce-gentle group-hover:animate-none">
+                  <div className="w-20 h-20 bg-primary text-primary-foreground border-2 border-foreground rounded-full flex items-center justify-center text-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background animate-float group-hover:animate-none">
                     {tool.logo}
                   </div>
                   {/* Tool name tooltip */}
@@ -307,14 +311,14 @@ const Skills = () => {
                   </div>
                 </div>
                 
-                {/* Plain bullet point list for unlimited skills */}
-                <div className="space-y-3">
+                {/* Horizontal bullet point layout */}
+                <div className="flex flex-wrap gap-x-8 gap-y-2">
                   {selectedTool.microSkills.map((skill, index) => (
                     <div
                       key={index}
                       className="flex items-center text-lg"
                     >
-                      <span className="text-2xl mr-4">•</span>
+                      <span className="text-xl mr-2">•</span>
                       <span className="font-medium">{skill}</span>
                     </div>
                   ))}
