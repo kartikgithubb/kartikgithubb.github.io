@@ -267,7 +267,7 @@ const Skills = () => {
                   }}
                   onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                 >
-                  <div className="w-20 h-20 bg-primary text-primary-foreground border-2 border-foreground rounded-full flex items-center justify-center text-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background animate-float group-hover:animate-none">
+                  <div className="text-4xl transition-all duration-300 hover:scale-150 animate-float group-hover:animate-none">
                     {tool.logo}
                   </div>
                   {/* Tool name tooltip */}
