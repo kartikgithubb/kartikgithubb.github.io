@@ -5,11 +5,16 @@ import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
 import RadarChart from '@/components/charts/RadarChart';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { 
+  Code2, Database, FileSpreadsheet, BarChart3, PieChart, BarChart, 
+  Brain, Flame, Settings, Figma, Grid3x3, FileText, Target, 
+  BookOpen, Kanban, GitBranch, Container, Cloud 
+} from 'lucide-react';
 
 interface ToolBubble {
   id: string;
   name: string;
-  logo: string;
+  logo: React.ComponentType<any>;
   color: string;
   microSkills: string[];
 }
@@ -31,21 +36,21 @@ const skillCategories: SkillCategory[] = [
       {
         id: 'python',
         name: 'Python',
-        logo: '🐍',
+        logo: Code2,
         color: 'bg-blue-500',
         microSkills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter', 'Data Analysis', 'Machine Learning', 'Web Scraping']
       },
       {
         id: 'sql',
         name: 'SQL',
-        logo: '🗄️',
+        logo: Database,
         color: 'bg-green-500',
         microSkills: ['Complex Queries', 'Joins', 'Subqueries', 'Optimization', 'Stored Procedures', 'Indexing', 'Performance Tuning']
       },
       {
         id: 'excel',
         name: 'Excel',
-        logo: '📈',
+        logo: FileSpreadsheet,
         color: 'bg-emerald-500',
         microSkills: ['Advanced Formulas', 'Pivot Tables', 'VBA', 'Data Validation', 'Conditional Formatting', 'Charts', 'Macros']
       }
@@ -59,21 +64,21 @@ const skillCategories: SkillCategory[] = [
       {
         id: 'powerbi',
         name: 'Power BI',
-        logo: '📊',
+        logo: BarChart3,
         color: 'bg-yellow-500',
         microSkills: ['DAX', 'Power Query', 'Data Modeling', 'Visualizations', 'Dashboards', 'Reports', 'Gateway', 'Power Apps']
       },
       {
         id: 'tableau',
         name: 'Tableau',
-        logo: '📋',
+        logo: PieChart,
         color: 'bg-orange-500',
         microSkills: ['Data Visualization', 'Calculated Fields', 'Parameters', 'Dashboard Design', 'Story Points', 'Filters', 'Actions']
       },
       {
         id: 'googleanalytics',
         name: 'GA4',
-        logo: '📱',
+        logo: BarChart,
         color: 'bg-blue-600',
         microSkills: ['Event Tracking', 'Custom Dimensions', 'Conversion Setup', 'Attribution Models', 'Audience Building', 'Reports', 'GTM']
       }
@@ -87,21 +92,21 @@ const skillCategories: SkillCategory[] = [
       {
         id: 'tensorflow',
         name: 'TensorFlow',
-        logo: '🧠',
+        logo: Brain,
         color: 'bg-purple-500',
         microSkills: ['Neural Networks', 'Deep Learning', 'Model Training', 'Computer Vision', 'NLP', 'Model Deployment', 'TensorBoard']
       },
       {
         id: 'pytorch',
         name: 'PyTorch',
-        logo: '🔥',
+        logo: Flame,
         color: 'bg-red-500',
         microSkills: ['Dynamic Graphs', 'Autograd', 'Model Building', 'Transfer Learning', 'Optimization', 'Distributed Training', 'ONNX']
       },
       {
         id: 'scikit',
         name: 'Scikit-learn',
-        logo: '⚙️',
+        logo: Settings,
         color: 'bg-indigo-500',
         microSkills: ['Classification', 'Regression', 'Clustering', 'Feature Selection', 'Model Evaluation', 'Preprocessing', 'Pipelines']
       }
@@ -115,21 +120,21 @@ const skillCategories: SkillCategory[] = [
       {
         id: 'figma',
         name: 'Figma',
-        logo: '🎨',
+        logo: Figma,
         color: 'bg-pink-500',
         microSkills: ['UI Design', 'Prototyping', 'Components', 'Auto Layout', 'Design Systems', 'Collaboration', 'Plugins']
       },
       {
         id: 'miro',
         name: 'Miro',
-        logo: '🧩',
+        logo: Grid3x3,
         color: 'bg-cyan-500',
         microSkills: ['Wireframing', 'User Journey Maps', 'Mind Maps', 'Brainstorming', 'Flowcharts', 'Collaboration', 'Templates']
       },
       {
         id: 'notion',
         name: 'Notion',
-        logo: '📝',
+        logo: FileText,
         color: 'bg-gray-600',
         microSkills: ['Documentation', 'Database Management', 'Project Planning', 'Knowledge Management', 'Templates', 'Automation', 'Collaboration']
       }
@@ -143,21 +148,21 @@ const skillCategories: SkillCategory[] = [
       {
         id: 'jira',
         name: 'Jira',
-        logo: '🎯',
+        logo: Target,
         color: 'bg-blue-700',
         microSkills: ['Agile Management', 'Sprint Planning', 'Issue Tracking', 'Workflow Design', 'Reporting', 'Automation', 'Integration']
       },
       {
         id: 'confluence',
         name: 'Confluence',
-        logo: '📚',
+        logo: BookOpen,
         color: 'bg-blue-600',
         microSkills: ['Documentation', 'Knowledge Base', 'Team Collaboration', 'Page Templates', 'Macros', 'Space Management', 'Integration']
       },
       {
         id: 'trello',
         name: 'Trello',
-        logo: '📌',
+        logo: Kanban,
         color: 'bg-blue-500',
         microSkills: ['Kanban Boards', 'Card Management', 'Team Organization', 'Power-Ups', 'Automation', 'Calendar View', 'Reporting']
       }
@@ -171,21 +176,21 @@ const skillCategories: SkillCategory[] = [
       {
         id: 'git',
         name: 'Git',
-        logo: '🔄',
+        logo: GitBranch,
         color: 'bg-orange-600',
         microSkills: ['Version Control', 'Branching', 'Merging', 'Pull Requests', 'Conflict Resolution', 'GitHub Actions', 'CI/CD']
       },
       {
         id: 'docker',
         name: 'Docker',
-        logo: '🐳',
+        logo: Container,
         color: 'bg-blue-600',
         microSkills: ['Containerization', 'Dockerfile', 'Docker Compose', 'Volumes', 'Networks', 'Multi-stage Builds', 'Orchestration']
       },
       {
         id: 'aws',
         name: 'AWS',
-        logo: '☁️',
+        logo: Cloud,
         color: 'bg-orange-500',
         microSkills: ['EC2', 'S3', 'Lambda', 'RDS', 'CloudFormation', 'IAM', 'API Gateway', 'CloudWatch']
       }
@@ -245,29 +250,29 @@ const Skills = () => {
                     height: '280px',
                   }}
                 >
-                  {/* Floating tools within each category bubble */}
+                  {/* Non-overlapping tools within each category bubble */}
                   {category.tools.map((tool, index) => {
-                    // Create random positioning within each bubble
-                    const seed = tool.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-                    const randomX = ((seed * 9301 + 49297) % 100) / 100; // 0-1 random
-                    const randomY = ((seed * 1337 + index) % 100) / 100; // 0-1 random
+                    // Create predefined positions to prevent overlapping (3 tools per category)
+                    const positions = [
+                      { x: 35, y: 25 }, // top-left
+                      { x: 65, y: 30 }, // top-right  
+                      { x: 50, y: 65 }  // bottom-center
+                    ];
                     
-                    // Position within bubble bounds (avoiding edges)
-                    const finalX = 20 + (randomX * 60); // 20-80% of container width
-                    const finalY = 20 + (randomY * 60); // 20-80% of container height
+                    const position = positions[index] || { x: 50, y: 50 }; // fallback to center
                     
                     return (
                       <div
                         key={tool.id}
                         className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-125 hover:z-10 group"
                         style={{
-                          left: `${finalX}%`,
-                          top: `${finalY}%`,
+                          left: `${position.x}%`,
+                          top: `${position.y}%`,
                         }}
                         onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                       >
-                        <div className="text-4xl transition-all duration-300 hover:scale-150 animate-float group-hover:animate-none">
-                          {tool.logo}
+                        <div className="w-16 h-16 transition-all duration-300 hover:scale-110 text-foreground flex items-center justify-center">
+                          <tool.logo size={40} />
                         </div>
                         {/* Tool name tooltip */}
                         <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-20">
@@ -308,8 +313,8 @@ const Skills = () => {
             {selectedTool ? (
               <div>
                 <div className="flex items-center justify-center mb-8">
-                  <div className="w-20 h-20 bg-foreground text-background rounded-full flex items-center justify-center text-4xl mr-6 shadow-lg">
-                    {selectedTool.logo}
+                  <div className="w-20 h-20 bg-foreground text-background rounded-full flex items-center justify-center mr-6 shadow-lg">
+                    <selectedTool.logo size={40} />
                   </div>
                   <div className="text-left">
                     <h3 className="text-3xl font-bold">{selectedTool.name}</h3>
