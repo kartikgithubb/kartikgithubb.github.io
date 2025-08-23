@@ -217,8 +217,7 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'wave': 'wave 2s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'marquee': 'marquee 20s linear infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
 			}
 			},
 			transitionTimingFunction: {

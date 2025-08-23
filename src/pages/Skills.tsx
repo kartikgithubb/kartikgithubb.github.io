@@ -228,90 +228,125 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Skills & Tools Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
-          {/* Left Side - Skills & Tools */}
-          <div className="space-y-6">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold mb-2">Skills & Tools</h2>
-              <p className="text-muted-foreground">(Click on a tool to check my microskills)</p>
-            </div>
-            
-            {/* Single Large Circle */}
-            <div className="relative w-96 h-96 mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background">
-              {/* Combine all tools from all categories into one circle */}
-              {skillCategories.flatMap(category => category.tools).map((tool, index) => {
-                const totalTools = skillCategories.flatMap(category => category.tools).length;
-                const angle = (index * 360) / totalTools;
-                const radius = 140;
-                const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius;
-                
-                return (
-                  <div
-                    key={tool.id}
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-110"
-                    style={{
-                      left: `calc(50% + ${x}px)`,
-                      top: `calc(50% + ${y}px)`,
-                    }}
-                    onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
-                  >
-                    <div className="w-16 h-16 bg-white border-2 border-foreground rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background">
-                      {tool.logo}
-                    </div>
+        {/* Skills & Tools - Single Big Bubble */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
+          <p className="text-muted-foreground mb-8">(Click on a tool to check my microskills)</p>
+          
+          {/* Dynamic Big Circle */}
+          <div 
+            className="relative mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-hidden"
+            style={{
+              width: `${Math.max(400, skillCategories.flatMap(c => c.tools).length * 20)}px`,
+              height: `${Math.max(400, skillCategories.flatMap(c => c.tools).length * 20)}px`,
+            }}
+          >
+            {/* Combine all tools from all categories into one big circle */}
+            {skillCategories.flatMap(category => category.tools).map((tool, index) => {
+              const totalTools = skillCategories.flatMap(category => category.tools).length;
+              const angle = (index * 360) / totalTools;
+              const dynamicRadius = Math.max(140, totalTools * 8);
+              const x = Math.cos((angle * Math.PI) / 180) * dynamicRadius;
+              const y = Math.sin((angle * Math.PI) / 180) * dynamicRadius;
+              
+              return (
+                <div
+                  key={tool.id}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-110"
+                  style={{
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                  }}
+                  onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
+                >
+                  <div className="w-16 h-16 bg-white border-2 border-foreground rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background">
+                    {tool.logo}
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
+            
+            {/* Center label */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="bg-background border-2 border-foreground rounded-lg px-4 py-2 text-sm font-semibold">
+                {skillCategories.flatMap(c => c.tools).length} Skills
+              </div>
             </div>
           </div>
+        </div>
+      </Section>
 
-          {/* Right Side - Skill Board */}
-          <div className="space-y-6">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold mb-2">Skill Board</h2>
-              <p className="text-muted-foreground">
-                (Select a tool/ skill from bubble to view micro skills here)
+      {/* Whiteboard Style Skill Board Section */}
+      <Section background="subtle" className="bg-gradient-to-b from-background to-monochrome-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-monochrome-white rounded-lg border-4 border-monochrome-black shadow-2xl p-8 min-h-[500px]" style={{ fontFamily: 'Comic Sans MS, cursive' }}>
+            {/* Whiteboard Header */}
+            <div className="text-center mb-8 border-b-2 border-monochrome-black pb-4">
+              <h2 className="text-4xl font-bold text-monochrome-black mb-2" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
+                📋 Skill Board
+              </h2>
+              <p className="text-lg text-monochrome-gray-700">
+                (Select a tool/skill from bubble above to view micro skills here)
               </p>
             </div>
             
-            <Card className="min-h-[400px] border-2 border-foreground">
-              <CardContent className="p-8">
-                {selectedTool ? (
-                  <div>
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-16 h-16 bg-white border-2 border-foreground rounded-full flex items-center justify-center text-3xl mr-4">
-                        {selectedTool.logo}
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-semibold">{selectedTool.name}</h3>
-                        <p className="text-muted-foreground">Micro-skills and competencies</p>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                      {selectedTool.microSkills.map((skill, index) => (
-                        <div
-                          key={index}
-                          className="p-4 border border-foreground rounded-lg text-center hover:bg-foreground hover:text-background transition-colors duration-200"
-                        >
-                          <span className="font-medium">{skill}</span>
-                        </div>
-                      ))}
-                    </div>
+            {selectedTool ? (
+              <div className="text-monochrome-black">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-20 h-20 bg-monochrome-black text-white rounded-full flex items-center justify-center text-4xl mr-6 shadow-lg">
+                    {selectedTool.logo}
                   </div>
-                ) : (
-                  <div className="flex items-center justify-center h-64">
-                    <div className="text-center text-muted-foreground">
-                      <div className="w-16 h-16 border-2 border-foreground rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl">🎯</span>
-                      </div>
-                      <p className="text-lg">Click on any tool bubble to explore micro-skills</p>
-                    </div>
+                  <div className="text-left">
+                    <h3 className="text-3xl font-bold text-monochrome-black">{selectedTool.name}</h3>
+                    <p className="text-xl text-monochrome-gray-600 italic">Micro-skills & Competencies</p>
                   </div>
-                )}
-              </CardContent>
-            </Card>
+                </div>
+                
+                {/* Dynamic grid layout for unlimited skills */}
+                <div 
+                  className="grid gap-4"
+                  style={{
+                    gridTemplateColumns: `repeat(${Math.min(4, Math.ceil(Math.sqrt(selectedTool.microSkills.length)))}, 1fr)`
+                  }}
+                >
+                  {selectedTool.microSkills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="p-4 bg-monochrome-gray-100 border-2 border-monochrome-black rounded-lg text-center hover:bg-monochrome-gray-200 transition-colors duration-200 shadow-md"
+                      style={{ transform: `rotate(${Math.random() * 4 - 2}deg)` }}
+                    >
+                      <span className="font-bold text-monochrome-black text-lg">{skill}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Chalk-style decorative elements */}
+                <div className="mt-8 text-center">
+                  <div className="text-2xl text-monochrome-gray-400">• • • • •</div>
+                  <p className="text-sm text-monochrome-gray-500 mt-2 italic">
+                    Total Skills: {selectedTool.microSkills.length}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center justify-center h-64">
+                <div className="text-center text-monochrome-gray-600">
+                  <div className="w-24 h-24 border-4 border-monochrome-black rounded-full flex items-center justify-center mx-auto mb-6 bg-monochrome-gray-100">
+                    <span className="text-4xl">🎯</span>
+                  </div>
+                  <p className="text-2xl font-bold text-monochrome-black">Click on any tool bubble above</p>
+                  <p className="text-lg text-monochrome-gray-700 mt-2">to explore micro-skills on this whiteboard!</p>
+                  
+                  {/* Chalk-style decorative drawing */}
+                  <div className="mt-8">
+                    <svg width="200" height="60" className="mx-auto opacity-30">
+                      <path d="M20 30 Q 100 10 180 30" stroke="#666" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                      <path d="M30 40 Q 100 20 170 40" stroke="#999" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
