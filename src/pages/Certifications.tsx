@@ -193,8 +193,8 @@ const Certifications = () => {
                     
                     {/* Tooltip */}
                     {hoveredCert === cert.id && (
-                      <div className="fixed top-4 right-4 z-50 max-w-sm">
-                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                      <div className="absolute left-full top-0 ml-2 z-50">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px]">
                           <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
                           <p className="text-sm text-muted-foreground mb-2">
                             <strong>Issuer:</strong> {cert.issuer}
@@ -253,8 +253,8 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="fixed top-4 right-4 z-50 max-w-sm">
-                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                      <div className="absolute left-full top-0 ml-2 z-50">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px]">
                           <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
                           <p className="text-sm text-muted-foreground mb-2">
                             <strong>Issuer:</strong> {cert.issuer}
@@ -313,8 +313,8 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="fixed top-4 right-4 z-50 max-w-sm">
-                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                      <div className="absolute left-full top-0 ml-2 z-50">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px]">
                           <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
                           <p className="text-sm text-muted-foreground mb-2">
                             <strong>Issuer:</strong> {cert.issuer}
@@ -374,8 +374,8 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="fixed top-4 right-4 z-50 max-w-sm">
-                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                      <div className="absolute left-full top-0 ml-2 z-50">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px]">
                           <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
                           <p className="text-sm text-muted-foreground mb-2">
                             <strong>Issuer:</strong> {cert.issuer}
@@ -434,8 +434,8 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="fixed top-4 right-4 z-50 max-w-sm">
-                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                      <div className="absolute left-full top-0 ml-2 z-50">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px]">
                           <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
                           <p className="text-sm text-muted-foreground mb-2">
                             <strong>Issuer:</strong> {cert.issuer}
@@ -494,8 +494,8 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="fixed top-4 right-4 z-50 max-w-sm">
-                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                      <div className="absolute left-full top-0 ml-2 z-50">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px]">
                           <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
                           <p className="text-sm text-muted-foreground mb-2">
                             <strong>Issuer:</strong> {cert.issuer}
