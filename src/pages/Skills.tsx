@@ -235,32 +235,37 @@ const Skills = () => {
           
           {/* Dynamic Big Circle */}
           <div 
-            className="relative mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-hidden"
+            className="relative mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-visible"
             style={{
-              width: `${Math.max(400, skillCategories.flatMap(c => c.tools).length * 20)}px`,
-              height: `${Math.max(400, skillCategories.flatMap(c => c.tools).length * 20)}px`,
+              width: `${Math.max(500, skillCategories.flatMap(c => c.tools).length * 25)}px`,
+              height: `${Math.max(500, skillCategories.flatMap(c => c.tools).length * 25)}px`,
             }}
           >
             {/* Combine all tools from all categories into one big circle */}
             {skillCategories.flatMap(category => category.tools).map((tool, index) => {
               const totalTools = skillCategories.flatMap(category => category.tools).length;
               const angle = (index * 360) / totalTools;
-              const dynamicRadius = Math.max(140, totalTools * 8);
+              // Increased radius to prevent overlapping and ensure spacing
+              const dynamicRadius = Math.max(180, totalTools * 12);
               const x = Math.cos((angle * Math.PI) / 180) * dynamicRadius;
               const y = Math.sin((angle * Math.PI) / 180) * dynamicRadius;
               
               return (
                 <div
                   key={tool.id}
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-110"
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-125 hover:z-10 group"
                   style={{
                     left: `calc(50% + ${x}px)`,
                     top: `calc(50% + ${y}px)`,
                   }}
                   onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                 >
-                  <div className="w-16 h-16 bg-primary text-primary-foreground border-2 border-foreground rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background">
+                  <div className="w-20 h-20 bg-primary text-primary-foreground border-2 border-foreground rounded-full flex items-center justify-center text-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-foreground hover:text-background animate-bounce-gentle group-hover:animate-none">
                     {tool.logo}
+                  </div>
+                  {/* Tool name tooltip */}
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                    {tool.name}
                   </div>
                 </div>
               );
@@ -268,7 +273,7 @@ const Skills = () => {
             
             {/* Center label */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="bg-background border-2 border-foreground rounded-lg px-4 py-2 text-sm font-semibold">
+              <div className="bg-background border-2 border-foreground rounded-lg px-6 py-3 text-lg font-semibold shadow-lg">
                 {skillCategories.flatMap(c => c.tools).length} Skills
               </div>
             </div>
@@ -302,20 +307,15 @@ const Skills = () => {
                   </div>
                 </div>
                 
-                {/* Dynamic grid layout for unlimited skills */}
-                <div 
-                  className="grid gap-4"
-                  style={{
-                    gridTemplateColumns: `repeat(${Math.min(4, Math.ceil(Math.sqrt(selectedTool.microSkills.length)))}, 1fr)`
-                  }}
-                >
+                {/* Plain bullet point list for unlimited skills */}
+                <div className="space-y-3">
                   {selectedTool.microSkills.map((skill, index) => (
                     <div
                       key={index}
-                      className="p-4 bg-muted text-muted-foreground border-2 border-foreground rounded-lg text-center hover:bg-accent transition-colors duration-200 shadow-md"
-                      style={{ transform: `rotate(${Math.random() * 4 - 2}deg)` }}
+                      className="flex items-center text-lg"
                     >
-                      <span className="font-bold text-lg">{skill}</span>
+                      <span className="text-2xl mr-4">•</span>
+                      <span className="font-medium">{skill}</span>
                     </div>
                   ))}
                 </div>
