@@ -233,34 +233,37 @@ const Skills = () => {
           <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
           <p className="text-muted-foreground mb-8">(Click on a tool to check my microskills)</p>
           
-          {/* Dynamic Free-form Bubble Layout */}
+          {/* Free-form Horizontal Bubble Layout */}
           <div 
-            className="relative mx-auto border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-visible"
+            className="relative mx-auto border-2 border-foreground rounded-2xl flex items-center justify-center bg-background overflow-visible p-8"
             style={{
-              width: `${Math.max(600, skillCategories.flatMap(c => c.tools).length * 30)}px`,
-              height: `${Math.max(600, skillCategories.flatMap(c => c.tools).length * 30)}px`,
+              width: `${Math.max(800, skillCategories.flatMap(c => c.tools).length * 80)}px`,
+              height: `400px`,
             }}
           >
-            {/* Randomly positioned skill bubbles */}
+            {/* Horizontally arranged skill bubbles with free positioning */}
             {skillCategories.flatMap(category => category.tools).map((tool, index) => {
-              // Generate consistent random positions based on tool name (deterministic)
-              const seed = tool.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-              const random1 = ((seed * 9301 + 49297) % 233280) / 233280;
-              const random2 = ((seed * 9301 + 49297 + index) % 233280) / 233280;
+              const totalTools = skillCategories.flatMap(category => category.tools).length;
               
-              // Create random position within the circle, avoiding center area
-              const radius = Math.max(120, 250 * Math.sqrt(random1));
-              const angle = random2 * 2 * Math.PI;
-              const x = Math.cos(angle) * radius;
-              const y = Math.sin(angle) * radius;
+              // Create horizontal spacing with slight vertical randomness for free design
+              const seed = tool.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+              const randomY = ((seed * 9301 + 49297) % 100) / 100; // 0-1 random
+              
+              // Horizontal positioning - evenly distributed but with slight randomness
+              const baseX = (index / (totalTools - 1)) * 100; // 0-100%
+              const randomXOffset = ((seed * 1337 + index) % 20) - 10; // -10 to +10% random offset
+              const finalX = Math.max(5, Math.min(95, baseX + randomXOffset)); // Keep within bounds
+              
+              // Vertical positioning - random but contained
+              const finalY = 30 + (randomY * 40); // 30-70% of container height
               
               return (
                 <div
                   key={tool.id}
                   className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-125 hover:z-10 group"
                   style={{
-                    left: `calc(50% + ${x}px)`,
-                    top: `calc(50% + ${y}px)`,
+                    left: `${finalX}%`,
+                    top: `${finalY}%`,
                   }}
                   onClick={() => setSelectedTool(selectedTool?.id === tool.id ? null : tool)}
                 >
@@ -268,7 +271,7 @@ const Skills = () => {
                     {tool.logo}
                   </div>
                   {/* Tool name tooltip */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-20">
                     {tool.name}
                   </div>
                 </div>
@@ -276,10 +279,8 @@ const Skills = () => {
             })}
             
             {/* Center label */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="bg-background border-2 border-foreground rounded-lg px-6 py-3 text-lg font-semibold shadow-lg">
-                {skillCategories.flatMap(c => c.tools).length} Skills
-              </div>
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-background border-2 border-foreground rounded-lg px-6 py-2 text-lg font-semibold shadow-lg">
+              {skillCategories.flatMap(c => c.tools).length} Skills & Tools
             </div>
           </div>
         </div>
