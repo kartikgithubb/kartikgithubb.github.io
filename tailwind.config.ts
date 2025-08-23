@@ -218,7 +218,6 @@ export default {
 				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'wave': 'wave 2s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
-			}
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.23, 1, 0.32, 1)',
