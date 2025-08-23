@@ -83,7 +83,8 @@
   }
 
   .diamond-rock-text {
-    @apply font-pixel text-lg tracking-wider text-foreground transition-all duration-500;
+    font-family: 'Press Start 2P', monospace;
+    @apply text-lg tracking-wider text-foreground transition-all duration-500;
     background: linear-gradient(135deg, 
       hsl(var(--gold)) 0%, 
       hsl(var(--gold-light)) 25%, 
