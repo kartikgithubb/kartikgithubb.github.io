@@ -25,6 +25,9 @@
     --ring: 0 0% 100%;
     --radius: 8px;
     --shadow-glow: 0 0 30px hsl(var(--primary) / 0.5);
+    --gold: 45 100% 50%;
+    --gold-light: 50 100% 65%;
+    --gold-dark: 40 100% 35%;
   }
 
   .dark {
@@ -80,22 +83,88 @@
   }
 
   .diamond-rock-text {
-    @apply text-2xl font-bold tracking-tight text-foreground transition-all duration-300;
-    @apply hover:text-primary hover:scale-105 hover:drop-shadow-glow;
-    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--primary)));
+    @apply font-pixel text-lg tracking-wider text-foreground transition-all duration-500;
+    background: linear-gradient(135deg, 
+      hsl(var(--gold)) 0%, 
+      hsl(var(--gold-light)) 25%, 
+      hsl(var(--gold)) 50%, 
+      hsl(var(--gold-dark)) 75%, 
+      hsl(var(--gold)) 100%);
+    background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    text-shadow: 
+      2px 2px 0px hsl(var(--gold-dark)),
+      4px 4px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+    animation: diamond-shimmer 3s ease-in-out infinite;
   }
 
   .diamond-rock-text:hover {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px hsl(var(--primary) / 0.6);
-    filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.4));
+    @apply scale-110;
+    background: linear-gradient(135deg, 
+      hsl(var(--gold-light)) 0%, 
+      hsl(var(--gold)) 25%, 
+      hsl(var(--gold-light)) 50%, 
+      hsl(var(--gold)) 75%, 
+      hsl(var(--gold-light)) 100%);
+    background-size: 300% 300%;
+    animation: gold-glow-pulse 1.5s ease-in-out infinite, diamond-shimmer 2s ease-in-out infinite;
+    text-shadow: 
+      2px 2px 0px hsl(var(--gold-dark)),
+      4px 4px 8px rgba(0, 0, 0, 0.9),
+      0 0 20px hsl(var(--gold) / 0.8),
+      0 0 40px hsl(var(--gold) / 0.6),
+      0 0 60px hsl(var(--gold) / 0.4);
+    filter: drop-shadow(0 0 25px hsl(var(--gold) / 0.7));
+  }
+
+  .diamond-rock-text::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent 30%, hsl(var(--gold) / 0.1) 50%, transparent 70%);
+    background-size: 20px 20px;
+    border-radius: 4px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .diamond-rock-text:hover::before {
+    opacity: 1;
+    animation: diamond-pattern 2s linear infinite;
+  }
+
+  @keyframes diamond-shimmer {
+    0%, 100% { 
+      background-position: 0% 50%; 
+    }
+    50% { 
+      background-position: 100% 50%; 
+    }
+  }
+
+  @keyframes gold-glow-pulse {
+    0%, 100% { 
+      filter: drop-shadow(0 0 25px hsl(var(--gold) / 0.7));
+    }
+    50% { 
+      filter: drop-shadow(0 0 40px hsl(var(--gold) / 1)) drop-shadow(0 0 60px hsl(var(--gold) / 0.8));
+    }
+  }
+
+  @keyframes diamond-pattern {
+    0% { 
+      background-position: 0 0; 
+    }
+    100% { 
+      background-position: 20px 20px; 
+    }
   }
 
   .drop-shadow-glow {
