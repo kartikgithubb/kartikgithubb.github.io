@@ -84,22 +84,12 @@
 
   .diamond-rock-text {
     font-family: 'Press Start 2P', monospace;
-    @apply text-lg tracking-wider text-foreground transition-all duration-500;
-    background: linear-gradient(135deg, 
-      hsl(var(--gold)) 0%, 
-      hsl(var(--gold-light)) 25%, 
-      hsl(var(--gold)) 50%, 
-      hsl(var(--gold-dark)) 75%, 
-      hsl(var(--gold)) 100%);
-    background-size: 200% 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @apply text-lg tracking-wider transition-all duration-500;
+    color: hsl(var(--muted-foreground));
     text-shadow: 
-      2px 2px 0px hsl(var(--gold-dark)),
-      4px 4px 8px rgba(0, 0, 0, 0.8);
+      1px 1px 0px hsl(var(--border)),
+      2px 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
-    animation: diamond-shimmer 3s ease-in-out infinite;
   }
 
   .diamond-rock-text:hover {
@@ -111,14 +101,15 @@
       hsl(var(--gold)) 75%, 
       hsl(var(--gold-light)) 100%);
     background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     animation: gold-glow-pulse 1.5s ease-in-out infinite, diamond-shimmer 2s ease-in-out infinite;
-    text-shadow: 
-      2px 2px 0px hsl(var(--gold-dark)),
-      4px 4px 8px rgba(0, 0, 0, 0.9),
-      0 0 20px hsl(var(--gold) / 0.8),
-      0 0 40px hsl(var(--gold) / 0.6),
-      0 0 60px hsl(var(--gold) / 0.4);
-    filter: drop-shadow(0 0 25px hsl(var(--gold) / 0.7));
+    text-shadow: none;
+    
+    /* Border glow effect only */
+    -webkit-text-stroke: 1px hsl(var(--gold));
+    filter: drop-shadow(0 0 8px hsl(var(--gold) / 0.8));
   }
 
   .diamond-rock-text::before {
@@ -141,6 +132,26 @@
     animation: diamond-pattern 2s linear infinite;
   }
 
+  /* Border radiance effect */
+  .diamond-rock-text:hover::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background: linear-gradient(45deg, hsl(var(--gold)) 0%, transparent 50%, hsl(var(--gold)) 100%);
+    background-size: 200% 200%;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    animation: border-radiance 2s linear infinite;
+    opacity: 0.8;
+  }
+
   @keyframes diamond-shimmer {
     0%, 100% { 
       background-position: 0% 50%; 
@@ -152,10 +163,10 @@
 
   @keyframes gold-glow-pulse {
     0%, 100% { 
-      filter: drop-shadow(0 0 25px hsl(var(--gold) / 0.7));
+      filter: drop-shadow(0 0 8px hsl(var(--gold) / 0.8));
     }
     50% { 
-      filter: drop-shadow(0 0 40px hsl(var(--gold) / 1)) drop-shadow(0 0 60px hsl(var(--gold) / 0.8));
+      filter: drop-shadow(0 0 15px hsl(var(--gold) / 1)) drop-shadow(0 0 25px hsl(var(--gold) / 0.6));
     }
   }
 
@@ -165,6 +176,21 @@
     }
     100% { 
       background-position: 20px 20px; 
+    }
+  }
+
+  @keyframes border-radiance {
+    0% { 
+      background-position: 0% 50%;
+      opacity: 0.6;
+    }
+    50% { 
+      background-position: 100% 50%;
+      opacity: 1;
+    }
+    100% { 
+      background-position: 0% 50%;
+      opacity: 0.6;
     }
   }
 
