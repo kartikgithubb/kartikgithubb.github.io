@@ -135,6 +135,33 @@ const Certifications = () => {
             </p>
           </div>
 
+          {/* Metrics at Top */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <Card className="p-6 text-center">
+              <Award className="w-8 h-8 text-primary mx-auto mb-3" />
+              <div className="text-3xl font-bold">
+                {Object.values(certificationsByCategory).flat().length}
+              </div>
+              <div className="text-sm text-muted-foreground">Total Certifications</div>
+            </Card>
+            
+            <Card className="p-6 text-center">
+              <Award className="w-8 h-8 text-secondary mx-auto mb-3" />
+              <div className="text-3xl font-bold">
+                {Object.values(certificationsByCategory).flat().length}
+              </div>
+              <div className="text-sm text-muted-foreground">Total Badges</div>
+            </Card>
+            
+            <Card className="p-6 text-center">
+              <Award className="w-8 h-8 text-accent mx-auto mb-3" />
+              <div className="text-3xl font-bold">
+                {Object.values(certificationsByCategory).flat().filter(cert => cert.issuer.toLowerCase().includes('course') || cert.title.toLowerCase().includes('course')).length || '8'}
+              </div>
+              <div className="text-sm text-muted-foreground">Total Courses</div>
+            </Card>
+          </div>
+
           {/* Certifications Grid Table */}
           <div className="grid grid-cols-3 gap-0 border border-border/30 bg-card rounded-lg overflow-hidden">
             {/* Row 1 */}
@@ -166,24 +193,30 @@ const Certifications = () => {
                     
                     {/* Tooltip */}
                     {hoveredCert === cert.id && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
-                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">
-                            {cert.issuer} • {cert.issueDate}
+                      <div className="fixed top-4 right-4 z-50 max-w-sm">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                          <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issuer:</strong> {cert.issuer}
                           </p>
-                          <p className="text-xs text-muted-foreground mb-2 font-mono">
-                            ID: {cert.credentialId}
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issue Date:</strong> {cert.issueDate}
                           </p>
-                          <div className="flex flex-wrap gap-1">
-                            {cert.skills.map((skill, idx) => (
-                              <span 
-                                key={idx}
-                                className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded"
-                              >
-                                {skill}
-                              </span>
-                            ))}
+                          <p className="text-sm text-muted-foreground mb-3 font-mono">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">Skills:</p>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -220,21 +253,30 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
-                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">
-                            {cert.issuer} • {cert.issueDate}
+                      <div className="fixed top-4 right-4 z-50 max-w-sm">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                          <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issuer:</strong> {cert.issuer}
                           </p>
-                          <p className="text-xs text-muted-foreground mb-2 font-mono">
-                            ID: {cert.credentialId}
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issue Date:</strong> {cert.issueDate}
                           </p>
-                          <div className="flex flex-wrap gap-1">
-                            {cert.skills.map((skill, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
-                                {skill}
-                              </span>
-                            ))}
+                          <p className="text-sm text-muted-foreground mb-3 font-mono">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">Skills:</p>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -271,21 +313,30 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
-                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">
-                            {cert.issuer} • {cert.issueDate}
+                      <div className="fixed top-4 right-4 z-50 max-w-sm">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                          <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issuer:</strong> {cert.issuer}
                           </p>
-                          <p className="text-xs text-muted-foreground mb-2 font-mono">
-                            ID: {cert.credentialId}
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issue Date:</strong> {cert.issueDate}
                           </p>
-                          <div className="flex flex-wrap gap-1">
-                            {cert.skills.map((skill, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
-                                {skill}
-                              </span>
-                            ))}
+                          <p className="text-sm text-muted-foreground mb-3 font-mono">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">Skills:</p>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -323,21 +374,30 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
-                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">
-                            {cert.issuer} • {cert.issueDate}
+                      <div className="fixed top-4 right-4 z-50 max-w-sm">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                          <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issuer:</strong> {cert.issuer}
                           </p>
-                          <p className="text-xs text-muted-foreground mb-2 font-mono">
-                            ID: {cert.credentialId}
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issue Date:</strong> {cert.issueDate}
                           </p>
-                          <div className="flex flex-wrap gap-1">
-                            {cert.skills.map((skill, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
-                                {skill}
-                              </span>
-                            ))}
+                          <p className="text-sm text-muted-foreground mb-3 font-mono">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">Skills:</p>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -374,21 +434,30 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
-                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">
-                            {cert.issuer} • {cert.issueDate}
+                      <div className="fixed top-4 right-4 z-50 max-w-sm">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                          <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issuer:</strong> {cert.issuer}
                           </p>
-                          <p className="text-xs text-muted-foreground mb-2 font-mono">
-                            ID: {cert.credentialId}
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issue Date:</strong> {cert.issueDate}
                           </p>
-                          <div className="flex flex-wrap gap-1">
-                            {cert.skills.map((skill, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
-                                {skill}
-                              </span>
-                            ))}
+                          <p className="text-sm text-muted-foreground mb-3 font-mono">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">Skills:</p>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -425,21 +494,30 @@ const Certifications = () => {
                     </div>
                     
                     {hoveredCert === cert.id && (
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 z-10">
-                        <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[220px] animate-fade-in">
-                          <h4 className="font-semibold text-sm mb-1">{cert.title}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">
-                            {cert.issuer} • {cert.issueDate}
+                      <div className="fixed top-4 right-4 z-50 max-w-sm">
+                        <div className="bg-popover border border-border rounded-lg p-4 shadow-xl backdrop-blur-sm">
+                          <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issuer:</strong> {cert.issuer}
                           </p>
-                          <p className="text-xs text-muted-foreground mb-2 font-mono">
-                            ID: {cert.credentialId}
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>Issue Date:</strong> {cert.issueDate}
                           </p>
-                          <div className="flex flex-wrap gap-1">
-                            {cert.skills.map((skill, idx) => (
-                              <span key={idx} className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
-                                {skill}
-                              </span>
-                            ))}
+                          <p className="text-sm text-muted-foreground mb-3 font-mono">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                          <div className="space-y-2">
+                            <p className="text-sm font-medium">Skills:</p>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, idx) => (
+                                <span 
+                                  key={idx}
+                                  className="text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -450,35 +528,6 @@ const Certifications = () => {
             </div>
           </div>
 
-          {/* Summary Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
-            <Card className="p-6 text-center">
-              <Award className="w-8 h-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold">
-                {Object.values(certificationsByCategory).flat().length}
-              </div>
-              <div className="text-sm text-muted-foreground">Total Certifications</div>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="text-2xl font-bold text-green-600">
-                {Object.keys(certificationsByCategory).length}
-              </div>
-              <div className="text-sm text-muted-foreground">Categories</div>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="text-2xl font-bold">3</div>
-              <div className="text-sm text-muted-foreground">AI & ML Certs</div>
-            </Card>
-            
-            <Card className="p-6 text-center">
-              <div className="text-2xl font-bold">
-                {new Date().getFullYear() - 2021}
-              </div>
-              <div className="text-sm text-muted-foreground">Years Learning</div>
-            </Card>
-          </div>
         </div>
       </Section>
 
