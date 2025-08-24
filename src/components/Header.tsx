@@ -69,7 +69,7 @@ const Header = ({ darkMode = false, toggleDarkMode }: HeaderProps) => {
               to="/awards" 
               className={getLinkClassName("/awards")}
             >
-              Achievements & Awards
+              Achievements
             </Link>
             <Link 
               to="/about" 

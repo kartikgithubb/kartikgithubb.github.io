@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
+import RecommendationBoard from '@/components/RecommendationBoard';
 
 interface Achievement {
   id: string;
@@ -71,10 +72,13 @@ const Awards = () => {
       {/* Hero */}
       <Section className="pt-24" padding="xl">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="crystal-text">Awards</span> & Achievements
             </h1>
+            <p className="text-lg text-muted-foreground italic mb-16">
+              "Speak to K - my digital twin to know about my Achievements in detail"
+            </p>
           </div>
 
           {/* Achievements Stats */}
@@ -151,12 +155,8 @@ const Awards = () => {
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center">
-            <p className="text-lg text-muted-foreground italic">
-              "Speak to K - my digital twin to know about my Achievements in detail"
-            </p>
-          </div>
+          {/* Recommendation Board */}
+          <RecommendationBoard />
         </div>
       </Section>
 
