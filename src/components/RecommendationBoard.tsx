@@ -100,14 +100,14 @@ const RecommendationBoard = () => {
         {/* Cork Board Texture */}
         <div className="absolute inset-0 opacity-10 rounded-2xl bg-amber-600/10 bg-[radial-gradient(circle_at_25%_25%,_rgba(212,165,116,0.1)_0%,_transparent_50%)]"></div>
         
-        {/* Recommendation Notes - Scrolling Display */}
-        <div className="relative overflow-hidden h-96">
-          <div className="flex animate-marquee-vertical space-y-6 flex-col">
+        {/* Recommendation Notes - Horizontal Scrolling Display */}
+        <div className="relative overflow-hidden h-80">
+          <div className="flex animate-marquee space-x-6 h-full items-center">
             {/* Create enough duplicates for seamless scrolling */}
             {[...recommendations, ...recommendations, ...recommendations].map((rec, index) => (
               <div
                 key={`${rec.id}-${index}`}
-                className={`relative ${rec.color} p-4 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:z-10 w-80 mx-auto flex-shrink-0`}
+                className={`relative ${rec.color} p-4 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:z-10 w-80 h-64 flex-shrink-0`}
                 style={{ 
                   transform: `rotate(${rec.rotation}deg)`,
                 }}
@@ -116,8 +116,8 @@ const RecommendationBoard = () => {
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full shadow-md"></div>
                 
                 {/* Note Content */}
-                <div className="pt-3">
-                  <p className="text-sm text-gray-800 mb-3 leading-relaxed">
+                <div className="pt-3 h-full flex flex-col justify-between">
+                  <p className="text-sm text-gray-800 mb-3 leading-relaxed flex-1">
                     "{rec.message}"
                   </p>
                   <div className="text-right">
