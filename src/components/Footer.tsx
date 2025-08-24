@@ -39,21 +39,21 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Most Relevant */}
+          {/* Portfolio Facts */}
           <div>
-            <h3 className="font-semibold mb-4">Most Relevant</h3>
+            <h3 className="font-semibold mb-4">Portfolio Facts</h3>
             <div className="space-y-3">
               <div className="text-sm">
-                <div className="font-medium text-foreground mb-1">Senior Software Engineer</div>
-                <div className="text-muted-foreground">Leading AI-driven solutions</div>
+                <div className="font-medium text-foreground mb-1">99.9% Bug-Free Code</div>
+                <div className="text-muted-foreground">The other 0.1% are features</div>
               </div>
               <div className="text-sm">
-                <div className="font-medium text-foreground mb-1">30+ Awards</div>
-                <div className="text-muted-foreground">Recognition in innovation</div>
+                <div className="font-medium text-foreground mb-1">Coffee-to-Code Ratio</div>
+                <div className="text-muted-foreground">1:1 optimal performance achieved</div>
               </div>
               <div className="text-sm">
-                <div className="font-medium text-foreground mb-1">Open Source Contributor</div>
-                <div className="text-muted-foreground">Building for the community</div>
+                <div className="font-medium text-foreground mb-1">Documentation Coverage</div>
+                <div className="text-muted-foreground">Code is self-documenting (trust me)</div>
               </div>
             </div>
           </div>
