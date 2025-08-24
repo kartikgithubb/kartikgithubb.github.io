@@ -74,19 +74,31 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null
   }
 
+  // Sanitize id to prevent CSS injection - only allow alphanumeric and hyphens
+  const sanitizedId = id.replace(/[^a-zA-Z0-9-]/g, '');
+  
+  // Validate color values to prevent CSS injection
+  const validateColor = (color: string): string => {
+    // Only allow valid CSS color formats: hex, hsl, rgb, named colors
+    if (/^(#[0-9a-fA-F]{3,8}|hsl\([^)]+\)|rgb\([^)]+\)|[a-zA-Z]+)$/.test(color)) {
+      return color;
+    }
+    return 'transparent'; // Fallback for invalid colors
+  };
+
   return (
     <style
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
             ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
+${prefix} [data-chart=${sanitizedId}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
     const color =
       itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
       itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
+    return color ? `  --color-${key}: ${validateColor(color)};` : null
   })
   .join("\n")}
 }

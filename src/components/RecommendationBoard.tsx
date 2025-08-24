@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
+import { recommendationSchema, sanitizeText, createRateLimiter } from '@/lib/security';
+import { useToast } from '@/hooks/use-toast';
 
 interface Recommendation {
   id: string;
@@ -16,6 +18,9 @@ interface Recommendation {
 }
 
 const RecommendationBoard = () => {
+  const { toast } = useToast();
+  const rateLimiter = createRateLimiter(2, 10 * 60 * 1000); // 2 submissions per 10 minutes
+  
   const [recommendations, setRecommendations] = useState<Recommendation[]>([
     {
       id: '1',
@@ -49,6 +54,7 @@ const RecommendationBoard = () => {
     organization: '',
     message: ''
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const noteColors = [
     'bg-yellow-200',
@@ -67,20 +73,49 @@ const RecommendationBoard = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.organization && formData.message) {
-      const newRecommendation: Recommendation = {
-        id: Date.now().toString(),
-        name: formData.name,
-        organization: formData.organization,
-        message: formData.message,
-        color: getRandomColor(),
-        rotation: getRandomRotation()
-      };
-      
-      setRecommendations([...recommendations, newRecommendation]);
-      setFormData({ name: '', organization: '', message: '' });
-      setShowForm(false);
+    setErrors({});
+    
+    // Rate limiting check
+    if (!rateLimiter('recommendation_submission')) {
+      toast({
+        title: "Too many submissions",
+        description: "Please wait before submitting another recommendation.",
+        variant: "destructive",
+      });
+      return;
     }
+    
+    // Validate form data
+    const validation = recommendationSchema.safeParse(formData);
+    if (!validation.success) {
+      const formErrors: Record<string, string> = {};
+      validation.error.errors.forEach(err => {
+        if (err.path[0]) {
+          formErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(formErrors);
+      return;
+    }
+    
+    const sanitizedData = validation.data;
+    const newRecommendation: Recommendation = {
+      id: Date.now().toString(),
+      name: sanitizeText(sanitizedData.name),
+      organization: sanitizeText(sanitizedData.organization),
+      message: sanitizeText(sanitizedData.message),
+      color: getRandomColor(),
+      rotation: getRandomRotation()
+    };
+    
+    setRecommendations([...recommendations, newRecommendation]);
+    setFormData({ name: '', organization: '', message: '' });
+    setShowForm(false);
+    
+    toast({
+      title: "Recommendation added!",
+      description: "Thank you for sharing your feedback.",
+    });
   };
 
   const handleInputChange = (field: keyof typeof formData, value: string) => {
@@ -167,8 +202,12 @@ const RecommendationBoard = () => {
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     placeholder="Enter your full name"
+                    maxLength={100}
                     required
                   />
+                  {errors.name && (
+                    <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -178,8 +217,12 @@ const RecommendationBoard = () => {
                     value={formData.organization}
                     onChange={(e) => handleInputChange('organization', e.target.value)}
                     placeholder="Your company or organization"
+                    maxLength={150}
                     required
                   />
+                  {errors.organization && (
+                    <p className="text-sm text-destructive mt-1">{errors.organization}</p>
+                  )}
                 </div>
 
                 <div>
@@ -196,6 +239,9 @@ const RecommendationBoard = () => {
                   <p className="text-xs text-muted-foreground mt-1">
                     {formData.message.length}/500 characters
                   </p>
+                  {errors.message && (
+                    <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                  )}
                 </div>
 
                 <div className="flex gap-3 pt-4">

@@ -5,18 +5,24 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Github, Linkedin, Phone, MapPin, Calendar, Heart, Send, Twitter } from 'lucide-react';
+import { contactFormSchema, createRateLimiter } from '@/lib/security';
+import { useToast } from '@/hooks/use-toast';
 interface AboutContactSectionProps {
   className?: string;
 }
 const AboutContactSection = ({
   className
 }: AboutContactSectionProps) => {
+  const { toast } = useToast();
+  const rateLimiter = createRateLimiter(3, 15 * 60 * 1000); // 3 messages per 15 minutes
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -29,16 +35,57 @@ const AboutContactSection = ({
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
+    setErrors({});
+    
+    // Rate limiting check
+    if (!rateLimiter('contact_form')) {
+      toast({
+        title: "Too many messages",
+        description: "Please wait before sending another message.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Validate form data
+    const validation = contactFormSchema.safeParse(formData);
+    if (!validation.success) {
+      const formErrors: Record<string, string> = {};
+      validation.error.errors.forEach(err => {
+        if (err.path[0]) {
+          formErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(formErrors);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // TODO: Implement actual form submission
+      console.log('Form submitted:', validation.data);
+      
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const contactItems = [{
     label: 'Phone',
@@ -163,10 +210,98 @@ const AboutContactSection = ({
           {/* Contact Form & Info Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Contact Form */}
-            
+            <Card className="p-8">
+              <h4 className="text-2xl font-bold mb-6">Send a Message</h4>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    maxLength={100}
+                    required
+                  />
+                  {errors.name && (
+                    <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <Label htmlFor="email">Email *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    maxLength={254}
+                    required
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    maxLength={2000}
+                    rows={5}
+                    required
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {formData.message.length}/2000 characters
+                  </p>
+                  {errors.message && (
+                    <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                  )}
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  <Send className="h-4 w-4 mr-2" />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </Card>
 
             {/* Contact Info & Quick Actions */}
-            
+            <div className="space-y-6">
+              <Card className="p-8">
+                <h4 className="text-2xl font-bold mb-6">Get in Touch</h4>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  I'm always interested in discussing data analytics, AI applications, 
+                  or potential collaboration opportunities. Feel free to reach out!
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <Mail className="h-5 w-5 text-primary" />
+                    <span className="text-muted-foreground">kartik@example.com</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Phone className="h-5 w-5 text-primary" />
+                    <span className="text-muted-foreground">+1 (234) 567-8900</span>
+                  </div>
+                </div>
+              </Card>
+              
+              <Card className="p-8">
+                <h4 className="text-xl font-semibold mb-4">Response Time</h4>
+                <p className="text-muted-foreground">
+                  I typically respond to messages within 24-48 hours during weekdays.
+                </p>
+              </Card>
+            </div>
           </div>
 
           {/* Quick Contact Icons */}
