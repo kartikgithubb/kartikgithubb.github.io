@@ -44,7 +44,7 @@ const Header = ({
               Education
             </Link>
             <Link to="/awards" className={getLinkClassName("/awards")}>
-              Achievements & Awards
+              Achievements
             </Link>
             <Link to="/about" className={getLinkClassName("/about")}>
               About
