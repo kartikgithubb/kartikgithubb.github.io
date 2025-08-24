@@ -14,6 +14,7 @@ const AboutContactSection = ({
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,6 +36,7 @@ const AboutContactSection = ({
     setFormData({
       name: '',
       email: '',
+      subject: '',
       message: ''
     });
   };
@@ -161,82 +163,10 @@ const AboutContactSection = ({
           {/* Contact Form & Info Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Contact Form */}
-            <Card className="p-8">
-              <h4 className="text-2xl font-bold mb-6">Send a Message</h4>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label htmlFor="name">Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={5}
-                    required
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full"
-                >
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </Card>
+            
 
             {/* Contact Info & Quick Actions */}
-            <div className="space-y-6">
-              <Card className="p-8">
-                <h4 className="text-2xl font-bold mb-6">Get in Touch</h4>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  I'm always interested in discussing data analytics, AI applications, 
-                  or potential collaboration opportunities. Feel free to reach out!
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">kartik@example.com</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">+1 (234) 567-8900</span>
-                  </div>
-                </div>
-              </Card>
-              
-              <Card className="p-8">
-                <h4 className="text-xl font-semibold mb-4">Response Time</h4>
-                <p className="text-muted-foreground">
-                  I typically respond to messages within 24-48 hours during weekdays.
-                </p>
-              </Card>
-            </div>
+            
           </div>
 
           {/* Quick Contact Icons */}
