@@ -5,24 +5,19 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Github, Linkedin, Phone, MapPin, Calendar, Heart, Send, Twitter } from 'lucide-react';
-import { contactFormSchema, createRateLimiter } from '@/lib/security';
-import { useToast } from '@/hooks/use-toast';
+// import { contactFormSchema, createRateLimiter } from '@/lib/security';
+// import { useToast } from '@/hooks/use-toast';
 interface AboutContactSectionProps {
   className?: string;
 }
 const AboutContactSection = ({
   className
 }: AboutContactSectionProps) => {
-  const { toast } = useToast();
-  const rateLimiter = createRateLimiter(3, 15 * 60 * 1000); // 3 messages per 15 minutes
-  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -35,57 +30,15 @@ const AboutContactSection = ({
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({});
-    
-    // Rate limiting check
-    if (!rateLimiter('contact_form')) {
-      toast({
-        title: "Too many messages",
-        description: "Please wait before sending another message.",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    // Validate form data
-    const validation = contactFormSchema.safeParse(formData);
-    if (!validation.success) {
-      const formErrors: Record<string, string> = {};
-      validation.error.errors.forEach(err => {
-        if (err.path[0]) {
-          formErrors[err.path[0] as string] = err.message;
-        }
-      });
-      setErrors(formErrors);
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // TODO: Implement actual form submission
-      console.log('Form submitted:', validation.data);
-      
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
+    // TODO: Implement form submission
+    console.log('Form submitted:', formData);
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-    } catch (error) {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
   };
   const contactItems = [{
     label: 'Phone',
@@ -220,12 +173,8 @@ const AboutContactSection = ({
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    maxLength={100}
                     required
                   />
-                  {errors.name && (
-                    <p className="text-sm text-destructive mt-1">{errors.name}</p>
-                  )}
                 </div>
                 
                 <div>
@@ -236,12 +185,8 @@ const AboutContactSection = ({
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    maxLength={254}
                     required
                   />
-                  {errors.email && (
-                    <p className="text-sm text-destructive mt-1">{errors.email}</p>
-                  )}
                 </div>
                 
                 <div>
@@ -251,26 +196,18 @@ const AboutContactSection = ({
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    maxLength={2000}
                     rows={5}
                     required
                   />
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {formData.message.length}/2000 characters
-                  </p>
-                  {errors.message && (
-                    <p className="text-sm text-destructive mt-1">{errors.message}</p>
-                  )}
                 </div>
                 
                 <Button 
                   type="submit" 
                   size="lg" 
                   className="w-full"
-                  disabled={isSubmitting}
                 >
                   <Send className="h-4 w-4 mr-2" />
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  Send Message
                 </Button>
               </form>
             </Card>

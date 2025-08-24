@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Sparkles } from 'lucide-react';
-import { emailSchema, secureStorage, createRateLimiter } from '@/lib/security';
+// import { emailSchema, secureStorage, createRateLimiter } from '@/lib/security';
 
 interface NewsletterSectionProps {
   className?: string;
@@ -16,36 +16,16 @@ const NewsletterSection = ({ className }: NewsletterSectionProps) => {
   const [errors, setErrors] = useState<string[]>([]);
   const { toast } = useToast();
   
-  // Rate limiter: max 3 attempts per 5 minutes
-  const rateLimiter = createRateLimiter(3, 5 * 60 * 1000);
+  // const rateLimiter = createRateLimiter(3, 5 * 60 * 1000);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors([]);
-    
-    // Rate limiting check
-    if (!rateLimiter('newsletter_submission')) {
-      toast({
-        title: "Too many attempts",
-        description: "Please wait before trying again.",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    // Validate email
-    const emailValidation = emailSchema.safeParse(email);
-    if (!emailValidation.success) {
-      const errorMessages = emailValidation.error.errors.map(err => err.message);
-      setErrors(errorMessages);
-      return;
-    }
-    
     setIsLoading(true);
     
     try {
-      // Store email securely
-      secureStorage.setItem('subscriber_email', emailValidation.data);
+      // Store email temporarily (basic implementation)
+      localStorage.setItem('subscriber_email', email);
       
       toast({
         title: "Successfully subscribed!",
