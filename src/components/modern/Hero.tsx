@@ -59,13 +59,13 @@ const Hero = ({
 
             {/* Right side - Mission Statement */}
             <div className="animate-fade-up delay-300">
-              <Card className="p-8 bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-lg mx-0 py-[100px] px-[70px]">
+              <div className="py-[100px] px-[70px]">
                 <h2 className="text-3xl font-bold mb-6 font-display text-white">Mission Statement</h2>
                 <blockquote className="text-xl font-medium text-balance mb-6 leading-relaxed">
                   "{quotes[currentQuote]}"
                 </blockquote>
                 <p className="text-muted-foreground">— Daily inspiration that drives my work</p>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
