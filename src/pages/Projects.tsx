@@ -120,101 +120,78 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Search and Filter */}
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-12">
-          {/* Search Bar */}
-          <div className="relative w-full max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        {/* Search Bar */}
+        <div className="flex justify-center mb-16">
+          <div className="relative w-full max-w-lg">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
               placeholder="Search my Projects"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 rounded-full border-border/50 bg-background/50 backdrop-blur-sm"
+              className="pl-12 py-4 rounded-full border-2 border-border/30 bg-background/80 backdrop-blur-sm text-lg shadow-lg focus:border-primary/50 transition-all"
             />
           </div>
-
-          {/* Diamond Filter */}
-          <div className="flex items-center gap-4">
-            <div className="diamond-shape p-3 bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30 backdrop-blur-sm hover:from-primary/30 hover:to-primary/20 transition-all duration-300 cursor-pointer group">
-              <span className="text-xs font-medium text-primary group-hover:text-primary/90">Filter by</span>
-            </div>
-          </div>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="flex space-x-2 p-1 bg-muted/50 backdrop-blur-sm rounded-lg border border-border/50">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className="px-4 py-2 relative group"
-              >
-                <span className="relative z-10">{category}</span>
-                {selectedCategory === category && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/30 rounded-md" />
-                )}
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects List */}
+        <div className="max-w-6xl mx-auto space-y-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="flex flex-col md:flex-row gap-6">
-              {/* Project Card */}
-              <Card className="relative overflow-hidden border border-border/50 hover-lift group flex-1 min-h-[400px]">
-                {/* Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
-                
-                {/* Content */}
-                <div className="relative z-10 p-6 h-full flex flex-col">
+            <div key={project.id} className="flex flex-col lg:flex-row gap-8 items-stretch">
+              {/* Left Side - Project Card */}
+              <div className="lg:w-96 flex-shrink-0">
+                <Card className="relative overflow-hidden border-2 border-border/30 h-80 group hover:border-primary/30 transition-all duration-300">
+                  {/* Background Image with transparency */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-15 group-hover:opacity-25 transition-opacity duration-300"
+                    style={{ backgroundImage: `url(${project.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-background/95 to-background/85" />
+                  
                   {/* Category Badge */}
-                  <div className="flex justify-center mb-4">
-                    <div className="diamond-shape px-4 py-2 bg-gradient-to-br from-primary/30 to-primary/20 border border-primary/40 backdrop-blur-sm">
-                      <span className="text-xs font-medium text-primary">{project.category}</span>
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="bg-background/90 backdrop-blur-sm border border-primary/30 px-3 py-1 rounded-md">
+                      <span className="text-sm font-medium text-primary">{project.category}</span>
                     </div>
                   </div>
                   
-                  {/* Project Name */}
-                  <h3 className="text-center text-lg font-bold mb-4 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  {/* Learn More Button */}
-                  <div className="mt-auto flex justify-center">
-                    <Button 
-                      size="sm" 
-                      variant="outline"
-                      onClick={() => window.location.href = project.links.case_study || project.links.demo || '#'}
-                      className="rounded-full border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
-                    >
-                      Learn More
-                    </Button>
+                  {/* Content */}
+                  <div className="relative z-10 p-6 h-full flex flex-col justify-between">
+                    <div className="flex-1 flex items-center">
+                      <h3 className="text-xl font-bold text-center w-full group-hover:text-primary transition-colors">
+                        {project.title.replace('AURA - ', '')}
+                      </h3>
+                    </div>
+                    
+                    {/* Learn More Button */}
+                    <div className="flex justify-center">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => window.location.href = project.links.case_study || project.links.demo || '#'}
+                        className="rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground px-6"
+                      >
+                        Learn More
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </div>
               
-              {/* Project Details */}
-              <div className="flex-1 space-y-4">
-                <h2 className="text-2xl font-bold">Title</h2>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.summary}
-                </p>
+              {/* Right Side - Project Details */}
+              <div className="flex-1 space-y-6">
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {project.summary}
+                  </p>
+                </div>
                 
                 {/* Skills Section */}
                 <div>
-                  <h4 className="font-semibold mb-2">Skills</h4>
+                  <h4 className="text-lg font-semibold mb-3 text-foreground">Skills</h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.slice(0, 2).map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs rounded-full">
+                    {project.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary" className="text-sm py-1 px-3 rounded-full">
                         {tag}
                       </Badge>
                     ))}
@@ -223,10 +200,10 @@ const Projects = () => {
                 
                 {/* Tools Section */}
                 <div>
-                  <h4 className="font-semibold mb-2">Tools</h4>
+                  <h4 className="text-lg font-semibold mb-3 text-foreground">Tools</h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.stack.slice(0, 2).map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs rounded-full">
+                    {project.stack.map((tech) => (
+                      <Badge key={tech} variant="outline" className="text-sm py-1 px-3 rounded-full border-primary/30 text-primary">
                         {tech}
                       </Badge>
                     ))}
