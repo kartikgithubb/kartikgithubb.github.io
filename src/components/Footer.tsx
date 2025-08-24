@@ -39,8 +39,24 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quote */}
-          
+          {/* Most Relevant */}
+          <div>
+            <h3 className="font-semibold mb-4">Most Relevant</h3>
+            <div className="space-y-3">
+              <div className="text-sm">
+                <div className="font-medium text-foreground mb-1">Senior Software Engineer</div>
+                <div className="text-muted-foreground">Leading AI-driven solutions</div>
+              </div>
+              <div className="text-sm">
+                <div className="font-medium text-foreground mb-1">30+ Awards</div>
+                <div className="text-muted-foreground">Recognition in innovation</div>
+              </div>
+              <div className="text-sm">
+                <div className="font-medium text-foreground mb-1">Open Source Contributor</div>
+                <div className="text-muted-foreground">Building for the community</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
