@@ -43,7 +43,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Fun Fact</h3>
             <p className="text-sm text-muted-foreground italic">
-              "I debug code faster than most people debug their life choices"
+              "I turn data into insights faster than most people turn projects into products"
             </p>
           </div>
         </div>
