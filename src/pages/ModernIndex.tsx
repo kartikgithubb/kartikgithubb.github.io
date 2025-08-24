@@ -28,7 +28,7 @@ const ModernIndex = () => {
           <h2 className="display-title text-4xl font-bold mb-4">
             Continuous Learning
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Latest insights from my reading and research across Technology, Product, Businessand Management</p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Latest insights from my reading and research across Technology, Product, Business and Management</p>
         </div>
         <LearningStrip />
       </Section>
