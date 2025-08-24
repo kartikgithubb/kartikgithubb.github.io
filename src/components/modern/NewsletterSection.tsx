@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Sparkles } from 'lucide-react';
-// import { emailSchema, secureStorage, createRateLimiter } from '@/lib/security';
+
 
 interface NewsletterSectionProps {
   className?: string;
@@ -16,7 +16,7 @@ const NewsletterSection = ({ className }: NewsletterSectionProps) => {
   const [errors, setErrors] = useState<string[]>([]);
   const { toast } = useToast();
   
-  // const rateLimiter = createRateLimiter(3, 5 * 60 * 1000);
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

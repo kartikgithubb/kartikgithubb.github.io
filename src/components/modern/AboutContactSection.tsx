@@ -5,8 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Github, Linkedin, Phone, MapPin, Calendar, Heart, Send, Twitter } from 'lucide-react';
-// import { contactFormSchema, createRateLimiter } from '@/lib/security';
-// import { useToast } from '@/hooks/use-toast';
 interface AboutContactSectionProps {
   className?: string;
 }
