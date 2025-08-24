@@ -41,9 +41,9 @@ const Footer = () => {
 
           {/* Recruiter Hook */}
           <div>
-            <h3 className="font-semibold mb-4">Fun Fact</h3>
+            <h3 className="font-semibold mb-4">Riddle Me This</h3>
             <p className="text-sm text-muted-foreground italic">
-              "I turn data into insights faster than most people turn projects into products"
+              "What turns chaos into clarity, problems into products, and data into decisions? (Hint: You're looking at their portfolio)"
             </p>
           </div>
         </div>
