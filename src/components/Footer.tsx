@@ -39,23 +39,12 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Portfolio Facts */}
+          {/* Recruiter Hook */}
           <div>
-            <h3 className="font-semibold mb-4">Portfolio Facts</h3>
-            <div className="space-y-3">
-              <div className="text-sm">
-                <div className="font-medium text-foreground mb-1">99.9% Bug-Free Code</div>
-                <div className="text-muted-foreground">The other 0.1% are features</div>
-              </div>
-              <div className="text-sm">
-                <div className="font-medium text-foreground mb-1">Coffee-to-Code Ratio</div>
-                <div className="text-muted-foreground">1:1 optimal performance achieved</div>
-              </div>
-              <div className="text-sm">
-                <div className="font-medium text-foreground mb-1">Documentation Coverage</div>
-                <div className="text-muted-foreground">Code is self-documenting (trust me)</div>
-              </div>
-            </div>
+            <h3 className="font-semibold mb-4">Fun Fact</h3>
+            <p className="text-sm text-muted-foreground italic">
+              "I debug code faster than most people debug their life choices"
+            </p>
           </div>
         </div>
 
