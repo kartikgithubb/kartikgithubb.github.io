@@ -29,8 +29,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          security: ['dompurify', 'zod']
+          vendor: ['react', 'react-dom']
         }
       }
     }
