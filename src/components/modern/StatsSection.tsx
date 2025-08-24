@@ -25,12 +25,6 @@ const StatsSection = ({ className }: StatsSectionProps) => {
       label: 'Learning Streak',
       value: '23d',
       description: 'Consecutive days'
-    },
-    {
-      progress: 78,
-      label: 'AI/ML Focus',
-      value: '78%',
-      description: 'Time allocation'
     }
   ];
 
@@ -47,11 +41,11 @@ const StatsSection = ({ className }: StatsSectionProps) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
-              <Card 
+              <div 
                 key={stat.label}
-                className="p-6 text-center bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-glow hover:-translate-y-1 group"
+                className="text-center group"
               >
                 <div className="mb-4">
                   <ProgressRing 
@@ -70,7 +64,7 @@ const StatsSection = ({ className }: StatsSectionProps) => {
                 <p className="text-sm text-muted-foreground">
                   {stat.description}
                 </p>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
