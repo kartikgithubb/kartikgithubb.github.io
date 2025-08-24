@@ -175,6 +175,10 @@ export default {
 					'0%': { transform: 'translateX(0%)' },
 					'100%': { transform: 'translateX(-100%)' }
 				},
+				'marquee-vertical': {
+					'0%': { transform: 'translateY(0%)' },
+					'100%': { transform: 'translateY(-50%)' }
+				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
@@ -214,6 +218,7 @@ export default {
 				'slide-in': 'slide-in 0.4s ease-out',
 				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
 				'marquee': 'marquee 30s linear infinite',
+				'marquee-vertical': 'marquee-vertical 15s linear infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'wave': 'wave 2s ease-in-out infinite',

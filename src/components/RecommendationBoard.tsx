@@ -100,32 +100,34 @@ const RecommendationBoard = () => {
         {/* Cork Board Texture */}
         <div className="absolute inset-0 opacity-10 rounded-2xl bg-amber-600/10 bg-[radial-gradient(circle_at_25%_25%,_rgba(212,165,116,0.1)_0%,_transparent_50%)]"></div>
         
-        {/* Recommendation Notes */}
-        <div className="relative grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
-          {recommendations.map((rec, index) => (
-            <div
-              key={rec.id}
-              className={`relative ${rec.color} p-4 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:z-10`}
-              style={{ 
-                transform: `rotate(${rec.rotation}deg)`,
-                marginTop: index % 2 === 0 ? '0' : '2rem'
-              }}
-            >
-              {/* Pin */}
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full shadow-md"></div>
-              
-              {/* Note Content */}
-              <div className="pt-3">
-                <p className="text-sm text-gray-800 mb-3 font-handwriting leading-relaxed">
-                  "{rec.message}"
-                </p>
-                <div className="text-right">
-                  <p className="font-semibold text-gray-900 text-sm">- {rec.name}</p>
-                  <p className="text-xs text-gray-700">{rec.organization}</p>
+        {/* Recommendation Notes - Scrolling Display */}
+        <div className="relative overflow-hidden h-96">
+          <div className="flex animate-marquee-vertical space-y-6 flex-col">
+            {/* Create enough duplicates for seamless scrolling */}
+            {[...recommendations, ...recommendations, ...recommendations].map((rec, index) => (
+              <div
+                key={`${rec.id}-${index}`}
+                className={`relative ${rec.color} p-4 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:z-10 w-80 mx-auto flex-shrink-0`}
+                style={{ 
+                  transform: `rotate(${rec.rotation}deg)`,
+                }}
+              >
+                {/* Pin */}
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full shadow-md"></div>
+                
+                {/* Note Content */}
+                <div className="pt-3">
+                  <p className="text-sm text-gray-800 mb-3 leading-relaxed">
+                    "{rec.message}"
+                  </p>
+                  <div className="text-right">
+                    <p className="font-semibold text-gray-900 text-sm">- {rec.name}</p>
+                    <p className="text-xs text-gray-700">{rec.organization}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Add Note Button */}

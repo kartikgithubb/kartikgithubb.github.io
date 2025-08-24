@@ -160,6 +160,15 @@
     }
   }
 
+  @keyframes marquee-vertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
 
   .drop-shadow-glow {
     filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.5));
