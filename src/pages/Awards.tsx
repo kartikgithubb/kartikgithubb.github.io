@@ -34,7 +34,7 @@ const Awards = () => {
     },
     {
       id: 'recognitions',
-      category: 'RECOGNITIONS',
+      category: 'FEATURED',
       count: 5,
       icon: <Flame className="w-12 h-12" />,
       logo: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=100&h=100&fit=crop&crop=center'
