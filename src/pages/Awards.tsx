@@ -19,6 +19,37 @@ const Awards = () => {
 
   const achievements: Achievement[] = [
     {
+      id: 'awards',
+      category: 'AWARDS',
+      count: 15,
+      icon: <Heart className="w-12 h-12" />,
+      logo: ''
+    },
+    {
+      id: 'publications',
+      category: 'PUBLICATIONS',
+      count: 8,
+      icon: <Search className="w-12 h-12" />,
+      logo: ''
+    },
+    {
+      id: 'leadership',
+      category: 'LEADERSHIP',
+      count: 12,
+      icon: <Users className="w-12 h-12" />,
+      logo: ''
+    },
+    {
+      id: 'featured',
+      category: 'FEATURED',
+      count: 6,
+      icon: <Flame className="w-12 h-12" />,
+      logo: ''
+    }
+  ];
+
+  const logoAchievements = [
+    {
       id: 'meta',
       category: 'META',
       count: 1,
@@ -77,7 +108,7 @@ const Awards = () => {
   ];
 
   // Create enough duplicates for seamless scrolling
-  const scrollingAchievements = [...achievements, ...achievements, ...achievements];
+  const scrollingAchievements = [...logoAchievements, ...logoAchievements, ...logoAchievements];
 
   return (
     <div>
