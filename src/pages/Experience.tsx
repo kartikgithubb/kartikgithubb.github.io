@@ -201,7 +201,7 @@ const Experience = () => {
       <Section className="pt-24" padding="xl">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Professional Work <span className="crystal-text">Experience</span>
+            Work <span className="crystal-text">Experience</span>
           </h1>
           <p className="text-xl text-muted-foreground">
             A journey through data analytics, from startup insights to enterprise intelligence
