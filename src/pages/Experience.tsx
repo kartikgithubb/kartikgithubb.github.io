@@ -98,7 +98,7 @@ const professionalExperience: ExperienceItem[] = [{
   start: 'Jun 2022',
   end: 'Aug 2022',
   location: 'Chennai, India',
-  description: 'Engineered automated IoT telemetry pipelines and real-time anomaly dashboards across manufacturing units, boosting maintenance efficiency and accelerating issue resolution through SQL/MongoDB workflows and cross-functional triage mapping.',
+  description: 'Engineered automated IoT telemetry pipelines and real-time anomaly dashboards across manufacturing units, boosting maintenance efficiency and accelerating issue resolution through Data workflows and cross-functional triage mapping.',
   highlights: ['Engineered automated IoT telemetry pipelines for manufacturing units', 'Developed real-time anomaly detection dashboards', 'Improved maintenance efficiency through predictive analytics'],
   skills: ['IoT Analytics', 'SQL', 'MongoDB', 'Real-time Dashboards', 'Manufacturing Systems'],
   logo: '/lovable-uploads/12549149-7c5a-408d-b347-a743dad47c79.png',
