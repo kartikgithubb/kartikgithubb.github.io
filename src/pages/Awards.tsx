@@ -177,9 +177,6 @@ const Awards = () => {
     }
   ];
 
-  // Create enough duplicates for seamless scrolling
-  const scrollingAchievements = [...logoAchievements, ...logoAchievements, ...logoAchievements];
-
   return (
     <div>
       <Header />
@@ -231,7 +228,7 @@ const Awards = () => {
             ))}
           </div>
 
-          {/* Logo Section with Realistic Tear Effect */}
+          {/* Logo Section with Cork Board */}
           <div className="relative -mx-6 py-0 my-16">
             {/* Torn edge top */}
             <div className="relative">
@@ -242,30 +239,22 @@ const Awards = () => {
               </div>
             </div>
             
-            {/* White background section with content */}
+            {/* White background section with static logo grid */}
             <div className="bg-white py-12 relative">
-              <div className="overflow-hidden relative">
-                <div className="flex animate-marquee space-x-16 py-4">
-                  {scrollingAchievements.map((achievement, index) => (
+              <div className="container mx-auto px-6">
+                <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+                  {logoAchievements.map((achievement) => (
                     <div
-                      key={`${achievement.id}-${index}`}
-                      className="flex-shrink-0 w-68 h-52 relative cursor-pointer group"
-                      onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
+                      key={achievement.id}
+                      className="flex items-center justify-center cursor-pointer group transition-all duration-300 hover:scale-110"
+                      onMouseEnter={() => setHoveredItem(achievement.id)}
                       onMouseLeave={() => setHoveredItem(null)}
                     >
-                      <div className={`
-                        w-full h-full transition-all duration-300 ease-out flex items-center justify-center
-                        ${hoveredItem === `${achievement.id}-${index}` 
-                          ? 'scale-110' 
-                          : 'scale-100 opacity-70 hover:opacity-100'
-                        }
-                      `}>
-                        <img 
-                          src={achievement.logo} 
-                          alt={`${achievement.category} logo`}
-                          className="max-w-full max-h-full object-contain transition-all duration-300"
-                        />
-                      </div>
+                      <img 
+                        src={achievement.logo} 
+                        alt={`${achievement.category} logo`}
+                        className="max-w-[80px] max-h-[60px] object-contain transition-all duration-300 opacity-80 hover:opacity-100"
+                      />
                     </div>
                   ))}
                 </div>
