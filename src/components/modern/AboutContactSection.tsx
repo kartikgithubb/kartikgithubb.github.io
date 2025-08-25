@@ -64,9 +64,7 @@ const AboutContactSection = ({
   return <section className={`py-16 ${className}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="display-title text-4xl font-bold mb-12 text-center">
-            About Me & Let's Connect
-          </h2>
+          <h2 className="display-title text-4xl font-bold mb-12 text-center">About Me</h2>
           
           {/* About Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
