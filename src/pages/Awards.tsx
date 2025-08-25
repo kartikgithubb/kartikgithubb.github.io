@@ -95,34 +95,50 @@ const Awards = () => {
             ))}
           </div>
 
-          {/* Clean Logo Section */}
-          <div className="mb-16 overflow-hidden relative py-8">
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+          {/* Logo Section with Tear Effect */}
+          <div className="relative -mx-6 py-16">
+            {/* Torn edge top */}
+            <div className="absolute top-0 left-0 w-full h-8 bg-white" 
+                 style={{
+                   clipPath: 'polygon(0% 0%, 100% 0%, 100% 60%, 95% 80%, 90% 70%, 85% 90%, 80% 75%, 75% 85%, 70% 65%, 65% 80%, 60% 70%, 55% 85%, 50% 60%, 45% 75%, 40% 65%, 35% 80%, 30% 70%, 25% 85%, 20% 75%, 15% 90%, 10% 70%, 5% 80%, 0% 60%)'
+                 }}>
+            </div>
             
-            <div className="flex animate-marquee space-x-16 py-4">
-              {scrollingAchievements.map((achievement, index) => (
-                <div
-                  key={`${achievement.id}-${index}`}
-                  className="flex-shrink-0 w-48 h-32 relative cursor-pointer group"
-                  onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                >
-                  <div className={`
-                    w-full h-full transition-all duration-300 ease-out flex items-center justify-center
-                    ${hoveredItem === `${achievement.id}-${index}` 
-                      ? 'scale-110' 
-                      : 'scale-100 opacity-70 hover:opacity-100'
-                    }
-                  `}>
-                    <img 
-                      src={achievement.logo} 
-                      alt={`${achievement.category} logo`}
-                      className="max-w-full max-h-full object-contain transition-all duration-300"
-                    />
-                  </div>
+            {/* White background section */}
+            <div className="bg-white py-8 relative z-10">
+              <div className="overflow-hidden relative">
+                <div className="flex animate-marquee space-x-16 py-4">
+                  {scrollingAchievements.map((achievement, index) => (
+                    <div
+                      key={`${achievement.id}-${index}`}
+                      className="flex-shrink-0 w-48 h-32 relative cursor-pointer group"
+                      onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                    >
+                      <div className={`
+                        w-full h-full transition-all duration-300 ease-out flex items-center justify-center
+                        ${hoveredItem === `${achievement.id}-${index}` 
+                          ? 'scale-110' 
+                          : 'scale-100 opacity-70 hover:opacity-100'
+                        }
+                      `}>
+                        <img 
+                          src={achievement.logo} 
+                          alt={`${achievement.category} logo`}
+                          className="max-w-full max-h-full object-contain transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Torn edge bottom */}
+            <div className="absolute bottom-0 left-0 w-full h-8 bg-white" 
+                 style={{
+                   clipPath: 'polygon(0% 40%, 5% 20%, 10% 30%, 15% 10%, 20% 25%, 25% 15%, 30% 30%, 35% 20%, 40% 35%, 45% 25%, 50% 40%, 55% 15%, 60% 30%, 65% 20%, 70% 35%, 75% 15%, 80% 25%, 85% 10%, 90% 30%, 95% 20%, 100% 40%, 100% 100%, 0% 100%)'
+                 }}>
             </div>
           </div>
 
