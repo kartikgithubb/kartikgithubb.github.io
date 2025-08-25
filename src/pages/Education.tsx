@@ -120,7 +120,7 @@ const Education = () => {
                       </div>
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
-                        <span className="text-muted-foreground font-medium">{item.period}</span>
+                        <span className="text-muted-foreground font-medium whitespace-nowrap">{item.period}</span>
                       </div>
                     </div>
                     {/* Bottom row: Location and GPA */}
