@@ -168,6 +168,27 @@ const Awards = () => {
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/9224a3d0-84a5-433d-86df-9e97f45dbfa3.png'
     },
+    {
+      id: 'un',
+      category: 'UN',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/e015e259-d7ce-422d-b275-842b8981db2a.png'
+    },
+    {
+      id: 'hindu-young-world',
+      category: 'HINDU YOUNG WORLD',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/326c63df-4af4-4496-87ee-285f101aecec.png'
+    },
+    {
+      id: 'telangana-govt',
+      category: 'TELANGANA GOVT',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/a36c33d8-35cb-444c-9229-02457f49fd63.png'
+    },
   ];
 
   return (
