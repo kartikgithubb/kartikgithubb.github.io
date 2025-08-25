@@ -180,7 +180,7 @@ const Awards = () => {
       category: 'HINDU YOUNG WORLD',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/326c63df-4af4-4496-87ee-285f101aecec.png'
+      logo: '/lovable-uploads/29ed1c3f-c4c2-406c-a779-ed897b12a854.png'
     },
     {
       id: 'telangana-govt',
