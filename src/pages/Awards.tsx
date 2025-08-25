@@ -104,6 +104,76 @@ const Awards = () => {
       count: 1,
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/867f4e57-07b2-43ed-856d-1f71f22a5c2d.png'
+    },
+    {
+      id: 'ieee',
+      category: 'IEEE',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/263997f8-e1fe-4264-afb0-a4d2a61383aa.png'
+    },
+    {
+      id: 'nca',
+      category: 'NCA',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/1808d74d-4143-4b79-9026-270b471a5d46.png'
+    },
+    {
+      id: 'aip-publishing',
+      category: 'AIP PUBLISHING',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/f41c839b-80be-4c69-b07b-ff4e6075b29b.png'
+    },
+    {
+      id: 'rotary',
+      category: 'ROTARY',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/3287af53-485c-48b1-bf55-0558622d7f1e.png'
+    },
+    {
+      id: 'lions',
+      category: 'LIONS',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/b5912eb0-3fc8-4d2b-b5fe-e7b13238d5ae.png'
+    },
+    {
+      id: 'nstse',
+      category: 'NSTSE',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/726315e8-0bb4-48c8-a458-8f381c1c0dae.png'
+    },
+    {
+      id: 'uconn',
+      category: 'UCONN',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/eaa4ce47-da4b-4ea0-b9b9-87349fc866cc.png'
+    },
+    {
+      id: 'government-ap',
+      category: 'GOVERNMENT AP',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/37089c6e-5534-47da-8af5-452c24fcb114.png'
+    },
+    {
+      id: 'hindu-quiz',
+      category: 'HINDU QUIZ',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/9224a3d0-84a5-433d-86df-9e97f45dbfa3.png'
+    },
+    {
+      id: 'star-plus',
+      category: 'STAR PLUS',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/b27e6eec-96c8-476e-b2a3-e9ecf6df2473.png'
     }
   ];
 
