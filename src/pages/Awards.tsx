@@ -66,6 +66,13 @@ const Awards = () => {
       count: 1,
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/3916ad84-c483-42ec-93ab-8f1b7d75e7f2.png'
+    },
+    {
+      id: 'zee',
+      category: 'ZEE',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/f0ff2e98-6146-42df-8682-e9aaae8693f2.png'
     }
   ];
 
@@ -147,6 +154,7 @@ const Awards = () => {
                       src={achievement.logo} 
                       alt={`${achievement.category} logo`}
                       className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      style={achievement.id === 'zee' ? { mixBlendMode: 'multiply' } : {}}
                     />
                   </div>
                 </div>
