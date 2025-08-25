@@ -138,7 +138,7 @@ const Awards = () => {
       category: 'LIONS',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/974084e2-0782-4157-bbd0-6e79633ed7ea.png'
+      logo: '/lovable-uploads/fa6e192b-2c86-47f6-831f-ae973c56ef0a.png'
     },
     {
       id: 'nstse',
