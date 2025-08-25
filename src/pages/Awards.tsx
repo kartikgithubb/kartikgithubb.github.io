@@ -23,21 +23,56 @@ const Awards = () => {
       category: 'META',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/3916ad84-c483-42ec-93ab-8f1b7d75e7f2.png'
+      logo: '/lovable-uploads/8a553da9-0fa7-4051-bb67-bbc30b26db1f.png'
+    },
+    {
+      id: 'travelers',
+      category: 'TRAVELERS',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/a83b9372-b0ec-41c4-9daf-336e66e15599.png'
+    },
+    {
+      id: 'ait',
+      category: 'AIT',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/44aadf18-42c9-4ecb-ad0d-9b32c890d596.png'
+    },
+    {
+      id: 'cbse-volleyball',
+      category: 'CBSE VOLLEYBALL',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/ff290da8-5995-4064-9435-fe5876f9da4c.png'
+    },
+    {
+      id: 'cbse-quiz',
+      category: 'CBSE QUIZ',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/50a3983a-a956-4895-bfc3-11c49d274175.png'
+    },
+    {
+      id: 'etv',
+      category: 'ETV',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/dd570eaf-4614-4f3e-8a6a-3ca0ae40ece5.png'
+    },
+    {
+      id: 'star',
+      category: 'STAR',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/67c49eb8-6eff-41d0-958d-89d151acb37f.png'
     },
     {
       id: 'zee',
       category: 'ZEE',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/c75d7101-84d7-4b9d-ab26-e1363b287403.png'
-    },
-    {
-      id: 'cbse',
-      category: 'CBSE QUIZ',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/cbf34bca-acc0-4615-9e18-80a91cd8af83.png'
+      logo: '/lovable-uploads/867f4e57-07b2-43ed-856d-1f71f22a5c2d.png'
     }
   ];
 
@@ -113,7 +148,7 @@ const Awards = () => {
                   {scrollingAchievements.map((achievement, index) => (
                     <div
                       key={`${achievement.id}-${index}`}
-                      className="flex-shrink-0 w-48 h-32 relative cursor-pointer group"
+                      className="flex-shrink-0 w-68 h-52 relative cursor-pointer group"
                       onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
                       onMouseLeave={() => setHoveredItem(null)}
                     >
