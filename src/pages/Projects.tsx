@@ -8,7 +8,6 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-
 interface Project {
   id: string;
   title: string;
@@ -25,67 +24,49 @@ interface Project {
   category: string;
   image: string;
 }
-
-const mockProjects: Project[] = [
-  {
-    id: 'social-emotions',
-    title: 'Social Media Emotion Analytics',
-    tagline: 'Understanding engagement through emotional intelligence',
-    summary: 'Built comprehensive emotion detection pipeline for social media content analysis across Facebook, Instagram, and Twitter platforms.',
-    highlights: [
-      'Processed 1M+ social media posts',
-      'Achieved 87% emotion classification accuracy',
-      'Increased engagement prediction by 34%'
-    ],
-    stack: ['Python', 'TensorFlow', 'NLP', 'AWS', 'PostgreSQL'],
-    tags: ['Machine Learning', 'Social Media', 'Analytics', 'Python', 'AI'],
-    links: {
-      demo: '#',
-      code: '#',
-      case_study: '#'
-    },
-    category: 'Data',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop'
+const mockProjects: Project[] = [{
+  id: 'social-emotions',
+  title: 'Social Media Emotion Analytics',
+  tagline: 'Understanding engagement through emotional intelligence',
+  summary: 'Built comprehensive emotion detection pipeline for social media content analysis across Facebook, Instagram, and Twitter platforms.',
+  highlights: ['Processed 1M+ social media posts', 'Achieved 87% emotion classification accuracy', 'Increased engagement prediction by 34%'],
+  stack: ['Python', 'TensorFlow', 'NLP', 'AWS', 'PostgreSQL'],
+  tags: ['Machine Learning', 'Social Media', 'Analytics', 'Python', 'AI'],
+  links: {
+    demo: '#',
+    code: '#',
+    case_study: '#'
   },
-  {
-    id: 'powerbi-dashboard',
-    title: 'Executive Analytics Dashboard',
-    tagline: 'Real-time business intelligence for leadership',
-    summary: 'Designed and deployed comprehensive Power BI dashboard suite providing real-time insights across key business metrics.',
-    highlights: [
-      'Consolidated 12 data sources',
-      'Reduced reporting time by 75%',
-      'Enabled data-driven decisions for C-suite'
-    ],
-    stack: ['Power BI', 'SQL Server', 'DAX', 'Azure', 'ETL'],
-    tags: ['Business Intelligence', 'Dashboard', 'Analytics', 'Power BI', 'Data Visualization'],
-    links: {
-      demo: '#'
-    },
-    category: 'AI',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop'
+  category: 'Data',
+  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop'
+}, {
+  id: 'powerbi-dashboard',
+  title: 'Executive Analytics Dashboard',
+  tagline: 'Real-time business intelligence for leadership',
+  summary: 'Designed and deployed comprehensive Power BI dashboard suite providing real-time insights across key business metrics.',
+  highlights: ['Consolidated 12 data sources', 'Reduced reporting time by 75%', 'Enabled data-driven decisions for C-suite'],
+  stack: ['Power BI', 'SQL Server', 'DAX', 'Azure', 'ETL'],
+  tags: ['Business Intelligence', 'Dashboard', 'Analytics', 'Power BI', 'Data Visualization'],
+  links: {
+    demo: '#'
   },
-  {
-    id: 'aura-pm',
-    title: 'AURA - AI Project Assistant',
-    tagline: 'Intelligent project management with AI agents',
-    summary: 'Prototype AI-powered project management tool that uses natural language processing to automate task creation, status updates, and risk assessment.',
-    highlights: [
-      'RAG-powered project insights',
-      'Automated risk detection',
-      'Natural language task management'
-    ],
-    stack: ['React', 'Node.js', 'OpenAI', 'Vector DB', 'TypeScript'],
-    tags: ['AI Assistant', 'Project Management', 'NLP', 'React', 'OpenAI'],
-    links: {
-      demo: '#',
-      code: '#'
-    },
-    category: 'Product',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop'
-  }
-];
-
+  category: 'AI',
+  image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop'
+}, {
+  id: 'aura-pm',
+  title: 'AURA - AI Project Assistant',
+  tagline: 'Intelligent project management with AI agents',
+  summary: 'Prototype AI-powered project management tool that uses natural language processing to automate task creation, status updates, and risk assessment.',
+  highlights: ['RAG-powered project insights', 'Automated risk detection', 'Natural language task management'],
+  stack: ['React', 'Node.js', 'OpenAI', 'Vector DB', 'TypeScript'],
+  tags: ['AI Assistant', 'Project Management', 'NLP', 'React', 'OpenAI'],
+  links: {
+    demo: '#',
+    code: '#'
+  },
+  category: 'Product',
+  image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop'
+}];
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
@@ -93,58 +74,36 @@ const Projects = () => {
 
   // Get all unique tags from projects
   const allTags = Array.from(new Set(mockProjects.flatMap(project => project.tags)));
-
   const filteredProjects = mockProjects.filter(project => {
     const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory;
-    const matchesSearch = searchTerm === '' || 
-      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      project.stack.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-    
+    const matchesSearch = searchTerm === '' || project.title.toLowerCase().includes(searchTerm.toLowerCase()) || project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())) || project.stack.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
-
-  return (
-    <div>
+  return <div>
       <Header />
       
       {/* Hero */}
       <Section className="pt-24" padding="xl">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Featured <span className="crystal-text">Projects</span>
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            A showcase of data analytics, AI experiments, and product innovations 
-            that demonstrate practical problem-solving skills
-          </p>
-        </div>
+        
 
         {/* Search Bar */}
         <div className="flex justify-center mb-16">
           <div className="relative w-full max-w-lg">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              placeholder="Search my Projects"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 py-4 rounded-full border-2 border-border/30 bg-background/80 backdrop-blur-sm text-lg shadow-lg focus:border-primary/50 transition-all"
-            />
+            <Input placeholder="Search my Projects" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-12 py-4 rounded-full border-2 border-border/30 bg-background/80 backdrop-blur-sm text-lg shadow-lg focus:border-primary/50 transition-all" />
           </div>
         </div>
 
         {/* Projects List */}
         <div className="max-w-6xl mx-auto space-y-8">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="flex flex-col lg:flex-row gap-8 items-stretch">
+          {filteredProjects.map(project => <div key={project.id} className="flex flex-col lg:flex-row gap-8 items-stretch">
               {/* Left Side - Project Card */}
               <div className="lg:w-96 flex-shrink-0">
                 <Card className="relative overflow-hidden border-2 border-border/30 h-80 group hover:border-primary/30 transition-all duration-300">
                   {/* Background Image with transparency */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-15 group-hover:opacity-25 transition-opacity duration-300"
-                    style={{ backgroundImage: `url(${project.image})` }}
-                  />
+                  <div className="absolute inset-0 bg-cover bg-center opacity-15 group-hover:opacity-25 transition-opacity duration-300" style={{
+                backgroundImage: `url(${project.image})`
+              }} />
                   <div className="absolute inset-0 bg-gradient-to-br from-background/95 to-background/85" />
                   
                   {/* Category Badge */}
@@ -164,12 +123,7 @@ const Projects = () => {
                     
                     {/* Learn More Button */}
                     <div className="flex justify-center">
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        onClick={() => window.location.href = project.links.case_study || project.links.demo || '#'}
-                        className="rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground px-6"
-                      >
+                      <Button size="sm" variant="outline" onClick={() => window.location.href = project.links.case_study || project.links.demo || '#'} className="rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground px-6">
                         Learn More
                       </Button>
                     </div>
@@ -190,11 +144,9 @@ const Projects = () => {
                 <div>
                   <h4 className="text-lg font-semibold mb-3 text-foreground">Skills</h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-sm py-1 px-3 rounded-full">
+                    {project.tags.map(tag => <Badge key={tag} variant="secondary" className="text-sm py-1 px-3 rounded-full">
                         {tag}
-                      </Badge>
-                    ))}
+                      </Badge>)}
                   </div>
                 </div>
                 
@@ -202,23 +154,18 @@ const Projects = () => {
                 <div>
                   <h4 className="text-lg font-semibold mb-3 text-foreground">Tools</h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.stack.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-sm py-1 px-3 rounded-full border-primary/30 text-primary">
+                    {project.stack.map(tech => <Badge key={tech} variant="outline" className="text-sm py-1 px-3 rounded-full border-primary/30 text-primary">
                         {tech}
-                      </Badge>
-                    ))}
+                      </Badge>)}
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </Section>
 
       <Footer />
       <ChatButton />
-    </div>
-  );
+    </div>;
 };
-
 export default Projects;
