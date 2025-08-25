@@ -204,7 +204,7 @@ const Experience = () => {
             Work <span className="crystal-text">Experience</span>
           </h1>
           <p className="text-xl text-muted-foreground">
-            From IoT innovation to educational technology, building data-driven solutions across industries
+            From innovation to technology, building data-driven solutions across industries
           </p>
         </div>
 
