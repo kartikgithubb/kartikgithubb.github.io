@@ -117,37 +117,42 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
                     </div>
                   </div>
 
-                  {/* Content Card */}
-                  <div className={`bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 flex-1 max-w-md ${contentAlign} relative z-20`}>
-                    <div className="mb-3">
-                      <h3 className="text-lg font-bold text-foreground mb-1">{exp.role}</h3>
-                      <p className="text-sm font-medium text-primary mb-2">{exp.org}</p>
+                   {/* Content Card */}
+                  <div className={`bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 flex-1 max-w-lg relative z-20`}>
+                    {/* Header Section with proper hierarchy */}
+                    <div className="mb-4">
+                      <div className="flex flex-col gap-1 mb-3">
+                        <h3 className="text-xl font-bold text-foreground leading-tight">{exp.role}</h3>
+                        <p className="text-base font-semibold text-primary">{exp.org}</p>
+                      </div>
                       
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          <span>{exp.start} - {exp.end}</span>
+                      {/* Date and Location with better visual separation */}
+                      <div className={`flex ${isEven ? 'flex-row' : 'flex-row-reverse'} items-center gap-6 text-sm text-muted-foreground`}>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-4 w-4 text-primary/70" />
+                          <span className="font-medium">{exp.start} - {exp.end}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3" />
-                          <span>{exp.location}</span>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4 text-primary/70" />
+                          <span className="font-medium">{exp.location}</span>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {/* Description */}
+                    <p className={`text-sm text-muted-foreground leading-relaxed mb-4 ${contentAlign}`}>
                       {exp.description}
                     </p>
 
-                    {/* Skills */}
-                    <div className="flex flex-wrap gap-1">
+                    {/* Skills Section */}
+                    <div className={`flex flex-wrap gap-2 ${isEven ? 'justify-start' : 'justify-end'}`}>
                       {exp.skills.slice(0, 4).map((skill, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs px-2 py-1">
+                        <Badge key={idx} variant="secondary" className="text-xs px-3 py-1.5 font-medium">
                           {skill}
                         </Badge>
                       ))}
                       {exp.skills.length > 4 && (
-                        <Badge variant="outline" className="text-xs px-2 py-1">
+                        <Badge variant="outline" className="text-xs px-3 py-1.5 font-medium border-primary/30 text-primary">
                           +{exp.skills.length - 4} more
                         </Badge>
                       )}
