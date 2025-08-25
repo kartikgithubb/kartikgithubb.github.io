@@ -102,7 +102,6 @@ const Education = () => {
                   {/* School Details */}
                   <div>
                     <h3 className="font-bold text-lg">{item.school}</h3>
-                    <p className="text-sm text-muted-foreground">{item.period}</p>
                     <p className="text-sm text-muted-foreground">{item.subjects}</p>
                   </div>
 
@@ -115,6 +114,9 @@ const Education = () => {
                     <div className="flex items-center text-sm">
                       <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
                       <span>{item.location}</span>
+                    </div>
+                    <div className="text-sm text-muted-foreground font-medium">
+                      {item.period}
                     </div>
                   </div>
 
