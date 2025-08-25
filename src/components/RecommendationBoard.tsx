@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import { Plus, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -43,6 +43,7 @@ const RecommendationBoard = () => {
     }
   ]);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -87,6 +88,21 @@ const RecommendationBoard = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const canScrollLeft = currentIndex > 0;
+  const canScrollRight = currentIndex < recommendations.length - 3;
+
+  const scrollLeft = () => {
+    if (canScrollLeft) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const scrollRight = () => {
+    if (canScrollRight) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
   return (
     <div className="mb-16">
       {/* Board Header */}
@@ -100,13 +116,37 @@ const RecommendationBoard = () => {
         {/* Cork Board Texture */}
         <div className="absolute inset-0 opacity-10 rounded-2xl bg-amber-600/10 bg-[radial-gradient(circle_at_25%_25%,_rgba(212,165,116,0.1)_0%,_transparent_50%)]"></div>
         
-        {/* Recommendation Notes - Horizontal Scrolling Display */}
+        {/* Navigation Arrows */}
+        {recommendations.length > 3 && (
+          <>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-background/80 hover:bg-background/90"
+              onClick={scrollLeft}
+              disabled={!canScrollLeft}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-background/80 hover:bg-background/90"
+              onClick={scrollRight}
+              disabled={!canScrollRight}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </>
+        )}
+
+        {/* Recommendation Notes - Static Grid Display */}
         <div className="relative overflow-hidden h-80">
-          <div className="flex animate-marquee space-x-6 h-full items-center">
-            {/* Create enough duplicates for seamless scrolling */}
-            {[...recommendations, ...recommendations, ...recommendations].map((rec, index) => (
+          <div className="flex space-x-6 h-full items-center transition-transform duration-300 ease-in-out"
+               style={{ transform: `translateX(-${currentIndex * 320}px)` }}>
+            {recommendations.map((rec) => (
               <div
-                key={`${rec.id}-${index}`}
+                key={rec.id}
                 className={`relative ${rec.color} p-4 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:z-10 w-80 h-64 flex-shrink-0`}
                 style={{ 
                   transform: `rotate(${rec.rotation}deg)`,
