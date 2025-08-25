@@ -111,26 +111,28 @@ const Education = () => {
                   </div>
 
                   {/* Academic Info */}
-                  <div className="space-y-3">
+                  <div className="space-y-2">
+                    {/* Top row: Degree and Tenure */}
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center">
                         <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
                         <span>{item.graduatedGrade}</span>
                       </div>
-                      <div className="flex items-center gap-6">
-                        <div className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
-                          <span className="text-muted-foreground font-medium">{item.period}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Award className="w-4 h-4 mr-2 text-primary/70" />
-                          <span className="text-primary font-semibold">GPA: {item.gpa}</span>
-                        </div>
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
+                        <span className="text-muted-foreground font-medium">{item.period}</span>
                       </div>
                     </div>
-                    <div className="flex items-center text-sm">
-                      <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
-                      <span>{item.location}</span>
+                    {/* Bottom row: Location and GPA */}
+                    <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
+                        <span>{item.location}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Award className="w-4 h-4 mr-2 text-primary/70" />
+                        <span className="text-primary font-semibold">GPA: {item.gpa}</span>
+                      </div>
                     </div>
                   </div>
 
