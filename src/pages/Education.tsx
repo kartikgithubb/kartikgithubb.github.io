@@ -111,27 +111,27 @@ const Education = () => {
                   </div>
 
                   {/* Academic Info */}
-                  <div className="space-y-2">
-                    {/* Top row: Degree and Tenure */}
-                    <div className="flex items-center justify-between text-sm">
+                  <div className="grid grid-cols-2 gap-8 text-sm">
+                    {/* Left Column */}
+                    <div className="space-y-2">
                       <div className="flex items-center">
                         <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
                         <span>{item.graduatedGrade}</span>
                       </div>
                       <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
-                        <span className="text-muted-foreground font-medium whitespace-nowrap">{item.period}</span>
-                      </div>
-                    </div>
-                    {/* Bottom row: Location and GPA */}
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center">
                         <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
                         <span>{item.location}</span>
                       </div>
+                    </div>
+                    {/* Right Column */}
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
+                        <span className="text-muted-foreground font-medium whitespace-nowrap">{item.period}</span>
+                      </div>
                       <div className="flex items-center">
                         <Award className="w-4 h-4 mr-2 text-primary/70" />
-                        <span className="text-primary font-semibold">GPA: {item.gpa}</span>
+                        <span className="text-primary font-semibold whitespace-nowrap">GPA: {item.gpa}</span>
                       </div>
                     </div>
                   </div>
