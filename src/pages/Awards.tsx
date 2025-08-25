@@ -168,13 +168,6 @@ const Awards = () => {
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/9224a3d0-84a5-433d-86df-9e97f45dbfa3.png'
     },
-    {
-      id: 'star-plus',
-      category: 'STAR PLUS',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/b27e6eec-96c8-476e-b2a3-e9ecf6df2473.png'
-    }
   ];
 
   return (
