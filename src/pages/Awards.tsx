@@ -237,43 +237,39 @@ const Awards = () => {
               <div className="container mx-auto px-6">
                 <div className="relative flex flex-wrap justify-center items-center gap-4 min-h-[400px]">
                   {logoAchievements.map((achievement, index) => {
-                    // Create unconventional positioning with varied sizes
-                    const positions = [
-                      { transform: 'rotate(-2deg)', marginTop: '10px', size: 'max-w-[120px] max-h-[90px]' },
-                      { transform: 'rotate(3deg)', marginTop: '-15px', size: 'max-w-[100px] max-h-[75px]' },
-                      { transform: 'rotate(-1deg)', marginTop: '5px', size: 'max-w-[110px] max-h-[85px]' },
-                      { transform: 'rotate(2deg)', marginTop: '-10px', size: 'max-w-[115px] max-h-[88px]' },
-                      { transform: 'rotate(-3deg)', marginTop: '15px', size: 'max-w-[105px] max-h-[80px]' },
-                      { transform: 'rotate(1deg)', marginTop: '-5px', size: 'max-w-[125px] max-h-[95px]' },
-                      { transform: 'rotate(-1.5deg)', marginTop: '8px', size: 'max-w-[108px] max-h-[82px]' },
-                      { transform: 'rotate(2.5deg)', marginTop: '-12px', size: 'max-w-[118px] max-h-[90px]' },
-                      { transform: 'rotate(-2.5deg)', marginTop: '12px', size: 'max-w-[112px] max-h-[85px]' },
-                      { transform: 'rotate(1.5deg)', marginTop: '-8px', size: 'max-w-[122px] max-h-[92px]' },
-                      { transform: 'rotate(-0.5deg)', marginTop: '6px', size: 'max-w-[116px] max-h-[88px]' },
-                      { transform: 'rotate(3.5deg)', marginTop: '-18px', size: 'max-w-[102px] max-h-[78px]' },
-                      { transform: 'rotate(-2.8deg)', marginTop: '18px', size: 'max-w-[120px] max-h-[91px]' },
-                      { transform: 'rotate(0.8deg)', marginTop: '-3px', size: 'max-w-[114px] max-h-[86px]' },
-                      { transform: 'rotate(-1.2deg)', marginTop: '9px', size: 'max-w-[107px] max-h-[81px]' },
-                      { transform: 'rotate(2.2deg)', marginTop: '-14px', size: 'max-w-[119px] max-h-[89px]' },
-                      { transform: 'rotate(-3.2deg)', marginTop: '16px', size: 'max-w-[111px] max-h-[84px]' }
+                    // Create varied sizes without rotation
+                    const sizes = [
+                      'max-w-[120px] max-h-[90px]',
+                      'max-w-[100px] max-h-[75px]',
+                      'max-w-[110px] max-h-[85px]',
+                      'max-w-[115px] max-h-[88px]',
+                      'max-w-[105px] max-h-[80px]',
+                      'max-w-[125px] max-h-[95px]',
+                      'max-w-[108px] max-h-[82px]',
+                      'max-w-[118px] max-h-[90px]',
+                      'max-w-[112px] max-h-[85px]',
+                      'max-w-[122px] max-h-[92px]',
+                      'max-w-[116px] max-h-[88px]',
+                      'max-w-[102px] max-h-[78px]',
+                      'max-w-[120px] max-h-[91px]',
+                      'max-w-[114px] max-h-[86px]',
+                      'max-w-[107px] max-h-[81px]',
+                      'max-w-[119px] max-h-[89px]',
+                      'max-w-[111px] max-h-[84px]'
                     ];
-                    const style = positions[index % positions.length];
+                    const size = sizes[index % sizes.length];
                     
                     return (
                       <div
                         key={achievement.id}
                         className="flex items-center justify-center cursor-pointer group transition-all duration-300 hover:scale-110 hover:z-10 relative"
-                        style={{ 
-                          transform: style.transform,
-                          marginTop: style.marginTop
-                        }}
                         onMouseEnter={() => setHoveredItem(achievement.id)}
                         onMouseLeave={() => setHoveredItem(null)}
                       >
                         <img 
                           src={achievement.logo} 
                           alt={`${achievement.category} logo`}
-                          className={`${style.size} object-contain transition-all duration-300 opacity-85 hover:opacity-100 drop-shadow-sm`}
+                          className={`${size} object-contain transition-all duration-300 opacity-85 hover:opacity-100 drop-shadow-sm`}
                         />
                       </div>
                     );
