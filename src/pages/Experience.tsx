@@ -53,7 +53,7 @@ const professionalExperience: ExperienceItem[] = [{
   description: 'Migrated university courses to Blackboard Ultra with UX-focused redesigns, improving learner navigation and boosting faculty and student adoption.',
   highlights: ['Successfully migrated 200+ courses to new platform', 'Trained faculty on enhanced platform features', 'Improved student satisfaction scores through better course design'],
   skills: ['UX Design', 'Blackboard Ultra', 'Course Migration', 'Training', 'Educational Technology'],
-  logo: '/lovable-uploads/cd436367-bcfa-4364-82a3-84796f126524.png',
+  logo: '/lovable-uploads/8dfff705-4459-4695-926b-ebb30615d263.png',
   type: 'professional'
 }, {
   id: 'controlstation-recent',
