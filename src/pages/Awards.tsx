@@ -59,6 +59,13 @@ const Awards = () => {
       count: 12,
       icon: <Heart className="w-12 h-12" />,
       logo: 'https://images.unsplash.com/photo-1606868306217-dbf5046868d2?w=100&h=100&fit=crop&crop=center'
+    },
+    {
+      id: 'meta',
+      category: 'META',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/3916ad84-c483-42ec-93ab-8f1b7d75e7f2.png'
     }
   ];
 
@@ -141,6 +148,9 @@ const Awards = () => {
                       alt={`${achievement.category} logo`}
                       className="w-full h-full object-cover"
                     />
+                    {achievement.id === 'meta' && (
+                      <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px] rounded-2xl" />
+                    )}
                   </div>
                   
                   {/* Enhanced Glow effect */}
