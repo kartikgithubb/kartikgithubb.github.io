@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { MapPin, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
@@ -24,16 +24,27 @@ interface RoadTimelineProps {
 
 const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = Math.min(scrollTop / docHeight, 1);
-      setScrollProgress(progress);
+      if (timelineRef.current) {
+        const rect = timelineRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const timelineTop = rect.top;
+        const timelineHeight = rect.height;
+        
+        // Calculate progress based on timeline visibility
+        const startProgress = Math.max(0, (windowHeight - timelineTop) / windowHeight);
+        const endProgress = Math.max(0, (windowHeight + timelineHeight - timelineTop) / timelineHeight);
+        const progress = Math.min(Math.max(startProgress * endProgress, 0), 1);
+        
+        setScrollProgress(progress);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial calculation
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,7 +55,7 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
         <p className="text-muted-foreground italic">({subtitle})</p>
       </div>
 
-      <div className="relative max-w-6xl mx-auto">
+      <div ref={timelineRef} className="relative max-w-6xl mx-auto">
         {/* Continuous Road Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 z-0">
           {/* Base road line */}
