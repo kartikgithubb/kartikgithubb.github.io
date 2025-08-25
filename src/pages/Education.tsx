@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, GraduationCap, School } from 'lucide-react';
+import { MapPin, GraduationCap, School, Award } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
@@ -117,10 +117,13 @@ const Education = () => {
                         <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
                         <span>{item.graduatedGrade}</span>
                       </div>
-                      <span className="text-muted-foreground font-medium ml-8">{item.period}</span>
-                    </div>
-                    <div className="text-sm">
-                      <span className="text-primary font-semibold">GPA: {item.gpa}</span>
+                      <div className="ml-8">
+                        <div className="text-muted-foreground font-medium mb-1">{item.period}</div>
+                        <div className="flex items-center">
+                          <Award className="w-4 h-4 mr-2 text-primary/70" />
+                          <span className="text-primary font-semibold">GPA: {item.gpa}</span>
+                        </div>
+                      </div>
                     </div>
                     <div className="flex items-center text-sm">
                       <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
