@@ -88,13 +88,13 @@ const Education = () => {
               <div key={item.id} className="flex items-center gap-8">
                 {/* School Logo */}
                 <div className="flex-shrink-0">
-                  <div className={`rounded-lg overflow-hidden hover-glow transition-all duration-300 ${
+                  <div className={`rounded-lg overflow-hidden hover-glow transition-all duration-300 bg-white border border-border ${
                     item.id === 'masters' || item.id === 'bachelors' ? 'w-24 h-24' : 'w-16 h-16'
                   }`}>
                     <img 
                       src={item.logo} 
                       alt={`${item.school} logo`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain p-2"
                     />
                   </div>
                 </div>
