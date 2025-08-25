@@ -37,9 +37,9 @@ const Education = () => {
       school: 'KL University',
       period: 'Jul 2019 - May 2023',
       subjects: 'Electronics and Computer Engineering',
-      graduatedGrade: 'Bachelor of Technology in Electronics and Computer Engineering',
+      graduatedGrade: 'Bachelor of Technology',
       location: 'Andhra Pradesh, India',
-      logo: 'https://images.unsplash.com/photo-1562774053-701939374585?w=80&h=80&fit=crop&crop=center',
+      logo: '/lovable-uploads/412635a4-95e3-4d38-9a6d-6caa1242f505.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&h=120&fit=crop',
       crazyFact: 'Led a hackathon team that created a campus food waste tracking app adopted by 12 universities across California!'
     },
