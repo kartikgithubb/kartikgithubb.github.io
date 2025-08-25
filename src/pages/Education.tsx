@@ -79,7 +79,7 @@ const Education = () => {
               <span className="crystal-text">Education</span>
             </h1>
             <p className="text-xl text-muted-foreground italic mb-4">
-              (Speak to K - my digital twin to learn more about my Education and Relevant Courseworks)
+              (Speak to K - my digital twin to learn more about my Academia and Relevant Courseworks)
             </p>
           </div>
 
