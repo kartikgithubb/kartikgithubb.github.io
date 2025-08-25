@@ -31,28 +31,6 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Connecting Lines */}
-        <div className="absolute inset-0 z-0">
-          {experiences.map((_, index) => {
-            if (index === experiences.length - 1) return null;
-            const isCurrentEven = index % 2 === 0;
-            const isNextEven = (index + 1) % 2 === 0;
-            
-            return (
-              <div
-                key={index}
-                className="absolute border-t-2 border-dashed border-border opacity-60"
-                style={{
-                  top: `${(index + 1) * 160 + 40}px`,
-                  left: isCurrentEven ? '80px' : '50%',
-                  right: isNextEven ? 'calc(50% - 80px)' : '80px',
-                  height: '2px',
-                  transformOrigin: 'left center',
-                }}
-              />
-            );
-          })}
-        </div>
 
         {/* Experience Items */}
         <div className="relative z-10 space-y-12">
