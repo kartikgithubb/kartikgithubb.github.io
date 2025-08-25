@@ -58,10 +58,10 @@ const Education = () => {
       id: 'secondary',
       school: 'V.S.St. Johns Higher Secondary School',
       period: 'Jul 2005 - May 2019',
-      subjects: 'Secondary School',
+      subjects: 'Foundational Studies',
       graduatedGrade: 'Secondary School',
       location: 'Andhra Pradesh, India',
-      logo: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=80&h=80&fit=crop&crop=center',
+      logo: '/lovable-uploads/36e4faaa-a428-4b35-86af-35714e818276.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=200&h=120&fit=crop',
       crazyFact: 'Built my first computer at age 10 using parts from old electronics I found around the house!'
     }
