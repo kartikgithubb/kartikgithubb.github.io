@@ -119,7 +119,7 @@ const Certifications = () => {
             </div>
             
             <div className="text-center">
-              <Medal className="w-8 h-8 text-secondary mx-auto mb-3" />
+              <Medal className="w-8 h-8 text-white mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().length}
               </div>
