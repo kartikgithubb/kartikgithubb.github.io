@@ -34,12 +34,12 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
         {/* Road Path */}
         <svg
           className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1200 1000"
+          viewBox="0 0 1200 1200"
           preserveAspectRatio="none"
           style={{ height: `${experiences.length * 160 + 100}px` }}
         >
           <path
-            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 380 T 500 460 Q 700 500 900 540 T 600 620 Q 400 660 200 720 T 500 800 Q 700 840 900 880 T 600 960`}
+            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 380 T 500 460 Q 700 500 900 540 T 600 620 Q 400 660 200 720 T 500 800 Q 700 840 900 880 T 600 960 Q 400 1000 200 1040 T 500 1120`}
             stroke="hsl(var(--border))"
             strokeWidth="8"
             fill="none"
