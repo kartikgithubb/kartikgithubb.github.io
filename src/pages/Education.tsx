@@ -37,9 +37,9 @@ const Education = () => {
       school: 'KL University',
       period: 'Jul 2019 - May 2023',
       subjects: 'Electronics and Computer Engineering',
-      graduatedGrade: 'Bachelor of Technology in Electronics and Computer Engineering',
+      graduatedGrade: 'Bachelor of Technology',
       location: 'Andhra Pradesh, India',
-      logo: 'https://images.unsplash.com/photo-1562774053-701939374585?w=80&h=80&fit=crop&crop=center',
+      logo: '/lovable-uploads/2847f378-1647-4ad3-82e8-4a396e5a8c78.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&h=120&fit=crop',
       crazyFact: 'Led a hackathon team that created a campus food waste tracking app adopted by 12 universities across California!'
     },
@@ -89,7 +89,7 @@ const Education = () => {
                 {/* School Logo */}
                 <div className="flex-shrink-0">
                   <div className={`rounded-lg overflow-hidden hover-glow transition-all duration-300 ${
-                    item.id === 'masters' ? 'w-24 h-24' : 'w-16 h-16'
+                    item.id === 'masters' || item.id === 'bachelors' ? 'w-24 h-24' : 'w-16 h-16'
                   }`}>
                     <img 
                       src={item.logo} 
