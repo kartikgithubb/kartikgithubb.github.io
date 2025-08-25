@@ -31,13 +31,23 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
       if (timelineRef.current) {
         const rect = timelineRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        
+        // Calculate how much of the timeline is visible
         const timelineTop = rect.top;
+        const timelineBottom = rect.bottom;
         const timelineHeight = rect.height;
         
-        // Calculate progress based on timeline visibility
-        const startProgress = Math.max(0, (windowHeight - timelineTop) / windowHeight);
-        const endProgress = Math.max(0, (windowHeight + timelineHeight - timelineTop) / timelineHeight);
-        const progress = Math.min(Math.max(startProgress * endProgress, 0), 1);
+        // Start glow when timeline enters viewport
+        const startPoint = windowHeight * 0.8; // Start when 80% down viewport
+        const endPoint = -timelineHeight * 0.2; // End when 20% of timeline is above viewport
+        
+        let progress = 0;
+        if (timelineTop <= startPoint && timelineBottom >= 0) {
+          // Calculate progress from 0 to 1 as timeline scrolls through viewport
+          const scrolled = startPoint - timelineTop;
+          const totalScrollDistance = timelineHeight + startPoint;
+          progress = Math.min(Math.max(scrolled / totalScrollDistance, 0), 1);
+        }
         
         setScrollProgress(progress);
       }
