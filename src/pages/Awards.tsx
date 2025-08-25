@@ -72,7 +72,7 @@ const Awards = () => {
       category: 'ZEE',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/f0ff2e98-6146-42df-8682-e9aaae8693f2.png'
+      logo: '/lovable-uploads/c75d7101-84d7-4b9d-ab26-e1363b287403.png'
     }
   ];
 
@@ -139,7 +139,7 @@ const Awards = () => {
               {scrollingAchievements.map((achievement, index) => (
                 <div
                   key={`${achievement.id}-${index}`}
-                  className="flex-shrink-0 w-24 h-16 relative cursor-pointer group"
+                  className="flex-shrink-0 w-32 h-20 relative cursor-pointer group"
                   onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
