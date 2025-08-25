@@ -89,7 +89,7 @@ const Awards = () => {
       category: 'ETV',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/dd570eaf-4614-4f3e-8a6a-3ca0ae40ece5.png'
+      logo: '/lovable-uploads/488bcec0-7277-4131-84e7-d9def0115531.png'
     },
     {
       id: 'star',
