@@ -28,7 +28,7 @@ const Education = () => {
       subjects: 'Business Analytics and Project Management',
       graduatedGrade: 'Master of Science',
       location: 'Connecticut, USA',
-      logo: '/lovable-uploads/db3bac31-28a7-469f-9cdf-173ab839f46c.png',
+      logo: '/lovable-uploads/838fc5d8-45f6-4091-8a40-b5efbb516124.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&h=120&fit=crop',
       crazyFact: 'Built an AI system that could predict student success with 94% accuracy just from their first week of online activity!'
     },
