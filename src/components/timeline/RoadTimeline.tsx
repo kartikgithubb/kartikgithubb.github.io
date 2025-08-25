@@ -34,12 +34,12 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
         {/* Road Path */}
         <svg
           className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1200 800"
+          viewBox="0 0 1200 1000"
           preserveAspectRatio="none"
-          style={{ height: `${experiences.length * 180 + 100}px` }}
+          style={{ height: `${experiences.length * 160 + 100}px` }}
         >
           <path
-            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 380 T 500 460 Q 700 500 900 540 T 600 620 Q 400 660 200 700 T 100 ${780 + (experiences.length - 6) * 140}`}
+            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 380 T 500 460 Q 700 500 900 540 T 600 620 Q 400 660 200 720 T 500 800 Q 700 840 900 880 T 600 960`}
             stroke="hsl(var(--border))"
             strokeWidth="8"
             fill="none"
@@ -67,12 +67,6 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
                         alt={`${exp.org} logo`} 
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    {/* Experience type badge */}
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
-                      <span className="text-xs text-primary-foreground font-bold">
-                        {exp.type === 'professional' ? 'P' : 'V'}
-                      </span>
                     </div>
                   </div>
 
