@@ -71,6 +71,13 @@ const Awards = () => {
       logo: '/lovable-uploads/034475e7-6138-4f1b-adda-2444763a10a0.png'
     },
     {
+      id: 'uconn',
+      category: 'UCONN',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/eaa4ce47-da4b-4ea0-b9b9-87349fc866cc.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
@@ -146,13 +153,6 @@ const Awards = () => {
       count: 1,
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/726315e8-0bb4-48c8-a458-8f381c1c0dae.png'
-    },
-    {
-      id: 'uconn',
-      category: 'UCONN',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/eaa4ce47-da4b-4ea0-b9b9-87349fc866cc.png'
     },
   ];
 
