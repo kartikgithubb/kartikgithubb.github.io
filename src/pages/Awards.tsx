@@ -154,27 +154,6 @@ const Awards = () => {
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/eaa4ce47-da4b-4ea0-b9b9-87349fc866cc.png'
     },
-    {
-      id: 'government-ap',
-      category: 'GOVERNMENT AP',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/37089c6e-5534-47da-8af5-452c24fcb114.png'
-    },
-    {
-      id: 'hindu-quiz',
-      category: 'HINDU QUIZ',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/9224a3d0-84a5-433d-86df-9e97f45dbfa3.png'
-    },
-    {
-      id: 'un',
-      category: 'UN',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/e015e259-d7ce-422d-b275-842b8981db2a.png'
-    },
   ];
 
   return (
