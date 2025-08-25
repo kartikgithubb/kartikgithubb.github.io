@@ -88,7 +88,9 @@ const Education = () => {
               <div key={item.id} className="flex items-center gap-8">
                 {/* School Logo */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-lg overflow-hidden hover-glow transition-all duration-300">
+                  <div className={`rounded-lg overflow-hidden hover-glow transition-all duration-300 ${
+                    item.id === 'masters' ? 'w-24 h-24' : 'w-16 h-16'
+                  }`}>
                     <img 
                       src={item.logo} 
                       alt={`${item.school} logo`}
