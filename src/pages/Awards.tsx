@@ -99,6 +99,13 @@ const Awards = () => {
       logo: '/lovable-uploads/f41c839b-80be-4c69-b07b-ff4e6075b29b.png'
     },
     {
+      id: 'essence',
+      category: 'ESSENCE',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/114210d0-94a8-4bc4-8b7d-70bd0be18592.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
