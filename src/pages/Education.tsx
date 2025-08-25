@@ -75,7 +75,7 @@ const Education = () => {
       <Section className="pt-24" padding="xl">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl font-bold mb-6">
               <span className="crystal-text">Education</span>
             </h1>
             <p className="text-xl text-muted-foreground italic mb-4">
