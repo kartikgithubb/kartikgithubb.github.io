@@ -212,7 +212,7 @@ const Experience = () => {
         <ExperienceTimeline experiences={professionalExperience} title="Professional Work Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences" />
 
         {/* Volunteering Experience */}
-        <ExperienceTimeline experiences={volunteerExperience} title="Volunteering Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences" />
+        <ExperienceTimeline experiences={volunteerExperience} title="Volunteering Experience" subtitle="Speak to K - my digital twin to learn more about my Volunteering experiences and achievements" />
 
         {/* Call to Action */}
         <div className="text-center mt-16">
