@@ -20,18 +20,6 @@ interface ExperienceItem {
   type: 'professional' | 'volunteer';
 }
 const professionalExperience: ExperienceItem[] = [{
-  id: 'current',
-  org: 'Center for Excellence in Teaching and Learning',
-  role: 'Graduate IT Assistant',
-  start: 'Aug 2025',
-  end: 'Present',
-  location: 'Storrs, USA',
-  description: 'Migrated university courses to Blackboard Ultra with UX-focused redesigns, improving learner navigation and boosting faculty and student adoption.',
-  highlights: ['Redesigned course interfaces for enhanced user experience', 'Improved faculty adoption rates through intuitive navigation design', 'Streamlined student learning workflows across multiple departments'],
-  skills: ['UX Design', 'Blackboard Ultra', 'Course Migration', 'User Experience', 'Educational Technology'],
-  logo: '/lovable-uploads/dfc69aa2-d17f-4e6f-98b7-c3832baca228.png',
-  type: 'professional'
-}, {
   id: 'boehringer',
   org: 'Boehringer Ingelheim',
   role: 'Data Valuation and Ideation Manager Co-Op',
