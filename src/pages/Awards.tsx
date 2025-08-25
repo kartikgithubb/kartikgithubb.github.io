@@ -137,19 +137,19 @@ const Awards = () => {
                   onMouseLeave={() => setHoveredItem(null)}
                 >
                   <div className={`
-                    w-full h-full rounded-2xl overflow-hidden transition-all duration-500 ease-out
+                    w-full h-full transition-all duration-500 ease-out
                     ${hoveredItem === `${achievement.id}-${index}` 
-                      ? 'scale-150 z-20 shadow-[0_0_40px_rgba(var(--primary),0.6)]' 
-                      : 'shadow-md hover:shadow-lg scale-100'
+                      ? 'scale-150 z-20' 
+                      : 'scale-100'
                     }
                   `}>
                     <img 
                       src={achievement.logo} 
                       alt={`${achievement.category} logo`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                     {achievement.id === 'meta' && (
-                      <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px] rounded-2xl" />
+                      <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px]" />
                     )}
                   </div>
                   
