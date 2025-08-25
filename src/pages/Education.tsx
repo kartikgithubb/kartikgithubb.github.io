@@ -47,10 +47,10 @@ const Education = () => {
       id: 'highschool',
       school: 'Delhi Public School',
       period: 'Jul 2017 - May 2019',
-      subjects: 'Sciences, High School',
-      graduatedGrade: 'Sciences, High School',
+      subjects: 'Sciences',
+      graduatedGrade: 'High School',
       location: 'Andhra Pradesh, India',
-      logo: '/lovable-uploads/b6861d13-0850-4e19-945a-8cf101772bbe.png',
+      logo: '/lovable-uploads/6c4f2361-b520-4274-ac53-8971b7b9afea.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=200&h=120&fit=crop',
       crazyFact: 'Won the national programming competition by creating a game that taught kids math while they played!'
     },
