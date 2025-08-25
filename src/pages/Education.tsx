@@ -15,6 +15,7 @@ interface EducationItem {
   logo: string;
   memoryPhoto: string;
   crazyFact: string;
+  gpa: string;
 }
 
 const Education = () => {
@@ -24,13 +25,14 @@ const Education = () => {
     {
       id: 'masters',
       school: 'University of Connecticut',
-      period: 'Jan 2024 - Dec 2025',
+      period: 'Jan 2024 - Present',
       subjects: 'Business Analytics and Project Management',
       graduatedGrade: 'Master of Science',
       location: 'Connecticut, USA',
       logo: '/lovable-uploads/838fc5d8-45f6-4091-8a40-b5efbb516124.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&h=120&fit=crop',
-      crazyFact: 'Built an AI system that could predict student success with 94% accuracy just from their first week of online activity!'
+      crazyFact: 'Built an AI system that could predict student success with 94% accuracy just from their first week of online activity!',
+      gpa: 'In Progress'
     },
     {
       id: 'bachelors',
@@ -41,7 +43,8 @@ const Education = () => {
       location: 'Andhra Pradesh, India',
       logo: '/lovable-uploads/412635a4-95e3-4d38-9a6d-6caa1242f505.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&h=120&fit=crop',
-      crazyFact: 'Led a hackathon team that created a campus food waste tracking app adopted by 12 universities across California!'
+      crazyFact: 'Led a hackathon team that created a campus food waste tracking app adopted by 12 universities across California!',
+      gpa: '9/10'
     },
     {
       id: 'highschool',
@@ -52,7 +55,8 @@ const Education = () => {
       location: 'Andhra Pradesh, India',
       logo: '/lovable-uploads/6c4f2361-b520-4274-ac53-8971b7b9afea.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=200&h=120&fit=crop',
-      crazyFact: 'Won the national programming competition by creating a game that taught kids math while they played!'
+      crazyFact: 'Won the national programming competition by creating a game that taught kids math while they played!',
+      gpa: '8.5/10'
     },
     {
       id: 'secondary',
@@ -63,7 +67,8 @@ const Education = () => {
       location: 'Andhra Pradesh, India',
       logo: '/lovable-uploads/36e4faaa-a428-4b35-86af-35714e818276.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=200&h=120&fit=crop',
-      crazyFact: 'Built my first computer at age 10 using parts from old electronics I found around the house!'
+      crazyFact: 'Built my first computer at age 10 using parts from old electronics I found around the house!',
+      gpa: '10/10'
     }
   ];
 
@@ -106,13 +111,16 @@ const Education = () => {
                   </div>
 
                   {/* Academic Info */}
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between text-sm">
                       <div className="flex items-center">
                         <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
                         <span>{item.graduatedGrade}</span>
                       </div>
-                      <span className="text-muted-foreground font-medium">{item.period}</span>
+                      <span className="text-muted-foreground font-medium ml-8">{item.period}</span>
+                    </div>
+                    <div className="text-sm">
+                      <span className="text-primary font-semibold">GPA: {item.gpa}</span>
                     </div>
                     <div className="flex items-center text-sm">
                       <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
