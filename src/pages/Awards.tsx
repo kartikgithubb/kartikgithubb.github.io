@@ -106,6 +106,13 @@ const Awards = () => {
       logo: '/lovable-uploads/114210d0-94a8-4bc4-8b7d-70bd0be18592.png'
     },
     {
+      id: 'klef-cea',
+      category: 'KLEF-CEA',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/b627333d-7b87-47a8-9fb5-dbe5ea63d4f1.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
