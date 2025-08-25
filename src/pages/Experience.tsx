@@ -177,13 +177,11 @@ const ExperienceTimeline = ({
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <h3 className="text-lg font-bold">{exp.role}</h3>
-                  </div>
-                  <div className="text-right">
-                    <div className="flex items-center text-xs text-muted-foreground mb-1">
-                      <MapPin className="h-3 w-3 mr-1" />
-                      {exp.location}
-                    </div>
                     <p className="text-sm text-muted-foreground">{exp.start} to {exp.end}</p>
+                  </div>
+                  <div className="flex items-center text-xs text-muted-foreground">
+                    <MapPin className="h-3 w-3 mr-1" />
+                    {exp.location}
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
