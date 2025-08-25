@@ -46,7 +46,7 @@ const Education = () => {
     {
       id: 'highschool',
       school: 'Delhi Public School',
-      period: 'Jul 2017 - May 2019',
+      period: 'Jul 2015 - May 2017',
       subjects: 'Sciences',
       graduatedGrade: 'High School',
       location: 'Andhra Pradesh, India',
