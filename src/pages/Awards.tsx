@@ -131,7 +131,7 @@ const Awards = () => {
       category: 'ROTARY',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/3287af53-485c-48b1-bf55-0558622d7f1e.png'
+      logo: '/lovable-uploads/fce4dade-6724-4568-977b-84e54f7d4d4b.png'
     },
     {
       id: 'lions',
