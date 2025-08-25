@@ -68,7 +68,7 @@ const Awards = () => {
       category: 'AIT',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/44aadf18-42c9-4ecb-ad0d-9b32c890d596.png'
+      logo: '/lovable-uploads/034475e7-6138-4f1b-adda-2444763a10a0.png'
     },
     {
       id: 'cbse-volleyball',
