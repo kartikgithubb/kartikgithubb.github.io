@@ -31,6 +31,13 @@ const Awards = () => {
       count: 1,
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/c75d7101-84d7-4b9d-ab26-e1363b287403.png'
+    },
+    {
+      id: 'cbse',
+      category: 'CBSE QUIZ',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/cbf34bca-acc0-4615-9e18-80a91cd8af83.png'
     }
   ];
 
