@@ -110,29 +110,29 @@ const Certifications = () => {
 
           {/* Metrics at Top */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="p-6 text-center">
+            <div className="text-center">
               <Award className="w-8 h-8 text-primary mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().length}
               </div>
               <div className="text-sm text-muted-foreground">Total Certifications</div>
-            </Card>
+            </div>
             
-            <Card className="p-6 text-center">
+            <div className="text-center">
               <Award className="w-8 h-8 text-secondary mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().length}
               </div>
               <div className="text-sm text-muted-foreground">Total Badges</div>
-            </Card>
+            </div>
             
-            <Card className="p-6 text-center">
+            <div className="text-center">
               <Award className="w-8 h-8 text-accent mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().filter(cert => cert.issuer.toLowerCase().includes('course') || cert.title.toLowerCase().includes('course')).length || '8'}
               </div>
               <div className="text-sm text-muted-foreground">Total Courses</div>
-            </Card>
+            </div>
           </div>
 
           {/* Certifications Grid Table */}
