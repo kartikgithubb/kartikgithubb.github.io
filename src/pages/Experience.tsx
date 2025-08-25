@@ -155,7 +155,7 @@ const Experience = () => {
         </div>
 
         {/* Professional Experience */}
-        <RoadTimeline experiences={professionalExperience} title="Professional Work Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences & Achievements" />
+        <RoadTimeline experiences={professionalExperience} title="Professional Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences & Achievements" />
 
         {/* Volunteering Experience */}
         <RoadTimeline experiences={volunteerExperience} title="Volunteering Experience" subtitle="Speak to K - my digital twin to learn more about my Volunteering experiences and achievements" />
