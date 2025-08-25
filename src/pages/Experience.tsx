@@ -32,16 +32,16 @@ const professionalExperience: ExperienceItem[] = [{
   logo: '/lovable-uploads/791350ec-05d1-4d88-8612-0ff0b8e75dad.png',
   type: 'professional'
 }, {
-  id: 'uconn-research',
-  org: 'Dept of Communication, UConn',
-  role: 'Graduate Research Assistant',
-  start: 'Mar 2024',
-  end: 'May 2025',
-  location: 'Storrs, USA',
-  description: 'Led multimodal social media analytics using Python and ML Models to uncover emotion–engagement patterns, supporting peer-reviewed research and publications.',
-  highlights: ['Developed multimodal analytics frameworks for social media research', 'Published peer-reviewed research on emotion-engagement patterns', 'Applied machine learning models to complex social media datasets'],
-  skills: ['Python', 'Machine Learning', 'Social Media Analytics', 'Research', 'Data Science'],
-  logo: '/lovable-uploads/c8295f51-2b77-4c99-a9f6-92398b972933.png',
+  id: 'controlstation-recent',
+  org: 'Control Station',
+  role: 'Business Analyst Intern',
+  start: 'Aug 2024',
+  end: 'Nov 2024',
+  location: 'Manchester, USA',
+  description: 'Simplified KPI frameworks and performed sensitivity analyses for industrial control systems, helping clients cut downtime and optimize efficiency.',
+  highlights: ['Developed simplified KPI frameworks for industrial clients', 'Performed comprehensive sensitivity analyses on control systems', 'Reduced client downtime through data-driven optimization strategies'],
+  skills: ['Business Analysis', 'KPI Development', 'Sensitivity Analysis', 'Industrial Systems', 'Process Optimization'],
+  logo: '/lovable-uploads/c4a63ae6-f56e-4fb6-a8bc-bcdf29a07548.png',
   type: 'professional'
 }, {
   id: 'cetl-previous',
@@ -56,16 +56,16 @@ const professionalExperience: ExperienceItem[] = [{
   logo: '/lovable-uploads/8dfff705-4459-4695-926b-ebb30615d263.png',
   type: 'professional'
 }, {
-  id: 'controlstation-recent',
-  org: 'Control Station',
-  role: 'Business Analyst Intern',
-  start: 'Aug 2024',
-  end: 'Nov 2024',
-  location: 'Manchester, USA',
-  description: 'Simplified KPI frameworks and performed sensitivity analyses for industrial control systems, helping clients cut downtime and optimize efficiency.',
-  highlights: ['Developed simplified KPI frameworks for industrial clients', 'Performed comprehensive sensitivity analyses on control systems', 'Reduced client downtime through data-driven optimization strategies'],
-  skills: ['Business Analysis', 'KPI Development', 'Sensitivity Analysis', 'Industrial Systems', 'Process Optimization'],
-  logo: '/lovable-uploads/c4a63ae6-f56e-4fb6-a8bc-bcdf29a07548.png',
+  id: 'uconn-research',
+  org: 'Dept of Communication, UConn',
+  role: 'Graduate Research Assistant',
+  start: 'Mar 2024',
+  end: 'May 2025',
+  location: 'Storrs, USA',
+  description: 'Led multimodal social media analytics using Python and ML Models to uncover emotion–engagement patterns, supporting peer-reviewed research and publications.',
+  highlights: ['Developed multimodal analytics frameworks for social media research', 'Published peer-reviewed research on emotion-engagement patterns', 'Applied machine learning models to complex social media datasets'],
+  skills: ['Python', 'Machine Learning', 'Social Media Analytics', 'Research', 'Data Science'],
+  logo: '/lovable-uploads/c8295f51-2b77-4c99-a9f6-92398b972933.png',
   type: 'professional'
 }, {
   id: 'brightchamps-coordinator',
