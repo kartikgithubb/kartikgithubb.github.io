@@ -41,7 +41,7 @@ const professionalExperience: ExperienceItem[] = [{
   description: 'Led multimodal social media analytics using Python and ML Models to uncover emotion–engagement patterns, supporting peer-reviewed research and publications.',
   highlights: ['Developed multimodal analytics frameworks for social media research', 'Published peer-reviewed research on emotion-engagement patterns', 'Applied machine learning models to complex social media datasets'],
   skills: ['Python', 'Machine Learning', 'Social Media Analytics', 'Research', 'Data Science'],
-  logo: '/lovable-uploads/cd436367-bcfa-4364-82a3-84796f126524.png',
+  logo: '/lovable-uploads/c8295f51-2b77-4c99-a9f6-92398b972933.png',
   type: 'professional'
 }, {
   id: 'cetl-previous',
