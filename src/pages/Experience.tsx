@@ -41,7 +41,7 @@ const professionalExperience: ExperienceItem[] = [{
   description: 'Led multimodal social media analytics using Python and ML Models to uncover emotion–engagement patterns, supporting peer-reviewed research and publications.',
   highlights: ['Developed multimodal analytics frameworks for social media research', 'Published peer-reviewed research on emotion-engagement patterns', 'Applied machine learning models to complex social media datasets'],
   skills: ['Python', 'Machine Learning', 'Social Media Analytics', 'Research', 'Data Science'],
-  logo: '/lovable-uploads/dfc69aa2-d17f-4e6f-98b7-c3832baca228.png',
+  logo: '/lovable-uploads/cd436367-bcfa-4364-82a3-84796f126524.png',
   type: 'professional'
 }, {
   id: 'cetl-previous',
@@ -53,7 +53,7 @@ const professionalExperience: ExperienceItem[] = [{
   description: 'Migrated university courses to Blackboard Ultra with UX-focused redesigns, improving learner navigation and boosting faculty and student adoption.',
   highlights: ['Successfully migrated 200+ courses to new platform', 'Trained faculty on enhanced platform features', 'Improved student satisfaction scores through better course design'],
   skills: ['UX Design', 'Blackboard Ultra', 'Course Migration', 'Training', 'Educational Technology'],
-  logo: '/lovable-uploads/dfc69aa2-d17f-4e6f-98b7-c3832baca228.png',
+  logo: '/lovable-uploads/cd436367-bcfa-4364-82a3-84796f126524.png',
   type: 'professional'
 }, {
   id: 'controlstation-recent',
