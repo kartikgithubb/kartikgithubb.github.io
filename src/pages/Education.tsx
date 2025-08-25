@@ -26,7 +26,7 @@ const Education = () => {
       school: 'University of Connecticut',
       period: 'Jan 2024 - Dec 2025',
       subjects: 'Business Analytics and Project Management',
-      graduatedGrade: 'Master of Science in Business Analytics and Project Management',
+      graduatedGrade: 'Master of Science',
       location: 'Connecticut, USA',
       logo: '/lovable-uploads/db3bac31-28a7-469f-9cdf-173ab839f46c.png',
       memoryPhoto: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&h=120&fit=crop',
