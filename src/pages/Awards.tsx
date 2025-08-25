@@ -78,6 +78,20 @@ const Awards = () => {
       logo: '/lovable-uploads/eaa4ce47-da4b-4ea0-b9b9-87349fc866cc.png'
     },
     {
+      id: 'ait',
+      category: 'AIT',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/034475e7-6138-4f1b-adda-2444763a10a0.png'
+    },
+    {
+      id: 'ieee',
+      category: 'IEEE',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/2145f34e-7fe1-4378-90e6-ea8ded92417a.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
@@ -113,18 +127,11 @@ const Awards = () => {
       logo: '/lovable-uploads/867f4e57-07b2-43ed-856d-1f71f22a5c2d.png'
     },
     {
-      id: 'ieee',
-      category: 'IEEE',
+      id: 'nstse',
+      category: 'NSTSE',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/2145f34e-7fe1-4378-90e6-ea8ded92417a.png'
-    },
-    {
-      id: 'ait',
-      category: 'AIT',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/034475e7-6138-4f1b-adda-2444763a10a0.png'
+      logo: '/lovable-uploads/726315e8-0bb4-48c8-a458-8f381c1c0dae.png'
     },
     {
       id: 'aip-publishing',
@@ -146,13 +153,6 @@ const Awards = () => {
       count: 1,
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/974084e2-0782-4157-bbd0-6e79633ed7ea.png'
-    },
-    {
-      id: 'nstse',
-      category: 'NSTSE',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/726315e8-0bb4-48c8-a458-8f381c1c0dae.png'
     },
   ];
 
