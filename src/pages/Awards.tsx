@@ -139,7 +139,7 @@ const Awards = () => {
               {scrollingAchievements.map((achievement, index) => (
                 <div
                   key={`${achievement.id}-${index}`}
-                  className="flex-shrink-0 w-32 h-20 relative cursor-pointer group"
+                  className="flex-shrink-0 w-48 h-32 relative cursor-pointer group"
                   onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
@@ -153,8 +153,7 @@ const Awards = () => {
                     <img 
                       src={achievement.logo} 
                       alt={`${achievement.category} logo`}
-                      className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                      style={achievement.id === 'zee' ? { mixBlendMode: 'multiply' } : {}}
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
                     />
                   </div>
                 </div>
