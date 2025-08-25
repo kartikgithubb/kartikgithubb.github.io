@@ -34,12 +34,12 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
         {/* Road Path */}
         <svg
           className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1200 400"
+          viewBox="0 0 1200 800"
           preserveAspectRatio="none"
-          style={{ height: `${experiences.length * 200}px` }}
+          style={{ height: `${experiences.length * 180 + 100}px` }}
         >
           <path
-            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 350 T 100 ${400 + (experiences.length - 1) * 180}`}
+            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 380 T 500 460 Q 700 500 900 540 T 600 620 Q 400 660 200 700 T 100 ${780 + (experiences.length - 6) * 140}`}
             stroke="hsl(var(--border))"
             strokeWidth="8"
             fill="none"
@@ -49,7 +49,7 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
         </svg>
 
         {/* Experience Items */}
-        <div className="relative z-10 space-y-16">
+        <div className="relative z-10 space-y-12">
           {experiences.map((exp, index) => {
             const isEven = index % 2 === 0;
             const positionClass = isEven ? 'justify-start' : 'justify-end';
@@ -59,18 +59,20 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
             return (
               <div key={exp.id} className={`flex ${positionClass} items-center`}>
                 <div className={`flex ${flexDirection} items-center gap-8 max-w-4xl`}>
-                  {/* Timeline Marker */}
+                  {/* Timeline Marker with Logo */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-lg border-4 border-background shadow-lg">
-                      {index + 1}
-                    </div>
-                    {/* Company Logo */}
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-background border-2 border-border overflow-hidden">
+                    <div className="w-20 h-20 rounded-full bg-background border-4 border-primary shadow-lg overflow-hidden hover:scale-110 transition-transform duration-300">
                       <img 
                         src={exp.logo} 
                         alt={`${exp.org} logo`} 
                         className="w-full h-full object-cover"
                       />
+                    </div>
+                    {/* Experience type badge */}
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-xs text-primary-foreground font-bold">
+                        {exp.type === 'professional' ? 'P' : 'V'}
+                      </span>
                     </div>
                   </div>
 
