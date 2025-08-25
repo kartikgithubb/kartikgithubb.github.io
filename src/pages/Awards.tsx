@@ -189,6 +189,13 @@ const Awards = () => {
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/a36c33d8-35cb-444c-9229-02457f49fd63.png'
     },
+    {
+      id: 'essence',
+      category: 'ESSENCE',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/0021839c-722c-495d-b2cc-64db9f98ac03.png'
+    },
   ];
 
   return (
