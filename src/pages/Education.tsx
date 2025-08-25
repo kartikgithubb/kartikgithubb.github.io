@@ -107,16 +107,16 @@ const Education = () => {
 
                   {/* Academic Info */}
                   <div className="space-y-2">
-                    <div className="flex items-center text-sm">
-                      <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
-                      <span>{item.graduatedGrade}</span>
+                    <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center">
+                        <GraduationCap className="w-4 h-4 mr-2 text-muted-foreground" />
+                        <span>{item.graduatedGrade}</span>
+                      </div>
+                      <span className="text-muted-foreground font-medium">{item.period}</span>
                     </div>
                     <div className="flex items-center text-sm">
                       <MapPin className="w-4 h-4 mr-2 text-muted-foreground" />
                       <span>{item.location}</span>
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      {item.period}
                     </div>
                   </div>
 
