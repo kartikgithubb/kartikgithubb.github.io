@@ -88,9 +88,7 @@ const Education = () => {
               <div key={item.id} className="flex items-center gap-8">
                 {/* School Logo */}
                 <div className="flex-shrink-0">
-                  <div className={`rounded-lg overflow-hidden hover-glow transition-all duration-300 ${
-                    item.id === 'masters' ? 'w-24 h-24' : 'w-16 h-16'
-                  }`}>
+                  <div className="w-24 h-24 rounded-lg overflow-hidden hover-glow transition-all duration-300">
                     <img 
                       src={item.logo} 
                       alt={`${item.school} logo`}
@@ -127,7 +125,7 @@ const Education = () => {
                       onMouseEnter={() => setHoveredItem(item.id)}
                       onMouseLeave={() => setHoveredItem(null)}
                     >
-                      <div className="w-32 h-20 rounded-lg overflow-hidden border border-border shadow-sm group-hover:shadow-lg transition-all duration-300">
+                      <div className="w-40 h-28 rounded-lg overflow-hidden border border-border shadow-sm group-hover:shadow-lg transition-all duration-300">
                         <img 
                           src={item.memoryPhoto} 
                           alt="Photograph of Favorite Memory"
