@@ -123,43 +123,32 @@ const Awards = () => {
             ))}
           </div>
 
-          {/* Scrolling Competition Logos */}
-          <div className="mb-16 overflow-hidden relative bg-gradient-to-r from-background via-muted/30 to-background rounded-2xl py-8">
+          {/* Clean Logo Section */}
+          <div className="mb-16 overflow-hidden relative py-8">
             <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
             <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
             
-            <div className="flex animate-marquee space-x-12 py-4">
+            <div className="flex animate-marquee space-x-16 py-4">
               {scrollingAchievements.map((achievement, index) => (
                 <div
                   key={`${achievement.id}-${index}`}
-                  className="flex-shrink-0 w-24 h-24 relative cursor-pointer group"
+                  className="flex-shrink-0 w-24 h-16 relative cursor-pointer group"
                   onMouseEnter={() => setHoveredItem(`${achievement.id}-${index}`)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
                   <div className={`
-                    w-full h-full transition-all duration-500 ease-out
+                    w-full h-full transition-all duration-300 ease-out flex items-center justify-center
                     ${hoveredItem === `${achievement.id}-${index}` 
-                      ? 'scale-150 z-20' 
-                      : 'scale-100'
+                      ? 'scale-110' 
+                      : 'scale-100 opacity-70 hover:opacity-100'
                     }
                   `}>
                     <img 
                       src={achievement.logo} 
                       alt={`${achievement.category} logo`}
-                      className="w-full h-full object-contain"
+                      className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
-                    {achievement.id === 'meta' && (
-                      <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px]" />
-                    )}
                   </div>
-                  
-                  {/* Enhanced Glow effect */}
-                  {hoveredItem === `${achievement.id}-${index}` && (
-                    <>
-                      <div className="absolute inset-0 rounded-2xl bg-primary/30 animate-pulse -z-10 scale-[2] blur-xl" />
-                      <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse -z-5 scale-[1.5] blur-lg" />
-                    </>
-                  )}
                 </div>
               ))}
             </div>
