@@ -19,48 +19,6 @@ const Awards = () => {
 
   const achievements: Achievement[] = [
     {
-      id: 'awards',
-      category: 'AWARDS',
-      count: 30,
-      icon: <Heart className="w-12 h-12" />,
-      logo: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=100&h=100&fit=crop&crop=center'
-    },
-    {
-      id: 'publications',
-      category: 'PUBLICATIONS',
-      count: 2,
-      icon: <Search className="w-12 h-12" />,
-      logo: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=100&h=100&fit=crop&crop=center'
-    },
-    {
-      id: 'recognitions',
-      category: 'FEATURED',
-      count: 5,
-      icon: <Flame className="w-12 h-12" />,
-      logo: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=100&h=100&fit=crop&crop=center'
-    },
-    {
-      id: 'leadership',
-      category: 'LEADERSHIP',
-      count: 4,
-      icon: <Users className="w-12 h-12" />,
-      logo: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&h=100&fit=crop&crop=center'
-    },
-    {
-      id: 'hackathons',
-      category: 'HACKATHONS',
-      count: 8,
-      icon: <ThumbsUp className="w-12 h-12" />,
-      logo: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=100&h=100&fit=crop&crop=center'
-    },
-    {
-      id: 'certifications',
-      category: 'CERTIFICATIONS',
-      count: 12,
-      icon: <Heart className="w-12 h-12" />,
-      logo: 'https://images.unsplash.com/photo-1606868306217-dbf5046868d2?w=100&h=100&fit=crop&crop=center'
-    },
-    {
       id: 'meta',
       category: 'META',
       count: 1,
@@ -97,7 +55,7 @@ const Awards = () => {
 
           {/* Achievements Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {achievements.slice(0, 4).map((achievement) => (
+            {achievements.map((achievement) => (
               <div 
                 key={achievement.id}
                 className="text-center group cursor-pointer"
