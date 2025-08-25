@@ -101,7 +101,7 @@ const professionalExperience: ExperienceItem[] = [{
   description: 'Built and scaled a consumer goods venture offering exclusive imports, driving local market penetration and establishing a differentiated retail presence.',
   highlights: ['Co-founded and scaled consumer goods startup from inception', 'Established exclusive import partnerships with international brands', 'Achieved significant local market penetration in competitive retail space'],
   skills: ['Entrepreneurship', 'Business Development', 'Market Analysis', 'Strategic Planning', 'Import/Export'],
-  logo: '/lovable-uploads/92881b77-6392-43fd-b54a-55d3370b8276.png',
+  logo: '/lovable-uploads/81c31ab6-c4c1-4b7e-9cbb-081cd2ead827.png',
   type: 'professional'
 }, {
   id: 'tvs-iot',
