@@ -46,7 +46,7 @@ const Education = () => {
     {
       id: 'highschool',
       school: 'Delhi Public School',
-      period: 'Jul 2015 - May 2017',
+      period: 'Jul 2017 - May 2019',
       subjects: 'Sciences',
       graduatedGrade: 'High School',
       location: 'Andhra Pradesh, India',
@@ -57,7 +57,7 @@ const Education = () => {
     {
       id: 'secondary',
       school: 'V.S.St. Johns Higher Secondary School',
-      period: 'Jul 2005 - May 2019',
+      period: 'Jul 2005 - May 2017',
       subjects: 'Foundational Studies',
       graduatedGrade: 'Secondary School',
       location: 'Andhra Pradesh, India',
