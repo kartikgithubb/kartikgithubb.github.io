@@ -31,22 +31,28 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Road Path */}
-        <svg
-          className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1200 1200"
-          preserveAspectRatio="none"
-          style={{ height: `${experiences.length * 160 + 100}px` }}
-        >
-          <path
-            d={`M 100 50 Q 300 20 500 80 T 900 120 Q 1100 140 1000 200 T 600 280 Q 400 320 200 380 T 500 460 Q 700 500 900 540 T 600 620 Q 400 660 200 720 T 500 800 Q 700 840 900 880 T 600 960 Q 400 1000 200 1040 T 500 1120`}
-            stroke="hsl(var(--border))"
-            strokeWidth="8"
-            fill="none"
-            strokeDasharray="20,10"
-            className="opacity-60"
-          />
-        </svg>
+        {/* Connecting Lines */}
+        <div className="absolute inset-0 z-0">
+          {experiences.map((_, index) => {
+            if (index === experiences.length - 1) return null;
+            const isCurrentEven = index % 2 === 0;
+            const isNextEven = (index + 1) % 2 === 0;
+            
+            return (
+              <div
+                key={index}
+                className="absolute border-t-2 border-dashed border-border opacity-60"
+                style={{
+                  top: `${(index + 1) * 160 + 40}px`,
+                  left: isCurrentEven ? '80px' : '50%',
+                  right: isNextEven ? 'calc(50% - 80px)' : '80px',
+                  height: '2px',
+                  transformOrigin: 'left center',
+                }}
+              />
+            );
+          })}
+        </div>
 
         {/* Experience Items */}
         <div className="relative z-10 space-y-12">
