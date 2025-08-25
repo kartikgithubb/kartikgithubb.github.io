@@ -55,6 +55,54 @@ const professionalExperience: ExperienceItem[] = [{
   skills: ['Excel', 'Google Analytics', 'Market Research', 'Financial Modeling'],
   logo: '/lovable-uploads/28fbc409-56d8-47f6-9940-7e622ba31cc0.png',
   type: 'professional'
+}, {
+  id: 'zentech',
+  org: 'ZenTech Solutions',
+  role: 'Data Science Consultant',
+  start: 'Jan 2022',
+  end: 'May 2022',
+  location: 'New York, USA',
+  description: 'Provided specialized data science consulting services for technology startups, focusing on AI implementation and analytics optimization.',
+  highlights: ['Implemented machine learning algorithms that reduced processing time by 60%', 'Designed predictive models for client acquisition strategies', 'Mentored junior data scientists in advanced ML techniques'],
+  skills: ['Python', 'TensorFlow', 'Scikit-learn', 'Deep Learning', 'AI'],
+  logo: '/lovable-uploads/f57544e0-811f-436b-8380-ab9fc9f27273.png',
+  type: 'professional'
+}, {
+  id: 'brightchamps',
+  org: 'BrightCHAMPS',
+  role: 'Educational Data Analyst',
+  start: 'Sep 2021',
+  end: 'Dec 2021',
+  location: 'California, USA',
+  description: 'Analyzed learning patterns and educational outcomes to improve online learning experiences for K-12 students worldwide.',
+  highlights: ['Developed learning analytics models that improved student engagement by 45%', 'Created performance tracking dashboards for 10,000+ students', 'Optimized curriculum delivery based on data-driven insights'],
+  skills: ['Learning Analytics', 'Python', 'Tableau', 'Educational Technology', 'Statistics'],
+  logo: '/lovable-uploads/b1442fff-9ba2-43ad-9b4c-f85b4b0e5288.png',
+  type: 'professional'
+}, {
+  id: 'tvs',
+  org: 'TVS Motor Company',
+  role: 'Business Intelligence Analyst',
+  start: 'Mar 2021',
+  end: 'Aug 2021',
+  location: 'Chennai, India',
+  description: 'Supported automotive business operations through comprehensive data analysis, market research, and performance optimization strategies.',
+  highlights: ['Analyzed sales data across 15+ countries to identify market opportunities', 'Built predictive models for inventory management and demand forecasting', 'Optimized supply chain operations through data-driven recommendations'],
+  skills: ['Business Intelligence', 'SQL', 'Power BI', 'Supply Chain Analytics', 'Market Research'],
+  logo: '/lovable-uploads/12549149-7c5a-408d-b347-a743dad47c79.png',
+  type: 'professional'
+}, {
+  id: 'controlstation',
+  org: 'Control Station',
+  role: 'Systems Data Analyst',
+  start: 'Oct 2020',
+  end: 'Feb 2021',
+  location: 'Texas, USA',
+  description: 'Analyzed industrial control systems data to optimize manufacturing processes and improve operational efficiency for enterprise clients.',
+  highlights: ['Implemented IoT data analytics solutions for manufacturing optimization', 'Reduced system downtime by 35% through predictive maintenance models', 'Designed real-time monitoring dashboards for industrial operations'],
+  skills: ['IoT Analytics', 'Industrial Systems', 'Python', 'Real-time Data', 'Process Optimization'],
+  logo: '/lovable-uploads/c4a63ae6-f56e-4fb6-a8bc-bcdf29a07548.png',
+  type: 'professional'
 }];
 const volunteerExperience: ExperienceItem[] = [{
   id: 'volunteer1',
