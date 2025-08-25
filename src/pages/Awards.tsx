@@ -95,17 +95,19 @@ const Awards = () => {
             ))}
           </div>
 
-          {/* Logo Section with Tear Effect */}
-          <div className="relative -mx-6 py-16">
+          {/* Logo Section with Realistic Tear Effect */}
+          <div className="relative -mx-6 py-0 my-16">
             {/* Torn edge top */}
-            <div className="absolute top-0 left-0 w-full h-8 bg-white" 
-                 style={{
-                   clipPath: 'polygon(0% 0%, 100% 0%, 100% 60%, 95% 80%, 90% 70%, 85% 90%, 80% 75%, 75% 85%, 70% 65%, 65% 80%, 60% 70%, 55% 85%, 50% 60%, 45% 75%, 40% 65%, 35% 80%, 30% 70%, 25% 85%, 20% 75%, 15% 90%, 10% 70%, 5% 80%, 0% 60%)'
-                 }}>
+            <div className="relative">
+              <div className="h-6 bg-white" 
+                   style={{
+                     clipPath: 'polygon(0% 100%, 2% 85%, 5% 95%, 8% 75%, 12% 90%, 15% 70%, 18% 85%, 22% 65%, 25% 80%, 28% 60%, 32% 75%, 35% 55%, 38% 70%, 42% 50%, 45% 65%, 48% 45%, 52% 60%, 55% 40%, 58% 55%, 62% 35%, 65% 50%, 68% 30%, 72% 45%, 75% 25%, 78% 40%, 82% 20%, 85% 35%, 88% 15%, 92% 30%, 95% 10%, 98% 25%, 100% 5%, 100% 0%, 0% 0%)'
+                   }}>
+              </div>
             </div>
             
-            {/* White background section */}
-            <div className="bg-white py-8 relative z-10">
+            {/* White background section with content */}
+            <div className="bg-white py-12 relative">
               <div className="overflow-hidden relative">
                 <div className="flex animate-marquee space-x-16 py-4">
                   {scrollingAchievements.map((achievement, index) => (
@@ -135,10 +137,12 @@ const Awards = () => {
             </div>
 
             {/* Torn edge bottom */}
-            <div className="absolute bottom-0 left-0 w-full h-8 bg-white" 
-                 style={{
-                   clipPath: 'polygon(0% 40%, 5% 20%, 10% 30%, 15% 10%, 20% 25%, 25% 15%, 30% 30%, 35% 20%, 40% 35%, 45% 25%, 50% 40%, 55% 15%, 60% 30%, 65% 20%, 70% 35%, 75% 15%, 80% 25%, 85% 10%, 90% 30%, 95% 20%, 100% 40%, 100% 100%, 0% 100%)'
-                 }}>
+            <div className="relative">
+              <div className="h-6 bg-white" 
+                   style={{
+                     clipPath: 'polygon(0% 0%, 2% 15%, 5% 5%, 8% 25%, 12% 10%, 15% 30%, 18% 15%, 22% 35%, 25% 20%, 28% 40%, 32% 25%, 35% 45%, 38% 30%, 42% 50%, 45% 35%, 48% 55%, 52% 40%, 55% 60%, 58% 45%, 62% 65%, 65% 50%, 68% 70%, 72% 55%, 75% 75%, 78% 60%, 82% 80%, 85% 65%, 88% 85%, 92% 70%, 95% 90%, 98% 75%, 100% 95%, 100% 100%, 0% 100%)'
+                   }}>
+              </div>
             </div>
           </div>
 
