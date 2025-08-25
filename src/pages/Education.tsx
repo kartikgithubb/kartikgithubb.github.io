@@ -126,7 +126,6 @@ const Education = () => {
                     {/* Right Column */}
                     <div className="space-y-2">
                       <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-2 text-muted-foreground" />
                         <span className="text-muted-foreground font-medium whitespace-nowrap">{item.period}</span>
                       </div>
                       <div className="flex items-center">
