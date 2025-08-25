@@ -145,17 +145,10 @@ const Experience = () => {
       
       {/* Hero */}
       <Section className="pt-24" padding="xl">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Work <span className="crystal-text">Experience</span>
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            From innovation to technology, building data-driven solutions across industries
-          </p>
-        </div>
+        
 
         {/* Professional Experience */}
-        <RoadTimeline experiences={professionalExperience} title="Professional Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences & Achievements" />
+        <RoadTimeline experiences={professionalExperience} title="Professional Work Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences & Achievements" />
 
         {/* Volunteering Experience */}
         <RoadTimeline experiences={volunteerExperience} title="Volunteering Experience" subtitle="Speak to K - my digital twin to learn more about my Volunteering experiences and achievements" />
