@@ -171,22 +171,8 @@ const AboutContactSection = ({
 
           {/* Quick Contact Icons */}
           <div>
-            <h4 className="text-2xl font-bold mb-8 text-center">Quick Connect</h4>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {contactItems.map(({
-              label,
-              icon: Icon,
-              href,
-              color
-            }, index) => <Card key={label} className="group p-6 text-center bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-glow hover:-translate-y-1">
-                  <h5 className="font-semibold mb-4 text-muted-foreground text-sm uppercase tracking-wider">
-                    {label}
-                  </h5>
-                  <a href={href} className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 ${color} hover:from-primary/20 hover:to-accent/20 transition-all duration-300 group-hover:scale-110`} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                    <Icon className="h-5 w-5" />
-                  </a>
-                </Card>)}
-            </div>
+            
+            
           </div>
         </div>
       </div>
