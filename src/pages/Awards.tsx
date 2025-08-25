@@ -64,11 +64,11 @@ const Awards = () => {
       logo: '/lovable-uploads/a83b9372-b0ec-41c4-9daf-336e66e15599.png'
     },
     {
-      id: 'ait',
-      category: 'AIT',
+      id: 'nca',
+      category: 'NCA',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/034475e7-6138-4f1b-adda-2444763a10a0.png'
+      logo: '/lovable-uploads/1808d74d-4143-4b79-9026-270b471a5d46.png'
     },
     {
       id: 'uconn',
@@ -120,11 +120,11 @@ const Awards = () => {
       logo: '/lovable-uploads/2145f34e-7fe1-4378-90e6-ea8ded92417a.png'
     },
     {
-      id: 'nca',
-      category: 'NCA',
+      id: 'ait',
+      category: 'AIT',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/1808d74d-4143-4b79-9026-270b471a5d46.png'
+      logo: '/lovable-uploads/034475e7-6138-4f1b-adda-2444763a10a0.png'
     },
     {
       id: 'aip-publishing',
