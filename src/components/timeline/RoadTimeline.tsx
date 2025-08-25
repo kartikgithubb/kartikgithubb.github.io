@@ -98,20 +98,6 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
                       {exp.description}
                     </p>
 
-                    {/* Key Highlights */}
-                    {exp.highlights.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-xs font-medium text-foreground mb-2">Key Achievements:</h4>
-                        <ul className="text-xs text-muted-foreground space-y-1">
-                          {exp.highlights.slice(0, 2).map((highlight, idx) => (
-                            <li key={idx} className="flex items-start gap-1">
-                              <span className="text-primary mt-1">•</span>
-                              <span>{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
 
                     {/* Skills */}
                     <div className="flex flex-wrap gap-1">
