@@ -1,11 +1,9 @@
 import React from 'react';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import RoadTimeline from '@/components/timeline/RoadTimeline';
 interface ExperienceItem {
   id: string;
   org: string;
@@ -141,58 +139,6 @@ const volunteerExperience: ExperienceItem[] = [{
   logo: '/lovable-uploads/6fb41c5e-3caf-46c6-89d1-f75e2a728f81.png',
   type: 'volunteer'
 }];
-const ExperienceTimeline = ({
-  experiences,
-  title,
-  subtitle
-}: {
-  experiences: ExperienceItem[];
-  title: string;
-  subtitle: string;
-}) => <div className="mb-20">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold mb-4">{title}</h2>
-      <p className="text-muted-foreground italic">
-        ({subtitle})
-      </p>
-    </div>
-
-    <div className="max-w-2xl mx-auto">
-      <div className="relative">
-        {/* Timeline Line */}
-        <div className="absolute left-16 top-0 bottom-0 w-0.5 bg-border" />
-
-        {/* Experience Items */}
-        <div className="space-y-12">
-          {experiences.map((exp, index) => <div key={exp.id} className="relative flex items-start">
-              {/* Logo Octagon */}
-              <div className="relative flex-shrink-0 mr-8">
-                <div className="octagon-shape w-20 h-20 bg-background border-2 border-border hover:border-primary transition-all duration-300 hover-glow group cursor-pointer overflow-hidden">
-                  <img src={exp.logo} alt={`${exp.org} logo`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <h3 className="text-lg font-bold">{exp.role}</h3>
-                    <p className="text-sm text-muted-foreground">{exp.start} to {exp.end}</p>
-                  </div>
-                  <div className="flex items-center text-xs text-muted-foreground">
-                    <MapPin className="h-3 w-3 mr-1" />
-                    {exp.location}
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {exp.description}
-                </p>
-              </div>
-            </div>)}
-        </div>
-      </div>
-    </div>
-  </div>;
 const Experience = () => {
   return <div>
       <Header />
@@ -209,10 +155,10 @@ const Experience = () => {
         </div>
 
         {/* Professional Experience */}
-        <ExperienceTimeline experiences={professionalExperience} title="Professional Work Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences & Achievements" />
+        <RoadTimeline experiences={professionalExperience} title="Professional Work Experience" subtitle="Speak to K - my digital twin to learn more about my Work experiences & Achievements" />
 
         {/* Volunteering Experience */}
-        <ExperienceTimeline experiences={volunteerExperience} title="Volunteering Experience" subtitle="Speak to K - my digital twin to learn more about my Volunteering experiences and achievements" />
+        <RoadTimeline experiences={volunteerExperience} title="Volunteering Experience" subtitle="Speak to K - my digital twin to learn more about my Volunteering experiences and achievements" />
 
         {/* Call to Action */}
         <div className="text-center mt-16">
