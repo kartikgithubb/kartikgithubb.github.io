@@ -110,7 +110,7 @@ const Awards = () => {
       category: 'IEEE',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/263997f8-e1fe-4264-afb0-a4d2a61383aa.png'
+      logo: '/lovable-uploads/2145f34e-7fe1-4378-90e6-ea8ded92417a.png'
     },
     {
       id: 'nca',
