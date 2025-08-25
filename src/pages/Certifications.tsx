@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Calendar, Award } from 'lucide-react';
+import { ExternalLink, Calendar, Award, Trophy, BookOpen, Medal } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
@@ -111,7 +111,7 @@ const Certifications = () => {
           {/* Metrics at Top */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="text-center">
-              <Award className="w-8 h-8 text-primary mx-auto mb-3" />
+              <Trophy className="w-8 h-8 text-primary mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().length}
               </div>
@@ -119,7 +119,7 @@ const Certifications = () => {
             </div>
             
             <div className="text-center">
-              <Award className="w-8 h-8 text-secondary mx-auto mb-3" />
+              <Medal className="w-8 h-8 text-secondary mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().length}
               </div>
@@ -127,7 +127,7 @@ const Certifications = () => {
             </div>
             
             <div className="text-center">
-              <Award className="w-8 h-8 text-accent mx-auto mb-3" />
+              <BookOpen className="w-8 h-8 text-accent mx-auto mb-3" />
               <div className="text-3xl font-bold">
                 {Object.values(certificationsByCategory).flat().filter(cert => cert.issuer.toLowerCase().includes('course') || cert.title.toLowerCase().includes('course')).length || '8'}
               </div>
