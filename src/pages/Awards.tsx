@@ -92,6 +92,13 @@ const Awards = () => {
       logo: '/lovable-uploads/2145f34e-7fe1-4378-90e6-ea8ded92417a.png'
     },
     {
+      id: 'aip-publishing',
+      category: 'AIP PUBLISHING',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/f41c839b-80be-4c69-b07b-ff4e6075b29b.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
@@ -132,13 +139,6 @@ const Awards = () => {
       count: 1,
       icon: <Heart className="w-12 h-12" />,
       logo: '/lovable-uploads/726315e8-0bb4-48c8-a458-8f381c1c0dae.png'
-    },
-    {
-      id: 'aip-publishing',
-      category: 'AIP PUBLISHING',
-      count: 1,
-      icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/f41c839b-80be-4c69-b07b-ff4e6075b29b.png'
     },
     {
       id: 'rotary',
