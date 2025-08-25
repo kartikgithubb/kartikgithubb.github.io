@@ -26,7 +26,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'Ridgefield, USA',
   description: 'Drove ideation pipelines and valuation frameworks for central data science projects, streamlining innovation tracking and accelerating proof-of-concept decisions.',
   highlights: ['Developed comprehensive data valuation frameworks for enterprise projects', 'Streamlined innovation tracking processes across multiple teams', 'Accelerated proof-of-concept decision-making through systematic evaluation'],
-  skills: ['Data Valuation', 'Innovation Management', 'Project Management', 'Strategic Planning', 'Data Science'],
+  skills: ['Project Management', 'Product Lifecycle', 'Business Intelligence'],
   logo: '/lovable-uploads/791350ec-05d1-4d88-8612-0ff0b8e75dad.png',
   type: 'professional'
 }, {
@@ -38,7 +38,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'Manchester, USA',
   description: 'Simplified KPI frameworks and performed sensitivity analyses for industrial control systems, helping clients cut downtime and optimize efficiency.',
   highlights: ['Developed simplified KPI frameworks for industrial clients', 'Performed comprehensive sensitivity analyses on control systems', 'Reduced client downtime through data-driven optimization strategies'],
-  skills: ['Business Analysis', 'KPI Development', 'Sensitivity Analysis', 'Industrial Systems', 'Process Optimization'],
+  skills: ['Data Analytics', 'Business Analysis', 'KPI Development'],
   logo: '/lovable-uploads/c4a63ae6-f56e-4fb6-a8bc-bcdf29a07548.png',
   type: 'professional'
 }, {
@@ -50,7 +50,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'Storrs, USA',
   description: 'Migrated university courses to Blackboard Ultra with UX-focused redesigns, improving learner navigation and boosting faculty and student adoption.',
   highlights: ['Successfully migrated 200+ courses to new platform', 'Trained faculty on enhanced platform features', 'Improved student satisfaction scores through better course design'],
-  skills: ['UX Design', 'Blackboard Ultra', 'Course Migration', 'Training', 'Educational Technology'],
+  skills: ['UI/UX Design', 'Product Development', 'Stakeholder Communication'],
   logo: '/lovable-uploads/8dfff705-4459-4695-926b-ebb30615d263.png',
   type: 'professional'
 }, {
@@ -62,7 +62,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'Storrs, USA',
   description: 'Led multimodal social media analytics using Python and ML Models to uncover emotion–engagement patterns, supporting peer-reviewed research and publications.',
   highlights: ['Developed multimodal analytics frameworks for social media research', 'Published peer-reviewed research on emotion-engagement patterns', 'Applied machine learning models to complex social media datasets'],
-  skills: ['Python', 'Machine Learning', 'Social Media Analytics', 'Research', 'Data Science'],
+  skills: ['Data Science', 'Machine Learning Models', 'Academic Research'],
   logo: '/lovable-uploads/c8295f51-2b77-4c99-a9f6-92398b972933.png',
   type: 'professional'
 }, {
@@ -74,7 +74,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'Remote',
   description: 'Designed and delivered STEM learning programs for students worldwide, enhancing retention through gamified robotics and coding modules.',
   highlights: ['Designed comprehensive STEM curricula for global student base', 'Implemented gamification strategies that improved retention rates', 'Delivered robotics and coding programs to 1000+ students worldwide'],
-  skills: ['Program Management', 'STEM Education', 'Curriculum Design', 'Gamification', 'Educational Technology'],
+  skills: ['Program Management', 'Business Communications', 'Scheduling'],
   logo: '/lovable-uploads/b1442fff-9ba2-43ad-9b4c-f85b4b0e5288.png',
   type: 'professional'
 }, {
@@ -86,7 +86,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'India',
   description: 'Built and scaled a consumer goods venture offering exclusive imports, driving local market penetration and establishing a differentiated retail presence.',
   highlights: ['Co-founded and scaled consumer goods startup from inception', 'Established exclusive import partnerships with international brands', 'Achieved significant local market penetration in competitive retail space'],
-  skills: ['Entrepreneurship', 'Business Development', 'Market Analysis', 'Strategic Planning', 'Import/Export'],
+  skills: ['Market Research', 'Product Analytics', 'User Requirements Gathering'],
   logo: '/lovable-uploads/81c31ab6-c4c1-4b7e-9cbb-081cd2ead827.png',
   type: 'professional'
 }, {
@@ -98,7 +98,7 @@ const professionalExperience: ExperienceItem[] = [{
   location: 'Chennai, India',
   description: 'Engineered automated IoT telemetry pipelines and real-time anomaly dashboards across manufacturing units, boosting maintenance efficiency and accelerating issue resolution through Data workflows and cross-functional triage mapping.',
   highlights: ['Engineered automated IoT telemetry pipelines for manufacturing units', 'Developed real-time anomaly detection dashboards', 'Improved maintenance efficiency through predictive analytics'],
-  skills: ['IoT Analytics', 'SQL', 'MongoDB', 'Real-time Dashboards', 'Manufacturing Systems'],
+  skills: ['Data Engineering', 'Dashboard Reporting', 'Network Analytics'],
   logo: '/lovable-uploads/12549149-7c5a-408d-b347-a743dad47c79.png',
   type: 'professional'
 }];
@@ -111,7 +111,7 @@ const volunteerExperience: ExperienceItem[] = [{
   location: 'India',
   description: 'Led volunteers in nationwide social impact drives, organizing health camps, literacy programs, and sustainability initiatives that strengthened community engagement.',
   highlights: ['Led volunteer teams across multiple social impact initiatives', 'Organized health camps and literacy programs for underserved communities', 'Implemented sustainability initiatives that enhanced community engagement'],
-  skills: ['Leadership', 'Community Engagement', 'Program Management', 'Social Impact'],
+  skills: ['Planning', 'People Management', 'Budgeting'],
   logo: '/lovable-uploads/ac19675e-00b1-44b4-89da-85ee733d2bf0.png',
   type: 'volunteer'
 }, {
@@ -123,7 +123,7 @@ const volunteerExperience: ExperienceItem[] = [{
   location: 'Remote',
   description: 'Created research-driven articles and digital content on education and social awareness, amplifying NGO campaigns and expanding outreach to underserved communities.',
   highlights: ['Developed research-driven content on education and social awareness', 'Amplified NGO campaign reach through strategic digital content', 'Expanded outreach to underserved communities through targeted messaging'],
-  skills: ['Content Writing', 'Research', 'Digital Marketing', 'Social Awareness'],
+  skills: ['Content Writing', 'Digital Marketing', 'Social Awareness'],
   logo: '/lovable-uploads/98e1a284-f378-4036-9398-912f4b61b1c8.png',
   type: 'volunteer'
 }, {
@@ -135,7 +135,7 @@ const volunteerExperience: ExperienceItem[] = [{
   location: 'India',
   description: 'Trained in discipline, leadership, and aeronautical drills under the Air Wing, representing the unit in parades and national service activities.',
   highlights: ['Completed rigorous Air Wing training and aeronautical drills', 'Represented unit in national parades and ceremonial events', 'Developed leadership skills through disciplined military training'],
-  skills: ['Leadership', 'Discipline', 'Team Coordination', 'Public Service'],
+  skills: ['Leadership', 'Social Impact', 'Coordination'],
   logo: '/lovable-uploads/6fb41c5e-3caf-46c6-89d1-f75e2a728f81.png',
   type: 'volunteer'
 }];

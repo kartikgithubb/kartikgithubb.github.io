@@ -128,14 +128,29 @@ const RoadTimeline = ({ experiences, title, subtitle }: RoadTimelineProps) => {
                       
                       {/* Date and Location with better visual separation */}
                       <div className={`flex ${isEven ? 'flex-row' : 'flex-row-reverse'} items-center gap-6 text-sm text-muted-foreground`}>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4 text-primary/70" />
-                          <span className="font-medium">{exp.start} - {exp.end}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4 text-primary/70" />
-                          <span className="font-medium">{exp.location}</span>
-                        </div>
+                        {isEven ? (
+                          <>
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-4 w-4 text-primary/70" />
+                              <span className="font-medium">{exp.start} - {exp.end}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <MapPin className="h-4 w-4 text-primary/70" />
+                              <span className="font-medium">{exp.location}</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-4 w-4 text-primary/70" />
+                              <span className="font-medium">{exp.start} - {exp.end}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <MapPin className="h-4 w-4 text-primary/70" />
+                              <span className="font-medium">{exp.location}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
 
