@@ -54,7 +54,7 @@ const Awards = () => {
       category: 'META',
       count: 1,
       icon: <Heart className="w-12 h-12" />,
-      logo: '/lovable-uploads/8a553da9-0fa7-4051-bb67-bbc30b26db1f.png'
+      logo: '/lovable-uploads/70a07769-bb89-4f40-9f9c-a2a8b7098ccd.png'
     },
     {
       id: 'travelers',
