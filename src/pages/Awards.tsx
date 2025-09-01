@@ -113,6 +113,27 @@ const Awards = () => {
       logo: '/lovable-uploads/b627333d-7b87-47a8-9fb5-dbe5ea63d4f1.png'
     },
     {
+      id: 'un',
+      category: 'UN',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/fb8a76d2-e1e3-4ff5-8fee-3e55199f3ec3.png'
+    },
+    {
+      id: 'telangana',
+      category: 'TELANGANA',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/ff7d6131-e3c0-4f7f-b252-54fa477c3726.png'
+    },
+    {
+      id: 'andhra-pradesh',
+      category: 'ANDHRA PRADESH',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/20889fbc-a232-43cc-8c73-f33f0417dd79.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
