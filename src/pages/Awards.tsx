@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
-import RecommendationBoard from '@/components/RecommendationBoard';
 
 interface Achievement {
   id: string;
@@ -316,8 +315,6 @@ const Awards = () => {
             </div>
           </div>
 
-          {/* Recommendation Board */}
-          <RecommendationBoard />
         </div>
       </Section>
 

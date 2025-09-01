@@ -8,6 +8,7 @@ import StatsSection from '@/components/modern/StatsSection';
 import K2Section from '@/components/modern/K2Section';
 import LearningStrip from '@/components/LearningStrip';
 import Section from '@/components/Section';
+import RecommendationBoard from '@/components/RecommendationBoard';
 const ModernIndex = () => {
   const [darkMode, setDarkMode] = useState(true); // Default to dark mode for the Framer aesthetic
 
@@ -39,6 +40,10 @@ const ModernIndex = () => {
       {/* K2 Digital Twin Section */}
       <K2Section />
       
+      {/* Recommendation Board */}
+      <Section background="subtle" padding="xl">
+        <RecommendationBoard />
+      </Section>
       
       {/* Footer */}
       <Footer />
