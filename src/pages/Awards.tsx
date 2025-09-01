@@ -134,6 +134,13 @@ const Awards = () => {
       logo: '/lovable-uploads/20889fbc-a232-43cc-8c73-f33f0417dd79.png'
     },
     {
+      id: 'young-world-quiz',
+      category: 'YOUNG WORLD QUIZ',
+      count: 1,
+      icon: <Heart className="w-12 h-12" />,
+      logo: '/lovable-uploads/bc00817c-55ed-475c-a5e3-b31e6aecf92f.png'
+    },
+    {
       id: 'cbse-volleyball',
       category: 'CBSE VOLLEYBALL',
       count: 1,
