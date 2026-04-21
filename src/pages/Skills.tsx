@@ -5,10 +5,10 @@ import Section from '@/components/Section';
 import ChatButton from '@/components/chat/ChatButton';
 import RadarChart from '@/components/charts/RadarChart';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { 
-  Code2, Database, FileSpreadsheet, BarChart3, PieChart, BarChart, 
-  Brain, Flame, Settings, Figma, Grid3x3, FileText, Target, 
-  BookOpen, Kanban, GitBranch, Container, Cloud 
+import {
+  Code2, Database, FileSpreadsheet, BarChart3, PieChart, BarChart,
+  Brain, Flame, Settings, Figma, Grid3x3, FileText, Target,
+  BookOpen, Kanban, GitBranch, Container, Cloud
 } from 'lucide-react';
 
 interface ToolBubble {
@@ -214,36 +214,24 @@ const Skills = () => {
   return (
     <div>
       <Header />
-      
+
       {/* Hero */}
       <Section className="pt-24" padding="xl">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Skills & <span className="crystal-text">Expertise</span>
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Interactive visualization of technical skills and expertise
-          </p>
-        </div>
 
-        {/* Radar Chart */}
-        <div className="mb-16">
-          <div className="max-w-2xl mx-auto border-2 border-muted rounded-lg p-8">
-            <RadarChart data={radarData} />
-          </div>
-        </div>
+
+
 
         {/* Skills & Tools - 6 Category Bubbles */}
         <div className="text-center max-w-6xl mx-auto mb-16">
           <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
           <p className="text-muted-foreground mb-8">(Click on a tool to check my microskills)</p>
-          
+
           {/* 6 Category Bubbles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category) => (
               <div key={category.id} className="flex flex-col items-center">
                 {/* Category Bubble */}
-                <div 
+                <div
                   className="relative border-2 border-foreground rounded-full flex items-center justify-center bg-background overflow-visible mb-4"
                   style={{
                     width: '280px',
@@ -258,9 +246,9 @@ const Skills = () => {
                       { x: 65, y: 30 }, // top-right  
                       { x: 50, y: 65 }  // bottom-center
                     ];
-                    
+
                     const position = positions[index] || { x: 50, y: 50 }; // fallback to center
-                    
+
                     return (
                       <div
                         key={tool.id}
@@ -281,13 +269,13 @@ const Skills = () => {
                       </div>
                     );
                   })}
-                  
+
                   {/* Category label at top of bubble */}
                   <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border-2 border-foreground rounded-lg px-4 py-1 text-sm font-semibold shadow-lg whitespace-nowrap">
                     {category.tools.length} Tools
                   </div>
                 </div>
-                
+
                 {/* Category Name */}
                 <h3 className="text-lg font-semibold text-center">{category.name}</h3>
               </div>
@@ -309,7 +297,7 @@ const Skills = () => {
                 (Select a tool/skill from bubble above to view micro skills here)
               </p>
             </div>
-            
+
             {selectedTool ? (
               <div>
                 <div className="flex items-center justify-center mb-8">
@@ -321,7 +309,7 @@ const Skills = () => {
                     <p className="text-xl text-muted-foreground italic">Micro-skills & Competencies</p>
                   </div>
                 </div>
-                
+
                 {/* Horizontal bullet point layout */}
                 <div className="flex flex-wrap gap-x-8 gap-y-2">
                   {selectedTool.microSkills.map((skill, index) => (
@@ -334,7 +322,7 @@ const Skills = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Chalk-style decorative elements */}
                 <div className="mt-8 text-center">
                   <div className="text-2xl text-muted-foreground">• • • • •</div>
@@ -351,12 +339,12 @@ const Skills = () => {
                   </div>
                   <p className="text-2xl font-bold">Click on any tool bubble above</p>
                   <p className="text-lg mt-2">to explore micro-skills on this whiteboard!</p>
-                  
+
                   {/* Chalk-style decorative drawing */}
                   <div className="mt-8">
                     <svg width="200" height="60" className="mx-auto opacity-30">
-                      <path d="M20 30 Q 100 10 180 30" stroke="#666" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                      <path d="M30 40 Q 100 20 170 40" stroke="#999" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                      <path d="M20 30 Q 100 10 180 30" stroke="#666" strokeWidth="3" fill="none" strokeLinecap="round" />
+                      <path d="M30 40 Q 100 20 170 40" stroke="#999" strokeWidth="2" fill="none" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>

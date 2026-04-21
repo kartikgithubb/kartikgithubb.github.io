@@ -17,39 +17,39 @@ const ModernIndex = () => {
     document.documentElement.classList.toggle('dark');
   };
   return <div className={darkMode ? 'dark' : ''}>
-      {/* Modern Navigation */}
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      
-      {/* Hero Section with Framer-style design */}
-      <Hero className="pt-16" />
-      
-      {/* Learning Section with subtle background */}
-      <Section background="subtle" padding="lg">
-        <div className="text-center mb-12">
-          <h2 className="display-title text-4xl font-bold mb-4">
-            Continuous Learning
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Latest insights from my reading and research across Technology, Product, Business and Management</p>
-        </div>
-        <LearningStrip />
-      </Section>
-      
-      {/* Stats Section */}
-      <StatsSection />
+    {/* Modern Navigation */}
+    <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      {/* K2 Digital Twin Section */}
-      <K2Section />
-      
-      {/* Recommendation Board */}
-      <Section background="subtle" padding="xl">
-        <RecommendationBoard />
-      </Section>
-      
-      {/* Footer */}
-      <Footer />
-      
-      {/* Chat Button */}
-      <ChatButton />
-    </div>;
+    {/* Hero Section with Framer-style design */}
+    <Hero className="pt-16" />
+
+
+
+    {/* Learning Section with subtle background */}
+    <Section background="subtle" padding="lg">
+      <div className="text-center mb-12">
+        <h2 className="display-title text-4xl font-bold mb-4">
+          Continuous Learning
+        </h2>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Latest insights from my reading and research across Technology, Product, Business and Management</p>
+      </div>
+      <LearningStrip />
+    </Section>
+
+
+
+
+
+    {/* Recommendation Board */}
+    <Section background="subtle" padding="xl">
+      <RecommendationBoard />
+    </Section>
+
+    {/* Footer */}
+    <Footer />
+
+    {/* Chat Button */}
+    <ChatButton />
+  </div>;
 };
 export default ModernIndex;
