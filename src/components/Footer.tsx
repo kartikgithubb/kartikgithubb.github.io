@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return <footer className="border-t bg-background/95 backdrop-blur">
       <div className="container mx-auto px-6 py-12">
@@ -27,15 +28,15 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              <a href="/about" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/about" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
                 About
-              </a>
-              <a href="/projects" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
+              </Link>
+              <Link to="/projects" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Projects
-              </a>
-              <a href="/experience" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
+              </Link>
+              <Link to="/experience" className="block text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Experience
-              </a>
+              </Link>
             </div>
           </div>
 
