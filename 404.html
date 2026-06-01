@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function() {
+      var theme = localStorage.getItem('vite-ui-theme-v6') || 'dark';
+      if (theme === 'system') {
+        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.add(dark ? 'dark' : 'light');
+      } else {
+        document.documentElement.classList.add(theme);
+      }
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Syncopate:wght@400;700&family=Outfit:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kartik Pedapati | Product Manager Portfolio" />
+  <title>Kartik Pedapati | Product Manager</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafrex/spa-github-pages
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+  <script type="module" crossorigin src="/assets/index-COxPbcQH.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-hGgtNV6R.css">
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- Dify Chatbot Integration -->
+  <script>
+    window.difyChatbotConfig = {
+      token: 'dyrm6Pk4ySjkbIxU',
+      inputs: {},
+      systemVariables: {},
+      userVariables: {}
+    }
+  </script>
+  <script
+    src="https://udify.app/embed.min.js"
+    id="dyrm6Pk4ySjkbIxU"
+    defer>
+  </script>
+  <style>
+    #dify-chatbot-bubble-button {
+      opacity: 0 !important;
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      width: 96px !important;
+      height: 96px !important;
+      pointer-events: none !important;
+      z-index: -1 !important;
+    }
+    #dify-chatbot-bubble-window {
+      position: fixed !important;
+      bottom: 120px !important;
+      right: 24px !important;
+      width: 24rem !important;
+      height: 40rem !important;
+      max-height: calc(100vh - 140px) !important;
+      transform-origin: bottom right !important;
+    }
+  </style>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "36e1de63-e9ea-8059-b537-e83c549cf84b",
+    "title": "AI agents Evals",
+    "url": "https://x.com/benhylak/status/2059683327150575706?s=46",
+    "tags": [
+      "AI Agents",
+      "Evals"
+    ],
+    "date": "2026-05-28T17:35:00",
+    "source": "X",
+    "featured": true
+  },
+  {
+    "id": "36d1de63-e9ea-8023-a0e9-c5c1fc1be4fe",
+    "title": "Gemini Embedding 2 Model",
+    "url": "https://x.com/mseyed/status/2059504005387284629?s=46",
+    "tags": [
+      "Embedding Model",
+      "MLLM"
+    ],
+    "date": "2026-05-27T14:00:00",
+    "source": "X",
+    "featured": true
+  },
+  {
+    "id": "36b1de63-e9ea-80de-a0a5-f4403fd9b9b5",
+    "title": "Claude /workflows",
+    "url": "https://x.com/danielmiessler/status/2058699741140222055?s=46",
+    "tags": [
+      "Claude"
+    ],
+    "date": "2026-05-25T23:05:00",
+    "source": "X",
+    "featured": true
+  },
+  {
+    "id": "36b1de63-e9ea-8082-9a6c-ded303736ecd",
+    "title": "SkillOPT : Self Evolving Agents",
+    "url": "https://arxiv.org/pdf/2605.23904",
+    "tags": [
+      "AI Agents"
+    ],
+    "date": "2026-05-25T17:30:00",
+    "source": "Arxiv",
+    "featured": true
+  },
+  {
+    "id": "3691de63-e9ea-8003-8592-ebf90d239666",
+    "title": "24/7 PM workflow",
+    "url": "https://substack.com/@aakashgupta/note/c-260549015?r=5hsxcq&utm_medium=ios&utm_source=notes-share-action",
+    "tags": [
+      "AI",
+      "Product Management",
+      "Claude"
+    ],
+    "date": "2026-05-24T20:00:00",
+    "source": "Substack",
+    "featured": true
+  },
+  {
+    "id": "3691de63-e9ea-8010-9670-c3a07122d922",
+    "title": "Math behind LLM",
+    "url": "https://x.com/amitiitbhu/status/2058086754025136494?s=46",
+    "tags": [
+      "LLM",
+      "Maths"
+    ],
+    "date": "2026-05-24T04:17:00",
+    "source": "X",
+    "featured": true
+  },
+  {
+    "id": "3691de63-e9ea-80a0-b92f-e30ac5bb7412",
+    "title": "Agents for EdTech",
+    "url": "https://substack.com/@chatgptedu/note/p-195954769?r=5hsxcq&utm_medium=ios&utm_source=notes-share-action",
+    "tags": [
+      "AI Agents",
+      "EdTech"
+    ],
+    "date": "2026-05-23T18:00:00",
+    "source": "Substack",
+    "featured": true
+  },
+  {
+    "id": "3691de63-e9ea-80c3-8354-fcaf61f4bbef",
+    "title": "Automate Life with AI",
+    "url": "https://x.com/aiedge_/status/2057816817708789940?s=46",
+    "tags": [
+      "AI",
+      "Productivity",
+      "Automation"
+    ],
+    "date": "2026-05-23T10:00:00",
+    "source": "X",
+    "featured": true
+  },
+  {
+    "id": "3691de63-e9ea-8035-8da6-d7bf97fb6bcf",
+    "title": "Guide to Agentic Coding",
+    "url": "https://x.com/garrytan/status/2057946119725080878?s=46",
+    "tags": [
+      "AI Agents",
+      "Coding"
+    ],
+    "date": "2026-05-23T08:00:00",
+    "source": "X",
+    "featured": true
+  }
+]
